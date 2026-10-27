@@ -1,0 +1,16 @@
+{
+  "short_name": "MoneyFlow",
+  "name": "MoneyFlow OS — Rewards, Earnings & Wealth Planner",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
+  "display": "standalone",
+  "orientation": "portrait"
+}

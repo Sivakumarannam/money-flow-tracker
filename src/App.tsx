@@ -1,0 +1,578 @@
+import { useState, useEffect, useRef } from 'react';
+import type { AppState, BankAccount, CryptoHolding, DailyClaimLog, DigitalGoldHolding, ExpenseItem, InvestmentItem, JobIncome, ManualTransaction, RedemptionLog, RewardApp } from './types';
+import { INITIAL_STATE } from './data/defaults';
+import { formatINR, getTimeframeSummary } from './utils/calculations';
+import { exportFullDataCsv } from './utils/exportCsv';
+
+// Components
+import { Header } from './components/Header';
+import { TodayClaimWidget } from './components/TodayClaimWidget';
+import { LiveGoldAssetSection } from './components/LiveGoldAssetSection';
+import { CryptoWalletSection } from './components/CryptoWalletSection';
+import { AttendanceCalendar } from './components/AttendanceCalendar';
+import { TimeframeTabs } from './components/TimeframeTabs';
+import { MetricCards } from './components/MetricCards';
+import { ManualCashflowSection } from './components/ManualCashflowSection';
+import { DetailedCalculationMatrix } from './components/DetailedCalculationMatrix';
+import { ProjectionsVisualizer } from './components/ProjectionsVisualizer';
+import { PassiveIncomeSimulator } from './components/PassiveIncomeSimulator';
+import { RewardAppsSection } from './components/RewardAppsSection';
+import { RedemptionWalletSection } from './components/RedemptionWalletSection';
+import { JobEarningsCard } from './components/JobEarningsCard';
+import { ExpenseTrackerSection } from './components/ExpenseTrackerSection';
+import { InvestmentGrowthSection } from './components/InvestmentGrowthSection';
+import { ZeroInvestmentGuideModal } from './components/ZeroInvestmentGuideModal';
+
+const STORAGE_KEY = 'moneyflow_app_state_real_v8';
+
+export function App() {
+  const [state, setState] = useState<AppState>(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          ...INITIAL_STATE,
+          ...parsed,
+          bankAccount: parsed.bankAccount || INITIAL_STATE.bankAccount,
+          cryptoHoldings: [
+            ...(parsed.cryptoHoldings || []),
+            ...(INITIAL_STATE.cryptoHoldings || []).filter(
+              (initH) => !(parsed.cryptoHoldings || []).some((ex: any) => ex.id === initH.id)
+            ),
+          ],
+          rewardApps: INITIAL_STATE.rewardApps.map((initApp) => {
+            const existing = parsed.rewardApps?.find((a: any) => a.id === initApp.id);
+            return existing ? { ...initApp, ...existing } : initApp;
+          }),
+          manualTransactions: parsed.manualTransactions || INITIAL_STATE.manualTransactions,
+        };
+      }
+    } catch (e) {
+      console.error('Failed to load state from localStorage', e);
+    }
+    return INITIAL_STATE;
+  });
+
+  const [activePeriod, setActivePeriod] = useState<'daily' | 'weekly' | 'monthly' | 'yearly'>('monthly');
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [isZeroGuideOpen, setIsZeroGuideOpen] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Sync to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.error('Failed to save state to localStorage', e);
+    }
+  }, [state]);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3500);
+  };
+
+  const handleAddAppFromGuide = (newApp: RewardApp) => {
+    if (state.rewardApps.some((a) => a.id === newApp.id)) {
+      showToast(`${newApp.name} is already in your tracker!`);
+      return;
+    }
+    setState((prev) => ({
+      ...prev,
+      rewardApps: [...prev.rewardApps, newApp],
+    }));
+    showToast(`✅ Added ${newApp.name} to your reward tracker!`);
+  };
+
+  // Today claims map
+  const todayStr = new Date().toISOString().split('T')[0];
+  const todayClaims: { [appId: string]: boolean } = {};
+  state.claimLogs.forEach((log) => {
+    if (log.date === todayStr) {
+      todayClaims[log.appId] = true;
+    }
+  });
+
+  // Claim handler
+  const handleClaimApp = (app: RewardApp) => {
+    const earnedRupees = app.pointsPerCycle * app.pointToRupeeRatio;
+    const newLog: DailyClaimLog = {
+      id: `claim-${Date.now()}`,
+      date: todayStr,
+      appId: app.id,
+      appName: app.name,
+      points: app.pointsPerCycle,
+      rupees: earnedRupees,
+      timestamp: Date.now(),
+    };
+
+    setState((prev) => ({
+      ...prev,
+      claimLogs: [newLog, ...prev.claimLogs],
+    }));
+
+    showToast(`🎉 Claimed +${app.pointsPerCycle} points (${app.name})!`);
+  };
+
+  // Update App
+  const handleUpdateApp = (updatedApp: RewardApp) => {
+    setState((prev) => ({
+      ...prev,
+      rewardApps: prev.rewardApps.map((a) => (a.id === updatedApp.id ? updatedApp : a)),
+    }));
+    showToast(`Updated ${updatedApp.name} conversion settings!`);
+  };
+
+  // Add App
+  const handleAddApp = (newApp: RewardApp) => {
+    setState((prev) => ({
+      ...prev,
+      rewardApps: [...prev.rewardApps, newApp],
+    }));
+    showToast(`Added ${newApp.name}!`);
+  };
+
+  // Delete App
+  const handleDeleteApp = (appId: string) => {
+    setState((prev) => ({
+      ...prev,
+      rewardApps: prev.rewardApps.filter((a) => a.id !== appId),
+    }));
+    showToast('App removed.');
+  };
+
+  // Job Update
+  const handleUpdateJob = (updatedJob: JobIncome) => {
+    setState((prev) => ({
+      ...prev,
+      jobIncome: updatedJob,
+    }));
+    showToast('Job earnings updated.');
+  };
+
+  // Expense Handlers
+  const handleAddExpense = (expense: ExpenseItem) => {
+    setState((prev) => ({
+      ...prev,
+      expenses: [...prev.expenses, expense],
+    }));
+    showToast(`Added ${expense.title}`);
+  };
+
+  const handleDeleteExpense = (id: string) => {
+    setState((prev) => ({
+      ...prev,
+      expenses: prev.expenses.filter((e) => e.id !== id),
+    }));
+    showToast('Expense removed.');
+  };
+
+  // Investment Handlers
+  const handleAddInvestment = (inv: InvestmentItem) => {
+    setState((prev) => ({
+      ...prev,
+      investments: [...prev.investments, inv],
+    }));
+    showToast(`Added ${inv.title}`);
+  };
+
+  const handleDeleteInvestment = (id: string) => {
+    setState((prev) => ({
+      ...prev,
+      investments: prev.investments.filter((i) => i.id !== id),
+    }));
+    showToast('Investment removed.');
+  };
+
+  // Toggle / backfill claim date
+  const handleToggleClaimDate = (dateStr: string, app: RewardApp) => {
+    const earnedRupees = app.pointsPerCycle * app.pointToRupeeRatio;
+    const newLog: DailyClaimLog = {
+      id: `claim-${Date.now()}`,
+      date: dateStr,
+      appId: app.id,
+      appName: app.name,
+      points: app.pointsPerCycle,
+      rupees: earnedRupees,
+      timestamp: Date.now(),
+    };
+
+    setState((prev) => ({
+      ...prev,
+      claimLogs: [newLog, ...prev.claimLogs],
+    }));
+
+    showToast(`Logged +${app.pointsPerCycle} pts on ${dateStr} (${app.name})!`);
+  };
+
+  // Manual Money (Credit / Debit) Handlers
+  const handleAddTransaction = (tx: ManualTransaction) => {
+    setState((prev) => ({
+      ...prev,
+      manualTransactions: [tx, ...(prev.manualTransactions || [])],
+    }));
+    showToast(`${tx.type === 'credit' ? '➕ Added' : '➖ Debited'} ${formatINR(tx.amount, true)}`);
+  };
+
+  const handleDeleteTransaction = (id: string) => {
+    setState((prev) => ({
+      ...prev,
+      manualTransactions: (prev.manualTransactions || []).filter((t) => t.id !== id),
+    }));
+    showToast('Transaction removed.');
+  };
+
+  // Quick Redeem Handler (Deducts points, creates redemption record, and credits in-hand balance!)
+  const handleQuickRedeem = (app: RewardApp, points: number, rupees: number) => {
+    const updatedApps = state.rewardApps.map((a) => {
+      if (a.id === app.id) {
+        return {
+          ...a,
+          currentBalancePoints: Math.max(0, (a.currentBalancePoints || 0) - points),
+        };
+      }
+      return a;
+    });
+
+    const newRedemption: RedemptionLog = {
+      id: `red-${Date.now()}`,
+      appId: app.id,
+      appName: app.name,
+      pointsRedeemed: points,
+      cashValueRupees: rupees,
+      method: 'UPI Transfer',
+      date: todayStr,
+      notes: `Redeemed ${points} points for ₹${rupees} UPI`,
+      timestamp: Date.now(),
+    };
+
+    const newCreditTx: ManualTransaction = {
+      id: `tx-red-${Date.now()}`,
+      type: 'credit',
+      amount: rupees,
+      category: 'Reward Apps Payout',
+      date: todayStr,
+      notes: `UPI Payout from ${app.name} (${points} pts)`,
+      timestamp: Date.now(),
+    };
+
+    setState((prev) => ({
+      ...prev,
+      rewardApps: updatedApps,
+      redemptions: [newRedemption, ...(prev.redemptions || [])],
+      manualTransactions: [newCreditTx, ...(prev.manualTransactions || [])],
+    }));
+
+    showToast(`🎉 Redeemed ${formatINR(rupees, true)} via UPI! Credited to wallet!`);
+  };
+
+  // Redemption Handlers
+  const handleAddRedemption = (redemption: RedemptionLog) => {
+    setState((prev) => ({
+      ...prev,
+      redemptions: [redemption, ...(prev.redemptions || [])],
+    }));
+    showToast(`🎉 Logged ${formatINR(redemption.cashValueRupees, true)} redemption!`);
+  };
+
+  const handleDeleteRedemption = (id: string) => {
+    setState((prev) => ({
+      ...prev,
+      redemptions: (prev.redemptions || []).filter((r) => r.id !== id),
+    }));
+    showToast('Redemption record removed.');
+  };
+
+  // Bank Account & Gold Handlers
+  const handleUpdateBank = (newBank: BankAccount) => {
+    setState((prev) => ({
+      ...prev,
+      bankAccount: newBank,
+    }));
+    showToast(`Bank balance updated: ${formatINR(newBank.balance, true)}`);
+  };
+
+  const handleUpdateGold = (newGold: DigitalGoldHolding) => {
+    setState((prev) => ({
+      ...prev,
+      goldHolding: newGold,
+    }));
+  };
+
+  // Crypto Handlers
+  const handleUpdateCrypto = (updated: CryptoHolding) => {
+    setState((prev) => ({
+      ...prev,
+      cryptoHoldings: (prev.cryptoHoldings || INITIAL_STATE.cryptoHoldings || []).map((h) =>
+        h.id === updated.id ? updated : h
+      ),
+    }));
+    showToast(`Updated ${updated.name} valuation!`);
+  };
+
+  const handleAddCrypto = (newHolding: CryptoHolding) => {
+    setState((prev) => ({
+      ...prev,
+      cryptoHoldings: [...(prev.cryptoHoldings || INITIAL_STATE.cryptoHoldings || []), newHolding],
+    }));
+    showToast(`Added ${newHolding.name} to Crypto portfolio!`);
+  };
+
+  const handleDeleteCrypto = (id: string) => {
+    setState((prev) => ({
+      ...prev,
+      cryptoHoldings: (prev.cryptoHoldings || INITIAL_STATE.cryptoHoldings || []).filter((h) => h.id !== id),
+    }));
+    showToast('Coin holding removed.');
+  };
+
+  // Export CSV Report
+  const handleExportCsv = () => {
+    exportFullDataCsv(state);
+    showToast('Excel CSV report downloaded!');
+  };
+
+  // Export JSON Backup
+  const handleExport = () => {
+    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute('href', dataStr);
+    downloadAnchor.setAttribute('download', `moneyflow-backup-${todayStr}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    showToast('Backup JSON downloaded successfully!');
+  };
+
+  // Import JSON Backup
+  const handleImportClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const imported = JSON.parse(event.target?.result as string);
+        if (imported.rewardApps && imported.jobIncome && imported.expenses) {
+          setState(imported);
+          showToast('Data imported successfully!');
+        } else {
+          alert('Invalid file format. Please upload a valid MoneyFlow backup file.');
+        }
+      } catch (err) {
+        alert('Failed to parse JSON file.');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
+  // Reset to Defaults
+  const handleReset = () => {
+    if (window.confirm('Reset all values to initial defaults? Current data will be replaced.')) {
+      setState(INITIAL_STATE);
+      showToast('Reset to defaults.');
+    }
+  };
+
+  // Active Period Summary
+  const currentSummary = getTimeframeSummary(state, activePeriod);
+
+  const nielsenApp = state.rewardApps.find((a) => a.id === 'nielsen-more');
+  const vtionApp = state.rewardApps.find((a) => a.id === 'vtion-digital');
+  const nielsenCashVal = (nielsenApp?.currentBalancePoints || 0) * (nielsenApp?.pointToRupeeRatio || 0.0909);
+  const vtionCashVal = (vtionApp?.currentBalancePoints || 0) * (vtionApp?.pointToRupeeRatio || 1);
+
+  const currentCryptoHoldings = state.cryptoHoldings || INITIAL_STATE.cryptoHoldings || [];
+  const totalCryptoVal = currentCryptoHoldings.reduce(
+    (sum, h) => sum + (h.valueInr || h.balance * h.currentPriceInr),
+    0
+  );
+
+  return (
+    <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '1.5rem 1.25rem 4rem 1.25rem' }}>
+      
+      {/* Hidden File Input for Import */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        accept=".json"
+        style={{ display: 'none' }}
+      />
+
+      {/* Header */}
+      <Header
+        onExport={handleExport}
+        onExportCsv={handleExportCsv}
+        onImport={handleImportClick}
+        onReset={handleReset}
+        onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
+      />
+
+      {/* Today's Claim Center Widget */}
+      <TodayClaimWidget
+        apps={state.rewardApps}
+        todayClaims={todayClaims}
+        onClaim={handleClaimApp}
+        recentLogs={state.claimLogs.slice(0, 5)}
+      />
+
+      {/* Bank Account (₹1,921) & Live Paytm Gold Portfolio (0.0017g, ₹24.80) */}
+      <LiveGoldAssetSection
+        bankAccount={state.bankAccount || INITIAL_STATE.bankAccount}
+        goldHolding={state.goldHolding || INITIAL_STATE.goldHolding}
+        cryptoTotalInr={totalCryptoVal}
+        nielsenCashValue={nielsenCashVal}
+        vtionCashValue={vtionCashVal}
+        nielsenPoints={nielsenApp?.currentBalancePoints || 2450}
+        vtionPoints={vtionApp?.currentBalancePoints || 60}
+        onUpdateBank={handleUpdateBank}
+        onUpdateGold={handleUpdateGold}
+        onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
+      />
+
+      {/* Crypto, Web3 & DePIN Portfolio (Binance, Sweat Wallet, UpRock, Solana) */}
+      <CryptoWalletSection
+        holdings={currentCryptoHoldings}
+        onUpdateHolding={handleUpdateCrypto}
+        onAddHolding={handleAddCrypto}
+        onDeleteHolding={handleDeleteCrypto}
+        onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
+      />
+
+      {/* Timeframe Selector Tabs */}
+      <TimeframeTabs
+        activePeriod={activePeriod}
+        onChange={setActivePeriod}
+      />
+
+      {/* Top Metric Cards for Active Period */}
+      <MetricCards summary={currentSummary} />
+
+      {/* Manual Money Tracker: Added & Debited Inputs with Submit Button */}
+      <ManualCashflowSection
+        transactions={state.manualTransactions || []}
+        onAddTransaction={handleAddTransaction}
+        onDeleteTransaction={handleDeleteTransaction}
+      />
+
+      {/* Master Calculations Matrix: All 4 Timeframes Side-by-Side */}
+      <DetailedCalculationMatrix state={state} />
+
+      {/* Visual Charts: Cashflow Outflows & Income Stream Distribution */}
+      <ProjectionsVisualizer summary={currentSummary} />
+
+      {/* Passive Earning Goal & Compounding Simulator */}
+      <PassiveIncomeSimulator state={state} />
+
+      {/* Attendance & Streak Calendar */}
+      <AttendanceCalendar
+        state={state}
+        onToggleClaimDate={handleToggleClaimDate}
+      />
+
+      {/* Reward Apps Section: Nielsen More & Vtion Digital & Custom Apps */}
+      <RewardAppsSection
+        apps={state.rewardApps}
+        onUpdateApp={handleUpdateApp}
+        onAddApp={handleAddApp}
+        onDeleteApp={handleDeleteApp}
+        onClaimApp={handleClaimApp}
+        onQuickRedeem={handleQuickRedeem}
+        todayClaims={todayClaims}
+      />
+
+      {/* Points Wallet & Cashout Ledger */}
+      <RedemptionWalletSection
+        state={state}
+        onAddRedemption={handleAddRedemption}
+        onDeleteRedemption={handleDeleteRedemption}
+      />
+
+      {/* Job Earnings Card */}
+      <JobEarningsCard
+        job={state.jobIncome}
+        onUpdateJob={handleUpdateJob}
+      />
+
+      {/* Grid: Expenses & Investments side-by-side or stacked */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
+        gap: '1.5rem',
+      }}>
+        <ExpenseTrackerSection
+          expenses={state.expenses}
+          activePeriod={activePeriod}
+          onAddExpense={handleAddExpense}
+          onDeleteExpense={handleDeleteExpense}
+        />
+
+        <InvestmentGrowthSection
+          investments={state.investments}
+          onAddInvestment={handleAddInvestment}
+          onDeleteInvestment={handleDeleteInvestment}
+        />
+      </div>
+
+      {/* Footer Info */}
+      <footer style={{
+        marginTop: '3.5rem',
+        textAlign: 'center',
+        padding: '2rem 1rem',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        color: '#64748b',
+        fontSize: '0.85rem',
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>MoneyFlow OS</strong> — Built for personal wealth tracking, Nielsen More, Vtion Digital, salary and investment planning.
+        </p>
+        <p style={{ margin: '0.35rem 0 0 0', fontSize: '0.78rem' }}>
+          All data is saved locally on your browser in real-time. Use Export anytime for offline backup.
+        </p>
+      </footer>
+
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div style={{
+          position: 'fixed',
+          bottom: '1.75rem',
+          right: '1.75rem',
+          background: 'rgba(15, 23, 42, 0.95)',
+          border: '1px solid rgba(56, 189, 248, 0.4)',
+          borderRadius: '12px',
+          padding: '0.85rem 1.25rem',
+          color: '#f8fafc',
+          fontSize: '0.9rem',
+          fontWeight: 600,
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.25)',
+          zIndex: 9999,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}>
+          {toastMessage}
+        </div>
+      )}
+
+      {/* 2026 Zero-Investment Earning Blueprint Modal */}
+      <ZeroInvestmentGuideModal
+        isOpen={isZeroGuideOpen}
+        onClose={() => setIsZeroGuideOpen(false)}
+        onAddAppToTracker={handleAddAppFromGuide}
+        existingAppIds={state.rewardApps.map((a) => a.id)}
+      />
+
+    </div>
+  );
+}
+
+export default App;
