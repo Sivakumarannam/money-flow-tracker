@@ -111,6 +111,14 @@ export function App() {
 
     setState((prev) => ({
       ...prev,
+      rewardApps: prev.rewardApps.map((a) =>
+        a.id === app.id
+          ? {
+              ...a,
+              currentBalancePoints: Number(((a.currentBalancePoints || 0) + app.pointsPerCycle).toFixed(4)),
+            }
+          : a
+      ),
       claimLogs: [newLog, ...prev.claimLogs],
     }));
 

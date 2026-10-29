@@ -166,7 +166,9 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                           border: `1px solid ${app.accentColor}44`,
                           fontSize: '0.7rem',
                         }}>
-                          {app.badge}
+                          {isNielsen
+                            ? `${currentPts.toLocaleString()} Pts (${formatINR(currentCashValue, true)}) — ₹${Math.floor(currentPts / 1100) * 100} UPI Ready!`
+                            : app.badge}
                         </span>
                         {isVtion && isTuesday && (
                           <span className="badge badge-emerald" style={{ fontSize: '0.7rem', animation: 'pulseSubtle 2s infinite' }}>
@@ -246,53 +248,78 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                     </button>
                   </div>
 
-                  {/* Nielsen More Specific Milestone & Screenshot Tiers */}
-                  {isNielsen && (
-                    <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
-                        <span style={{ fontSize: '0.75rem', color: '#38bdf8', fontWeight: 700 }}>
-                          🎉 ₹200 UPI Ready (2,200 pts used, 250 left)
-                        </span>
-                        <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
-                          Next: ₹250 (2,750 pts)
-                        </span>
-                      </div>
+                  {/* Nielsen More Specific Milestone & Dynamic Tiers */}
+                  {isNielsen && (() => {
+                    const nielsenTiers = [
+                      { inr: 100, points: 1100 },
+                      { inr: 150, points: 1650 },
+                      { inr: 200, points: 2200 },
+                      { inr: 250, points: 2750 },
+                      { inr: 300, points: 3300 },
+                      { inr: 350, points: 3850 },
+                      { inr: 400, points: 4400 },
+                      { inr: 450, points: 4950 },
+                      { inr: 500, points: 5500 },
+                    ];
+                    const highestTier = [...nielsenTiers].reverse().find((t) => currentPts >= t.points);
+                    const nextTier = nielsenTiers.find((t) => t.points > currentPts) || nielsenTiers[nielsenTiers.length - 1];
+                    const usedPts = highestTier ? highestTier.points : 0;
+                    const leftPts = currentPts - usedPts;
+                    const ptsNeeded = Math.max(0, nextTier.points - currentPts);
+                    const daysNeeded = Math.ceil(ptsNeeded / (app.pointsPerCycle || 50));
+                    const progressPercent = Math.min(100, (currentPts / nextTier.points) * 100);
 
-                      {/* Progress bar to ₹250 tier (2750 pts) */}
-                      <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '999px', overflow: 'hidden', marginBottom: '0.65rem' }}>
-                        <div style={{
-                          height: '100%',
-                          width: `${Math.min(100, (currentPts / 2750) * 100)}%`,
-                          background: 'linear-gradient(90deg, #0284c7, #38bdf8)',
-                        }} />
-                      </div>
+                    return (
+                      <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                          <span style={{ fontSize: '0.75rem', color: '#38bdf8', fontWeight: 700 }}>
+                            {highestTier
+                              ? `🎉 ₹${highestTier.inr} UPI Ready (${usedPts.toLocaleString()} pts used, ${leftPts.toLocaleString()} left)`
+                              : `🎯 Goal: ₹${nextTier.inr} (${nextTier.points.toLocaleString()} pts)`}
+                          </span>
+                          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                            Next: ₹{nextTier.inr} ({nextTier.points.toLocaleString()} pts)
+                          </span>
+                        </div>
 
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem' }}>
-                        <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
-                          Only 300 pts (6 days) until ₹250 UPI!
-                        </span>
+                        {/* Progress bar to next tier */}
+                        <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '999px', overflow: 'hidden', marginBottom: '0.65rem' }}>
+                          <div style={{
+                            height: '100%',
+                            width: `${progressPercent}%`,
+                            background: 'linear-gradient(90deg, #0284c7, #38bdf8)',
+                          }} />
+                        </div>
 
-                        <button
-                          onClick={() => setIsTiersModalOpen(true)}
-                          style={{
-                            background: 'rgba(56, 189, 248, 0.15)',
-                            border: '1px solid rgba(56, 189, 248, 0.35)',
-                            borderRadius: '8px',
-                            color: '#38bdf8',
-                            fontSize: '0.75rem',
-                            fontWeight: 700,
-                            padding: '0.35rem 0.65rem',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.35rem',
-                          }}
-                        >
-                          <ListOrdered size={13} /> View UPI Tiers
-                        </button>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem' }}>
+                          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                            {ptsNeeded === 0
+                              ? '🎉 Highest tier reached! Ready to redeem.'
+                              : `Only ${ptsNeeded.toLocaleString()} pts (${daysNeeded} days) until ₹${nextTier.inr} UPI!`}
+                          </span>
+
+                          <button
+                            onClick={() => setIsTiersModalOpen(true)}
+                            style={{
+                              background: 'rgba(56, 189, 248, 0.15)',
+                              border: '1px solid rgba(56, 189, 248, 0.35)',
+                              borderRadius: '8px',
+                              color: '#38bdf8',
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              padding: '0.35rem 0.65rem',
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '0.35rem',
+                            }}
+                          >
+                            <ListOrdered size={13} /> View UPI Tiers
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   {/* VTION Specific Milestone from Screenshot 2 */}
                   {isVtion && (
