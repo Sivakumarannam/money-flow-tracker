@@ -11,6 +11,7 @@ interface RewardAppsSectionProps {
   onAddApp: (app: RewardApp) => void;
   onDeleteApp: (appId: string) => void;
   onClaimApp: (app: RewardApp) => void;
+  onUnclaimApp?: (app: RewardApp) => void;
   onQuickRedeem?: (app: RewardApp, points: number, rupees: number) => void;
   todayClaims: { [appId: string]: boolean };
 }
@@ -21,6 +22,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
   onAddApp,
   onDeleteApp,
   onClaimApp,
+  onUnclaimApp,
   onQuickRedeem,
   todayClaims,
 }) => {
@@ -444,17 +446,32 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.4rem',
-                    color: '#34d399',
-                    fontSize: '0.825rem',
-                    fontWeight: 600,
-                    padding: '0.55rem',
+                    justifyContent: 'space-between',
+                    padding: '0.45rem 0.75rem',
                     background: 'rgba(16, 185, 129, 0.1)',
                     borderRadius: '10px',
-                    border: '1px solid rgba(16, 185, 129, 0.2)',
+                    border: '1px solid rgba(16, 185, 129, 0.25)',
                   }}>
-                    <CheckCircle2 size={16} /> Claimed Today! (+{app.pointsPerCycle} Pts)
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34d399', fontSize: '0.825rem', fontWeight: 600 }}>
+                      <CheckCircle2 size={16} /> Claimed Today! (+{app.pointsPerCycle} Pts)
+                    </span>
+                    {onUnclaimApp && (
+                      <button
+                        onClick={() => onUnclaimApp(app)}
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.08)',
+                          border: '1px solid rgba(255, 255, 255, 0.15)',
+                          borderRadius: '6px',
+                          color: '#94a3b8',
+                          fontSize: '0.72rem',
+                          padding: '0.2rem 0.5rem',
+                          cursor: 'pointer',
+                        }}
+                        title="Revert today's claim"
+                      >
+                        Undo
+                      </button>
+                    )}
                   </div>
                 ) : (
                   <button

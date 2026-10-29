@@ -7,6 +7,7 @@ interface TodayClaimWidgetProps {
   apps: RewardApp[];
   todayClaims: { [appId: string]: boolean };
   onClaim: (app: RewardApp) => void;
+  onUnclaim?: (app: RewardApp) => void;
   recentLogs: DailyClaimLog[];
 }
 
@@ -14,6 +15,7 @@ export const TodayClaimWidget: React.FC<TodayClaimWidgetProps> = ({
   apps,
   todayClaims,
   onClaim,
+  onUnclaim,
   recentLogs,
 }) => {
   const today = new Date();
@@ -78,16 +80,35 @@ export const TodayClaimWidget: React.FC<TodayClaimWidgetProps> = ({
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
+                gap: '0.65rem',
                 background: 'rgba(56, 189, 248, 0.12)',
                 border: '1px solid rgba(56, 189, 248, 0.3)',
                 color: '#38bdf8',
-                padding: '0.55rem 0.9rem',
+                padding: '0.45rem 0.8rem',
                 borderRadius: '12px',
                 fontSize: '0.85rem',
                 fontWeight: 600,
               }}>
-                <CheckCircle2 size={16} /> Nielsen +50 Claimed
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <CheckCircle2 size={16} /> Nielsen +50 Claimed
+                </span>
+                {onUnclaim && (
+                  <button
+                    onClick={() => onUnclaim(nielsen)}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      borderRadius: '6px',
+                      color: '#cbd5e1',
+                      fontSize: '0.72rem',
+                      padding: '0.2rem 0.45rem',
+                      cursor: 'pointer',
+                    }}
+                    title="Undo claim"
+                  >
+                    Undo
+                  </button>
+                )}
               </div>
             ) : (
               <button
@@ -106,16 +127,35 @@ export const TodayClaimWidget: React.FC<TodayClaimWidgetProps> = ({
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
+                gap: '0.65rem',
                 background: 'rgba(16, 185, 129, 0.12)',
                 border: '1px solid rgba(16, 185, 129, 0.3)',
                 color: '#34d399',
-                padding: '0.55rem 0.9rem',
+                padding: '0.45rem 0.8rem',
                 borderRadius: '12px',
                 fontSize: '0.85rem',
                 fontWeight: 600,
               }}>
-                <CheckCircle2 size={16} /> Vtion +10 Claimed
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <CheckCircle2 size={16} /> Vtion +10 Claimed
+                </span>
+                {onUnclaim && (
+                  <button
+                    onClick={() => onUnclaim(vtion)}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      borderRadius: '6px',
+                      color: '#cbd5e1',
+                      fontSize: '0.72rem',
+                      padding: '0.2rem 0.45rem',
+                      cursor: 'pointer',
+                    }}
+                    title="Undo claim"
+                  >
+                    Undo
+                  </button>
+                )}
               </div>
             ) : (
               <button

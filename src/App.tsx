@@ -23,17 +23,37 @@ import { ExpenseTrackerSection } from './components/ExpenseTrackerSection';
 import { InvestmentGrowthSection } from './components/InvestmentGrowthSection';
 import { ZeroInvestmentGuideModal } from './components/ZeroInvestmentGuideModal';
 
-const STORAGE_KEY = 'moneyflow_app_state_real_v8';
+const STORAGE_KEY = 'moneyflow_app_state_real_v9';
 
 export function App() {
   const [state, setState] = useState<AppState>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const todayDateStr = new Date().toISOString().split('T')[0];
+      let saved = localStorage.getItem(STORAGE_KEY);
+      let isFallback = false;
+      if (!saved) {
+        saved = localStorage.getItem('moneyflow_app_state_real_v8');
+        isFallback = true;
+      }
+
       if (saved) {
         const parsed = JSON.parse(saved);
+
+        // If migrating from v8 and nielsen was 2450 but had today's claim log, clean it up so user can click Claim fresh
+        let cleanClaimLogs = parsed.claimLogs || [];
+        if (isFallback) {
+          const nielsenSaved = (parsed.rewardApps || []).find((a: any) => a.id === 'nielsen-more');
+          if (nielsenSaved && nielsenSaved.currentBalancePoints === 2450) {
+            cleanClaimLogs = cleanClaimLogs.filter(
+              (log: any) => !(log.appId === 'nielsen-more' && log.date === todayDateStr)
+            );
+          }
+        }
+
         return {
           ...INITIAL_STATE,
           ...parsed,
+          claimLogs: cleanClaimLogs,
           bankAccount: parsed.bankAccount || INITIAL_STATE.bankAccount,
           cryptoHoldings: [
             ...(parsed.cryptoHoldings || []),
@@ -98,6 +118,11 @@ export function App() {
 
   // Claim handler
   const handleClaimApp = (app: RewardApp) => {
+    if (todayClaims[app.id]) {
+      showToast(`${app.name} is already claimed today!`);
+      return;
+    }
+
     const earnedRupees = app.pointsPerCycle * app.pointToRupeeRatio;
     const newLog: DailyClaimLog = {
       id: `claim-${Date.now()}`,
@@ -123,6 +148,24 @@ export function App() {
     }));
 
     showToast(`🎉 Claimed +${app.pointsPerCycle} points (${app.name})!`);
+  };
+
+  // Unclaim handler
+  const handleUnclaimApp = (app: RewardApp) => {
+    setState((prev) => ({
+      ...prev,
+      rewardApps: prev.rewardApps.map((a) =>
+        a.id === app.id
+          ? {
+              ...a,
+              currentBalancePoints: Math.max(0, Number(((a.currentBalancePoints || 0) - app.pointsPerCycle).toFixed(4))),
+            }
+          : a
+      ),
+      claimLogs: prev.claimLogs.filter((log) => !(log.appId === app.id && log.date === todayStr)),
+    }));
+
+    showToast(`↩️ Reverted today's claim (-${app.pointsPerCycle} pts on ${app.name})`);
   };
 
   // Update App
@@ -430,6 +473,7 @@ export function App() {
         apps={state.rewardApps}
         todayClaims={todayClaims}
         onClaim={handleClaimApp}
+        onUnclaim={handleUnclaimApp}
         recentLogs={state.claimLogs.slice(0, 5)}
       />
 
@@ -494,6 +538,7 @@ export function App() {
         onAddApp={handleAddApp}
         onDeleteApp={handleDeleteApp}
         onClaimApp={handleClaimApp}
+        onUnclaimApp={handleUnclaimApp}
         onQuickRedeem={handleQuickRedeem}
         todayClaims={todayClaims}
       />
