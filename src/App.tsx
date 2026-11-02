@@ -50,11 +50,21 @@ export function App() {
           }
         }
 
+        const loadedTxs = parsed.manualTransactions || INITIAL_STATE.manualTransactions || [];
+        const syncedBankBalance = loadedTxs.length > 0
+          ? loadedTxs.reduce((sum: number, t: any) => sum + (t.type === 'credit' ? Number(t.amount) : -Number(t.amount)), 0)
+          : (parsed.bankAccount?.balance ?? INITIAL_STATE.bankAccount.balance);
+
+        const loadedBankAccount = {
+          ...(parsed.bankAccount || INITIAL_STATE.bankAccount),
+          balance: syncedBankBalance,
+        };
+
         return {
           ...INITIAL_STATE,
           ...parsed,
           claimLogs: cleanClaimLogs,
-          bankAccount: parsed.bankAccount || INITIAL_STATE.bankAccount,
+          bankAccount: loadedBankAccount,
           cryptoHoldings: [
             ...(parsed.cryptoHoldings || []),
             ...(INITIAL_STATE.cryptoHoldings || []).filter(
@@ -65,7 +75,7 @@ export function App() {
             const existing = parsed.rewardApps?.find((a: any) => a.id === initApp.id);
             return existing ? { ...initApp, ...existing } : initApp;
           }),
-          manualTransactions: parsed.manualTransactions || INITIAL_STATE.manualTransactions,
+          manualTransactions: loadedTxs,
         };
       }
     } catch (e) {
@@ -261,18 +271,42 @@ export function App() {
 
   // Manual Money (Credit / Debit) Handlers
   const handleAddTransaction = (tx: ManualTransaction) => {
-    setState((prev) => ({
-      ...prev,
-      manualTransactions: [tx, ...(prev.manualTransactions || [])],
-    }));
+    setState((prev) => {
+      const updatedTxs = [tx, ...(prev.manualTransactions || [])];
+      const newBalance = updatedTxs.reduce(
+        (sum, t) => sum + (t.type === 'credit' ? t.amount : -t.amount),
+        0
+      );
+      return {
+        ...prev,
+        manualTransactions: updatedTxs,
+        bankAccount: {
+          ...(prev.bankAccount || INITIAL_STATE.bankAccount),
+          balance: newBalance,
+          lastUpdated: new Date().toISOString(),
+        },
+      };
+    });
     showToast(`${tx.type === 'credit' ? '➕ Added' : '➖ Debited'} ${formatINR(tx.amount, true)}`);
   };
 
   const handleDeleteTransaction = (id: string) => {
-    setState((prev) => ({
-      ...prev,
-      manualTransactions: (prev.manualTransactions || []).filter((t) => t.id !== id),
-    }));
+    setState((prev) => {
+      const updatedTxs = (prev.manualTransactions || []).filter((t) => t.id !== id);
+      const newBalance = updatedTxs.reduce(
+        (sum, t) => sum + (t.type === 'credit' ? t.amount : -t.amount),
+        0
+      );
+      return {
+        ...prev,
+        manualTransactions: updatedTxs,
+        bankAccount: {
+          ...(prev.bankAccount || INITIAL_STATE.bankAccount),
+          balance: newBalance,
+          lastUpdated: new Date().toISOString(),
+        },
+      };
+    });
     showToast('Transaction removed.');
   };
 
@@ -310,12 +344,24 @@ export function App() {
       timestamp: Date.now(),
     };
 
-    setState((prev) => ({
-      ...prev,
-      rewardApps: updatedApps,
-      redemptions: [newRedemption, ...(prev.redemptions || [])],
-      manualTransactions: [newCreditTx, ...(prev.manualTransactions || [])],
-    }));
+    setState((prev) => {
+      const updatedTxs = [newCreditTx, ...(prev.manualTransactions || [])];
+      const newBalance = updatedTxs.reduce(
+        (sum, t) => sum + (t.type === 'credit' ? t.amount : -t.amount),
+        0
+      );
+      return {
+        ...prev,
+        rewardApps: updatedApps,
+        redemptions: [newRedemption, ...(prev.redemptions || [])],
+        manualTransactions: updatedTxs,
+        bankAccount: {
+          ...(prev.bankAccount || INITIAL_STATE.bankAccount),
+          balance: newBalance,
+          lastUpdated: new Date().toISOString(),
+        },
+      };
+    });
 
     showToast(`🎉 Redeemed ${formatINR(rupees, true)} via UPI! Credited to wallet!`);
   };
@@ -339,10 +385,41 @@ export function App() {
 
   // Bank Account & Gold Handlers
   const handleUpdateBank = (newBank: BankAccount) => {
-    setState((prev) => ({
-      ...prev,
-      bankAccount: newBank,
-    }));
+    setState((prev) => {
+      const currentNet = (prev.manualTransactions || []).reduce(
+        (sum, t) => sum + (t.type === 'credit' ? t.amount : -t.amount),
+        0
+      );
+      const diff = newBank.balance - currentNet;
+
+      let updatedTxs = [...(prev.manualTransactions || [])];
+      const initialTxIndex = updatedTxs.findIndex((t) => t.id === 'tx-initial-bank');
+      if (initialTxIndex !== -1) {
+        updatedTxs[initialTxIndex] = {
+          ...updatedTxs[initialTxIndex],
+          amount: Math.max(0, updatedTxs[initialTxIndex].amount + diff),
+        };
+      } else if (diff !== 0) {
+        updatedTxs = [
+          {
+            id: `tx-adj-${Date.now()}`,
+            type: diff >= 0 ? 'credit' : 'debit',
+            amount: Math.abs(diff),
+            category: 'Bank Account Balance',
+            date: new Date().toISOString().split('T')[0],
+            notes: 'Bank Balance Adjustment',
+            timestamp: Date.now(),
+          },
+          ...updatedTxs,
+        ];
+      }
+
+      return {
+        ...prev,
+        bankAccount: newBank,
+        manualTransactions: updatedTxs,
+      };
+    });
     showToast(`Bank balance updated: ${formatINR(newBank.balance, true)}`);
   };
 
@@ -382,7 +459,10 @@ export function App() {
 
   // Export CSV Report
   const handleExportCsv = () => {
-    exportFullDataCsv(state);
+    exportFullDataCsv({
+      ...state,
+      bankAccount: syncedBankAccount,
+    });
     showToast('Excel CSV report downloaded!');
   };
 
@@ -436,6 +516,16 @@ export function App() {
   // Active Period Summary
   const currentSummary = getTimeframeSummary(state, activePeriod);
 
+  // Synchronized real-time bank balance derived from manual credit/debit transactions
+  const netInHandBalance = (state.manualTransactions && state.manualTransactions.length > 0)
+    ? state.manualTransactions.reduce((sum, t) => sum + (t.type === 'credit' ? t.amount : -t.amount), 0)
+    : (state.bankAccount?.balance ?? 1921);
+
+  const syncedBankAccount: BankAccount = {
+    ...(state.bankAccount || INITIAL_STATE.bankAccount),
+    balance: netInHandBalance,
+  };
+
   const nielsenApp = state.rewardApps.find((a) => a.id === 'nielsen-more');
   const vtionApp = state.rewardApps.find((a) => a.id === 'vtion-digital');
   const nielsenCashVal = (nielsenApp?.currentBalancePoints || 0) * (nielsenApp?.pointToRupeeRatio || 0.0909);
@@ -477,9 +567,9 @@ export function App() {
         recentLogs={state.claimLogs.slice(0, 5)}
       />
 
-      {/* Bank Account (₹1,921) & Live Paytm Gold Portfolio (0.0017g, ₹24.80) */}
+      {/* Bank Account & Live Paytm Gold Portfolio */}
       <LiveGoldAssetSection
-        bankAccount={state.bankAccount || INITIAL_STATE.bankAccount}
+        bankAccount={syncedBankAccount}
         goldHolding={state.goldHolding || INITIAL_STATE.goldHolding}
         cryptoTotalInr={totalCryptoVal}
         nielsenCashValue={nielsenCashVal}
