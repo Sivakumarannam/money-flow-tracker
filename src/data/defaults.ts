@@ -170,15 +170,16 @@ export const INITIAL_STATE: AppState = {
       lastUpdated: new Date().toISOString(),
     },
     {
-      id: 'crypto-brave-bat',
-      name: 'Brave Browser Rewards',
-      symbol: 'BAT',
-      platform: 'ZebPay',
-      category: 'Ad Rewards',
-      balance: 0.6021, // User's exact balance from Brave snapshot!
-      currentPriceInr: 16.50, // ~₹16.50 per BAT (~$0.19 USD)
-      valueInr: 9.93,
-      notes: 'Verified payout account: ZebPay (Next payout: Nov 7)',
+      id: 'crypto-solpick',
+      name: 'SolPick Solana Faucet',
+      symbol: 'SOL',
+      platform: 'SolPick',
+      category: 'Faucet',
+      balance: 0.0006, // User has 0.0006 SOL on SolPick!
+      availableBalance: 0.0025, // Minimum withdrawal: 0.0025 SOL (24% progress)
+      currentPriceInr: 14800, // ~₹14,800 per SOL
+      valueInr: 8.88, // 0.0006 * 14800
+      notes: 'Hourly Faucet (https://solpick.io/faucet.php). Min withdraw: 0.0025 SOL (24% reached, 0.0019 SOL left)',
       lastUpdated: new Date().toISOString(),
     },
   ],

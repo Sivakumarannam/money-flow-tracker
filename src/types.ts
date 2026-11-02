@@ -140,8 +140,8 @@ export interface CryptoHolding {
   id: string;
   name: string;
   symbol: string;
-  platform: 'Binance' | 'Phantom' | 'Sweat Wallet' | 'ZebPay' | 'Other';
-  category: 'DePIN' | 'Move-to-Earn' | 'Layer 1' | 'Exchange' | 'Ad Rewards';
+  platform: 'Binance' | 'Phantom' | 'Sweat Wallet' | 'ZebPay' | 'SolPick' | 'Other';
+  category: 'DePIN' | 'Move-to-Earn' | 'Layer 1' | 'Exchange' | 'Ad Rewards' | 'Faucet';
   balance: number;
   availableBalance?: number;
   currentPriceInr: number;

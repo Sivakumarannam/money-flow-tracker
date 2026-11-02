@@ -43,20 +43,20 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
     appData?: RewardApp;
   }> = [
     {
-      id: 'brave-rewards',
-      name: 'Brave Browser Rewards',
-      category: 'Watch Ads & Private Browsing',
-      difficulty: '100% Zero Effort (Browse Normally)',
-      earningPotential: '₹200 - ₹600 / month (in BAT crypto)',
-      payoutMethod: 'ZebPay India (Direct Bank / UPI)',
-      minPayout: 'Monthly automatic payout on 7th',
+      id: 'solpick-faucet',
+      name: 'SolPick.io Solana Faucet',
+      category: 'Hourly Faucet & Free Crypto Roll',
+      difficulty: '100% Zero Investment (Hourly Claim)',
+      earningPotential: '0.0025 - 0.0100 SOL / month',
+      payoutMethod: 'Direct Solana Wallet (Phantom / On-Chain)',
+      minPayout: '0.002500000 SOL (You have 0.0006 SOL — 24% reached)',
       signupRequirement: 'Gmail Only (No Phone #)',
       isBandwidthApp: false,
       isAdApp: true,
-      description: 'Get paid in Basic Attention Tokens (BAT) for viewing sponsored wallpaper backgrounds and push notification ads while browsing normally. Connected to your verified ZebPay account! (You already have 0.6021 BAT linked to ZebPay).',
+      description: 'Free hourly Solana faucet (https://solpick.io/faucet.php). Enter captcha every hour to earn free SOL. Minimum withdrawal is 0.002500000 SOL directly to your Solana wallet (2qft***fWaa) with zero fees.',
       alreadyTracking: true,
-      badgeColor: 'badge-amber',
-      badgeText: 'Active on ZebPay (0.6021 BAT)',
+      badgeColor: 'badge-emerald',
+      badgeText: 'Active: 0.0006 SOL (24% to 0.0025 SOL)',
     },
     {
       id: 'coinpayu-ads',
@@ -534,7 +534,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
               }}>
                 <Sparkles size={24} color="#c084fc" />
                 <div style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.45' }}>
-                  <strong style={{ color: '#c084fc' }}>Active in Your Setup:</strong> You already have <strong>Brave Rewards (0.6021 BAT)</strong> linked to <strong>ZebPay</strong> and <strong>347 UPT in Phantom</strong> from <strong>UpRock</strong>! Both are <strong>100% GMAIL ONLY (NO Phone Number required)</strong>. Explore verified ad-watching and passive DePIN apps below:
+                  <strong style={{ color: '#c084fc' }}>Active in Your Setup:</strong> You are tracking <strong>SolPick.io Faucet (0.0006 SOL)</strong>, <strong>347 UPT in Phantom</strong> from <strong>UpRock</strong>, and <strong>1,486 GRASS</strong>! All are <strong>100% GMAIL ONLY (NO Phone Number required)</strong>. Explore verified faucets, ads, and passive DePIN apps below:
                 </div>
               </div>
 
@@ -586,7 +586,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     cursor: 'pointer',
                   }}
                 >
-                  🦁 Watch Ads & Browse (Brave + CoinPayU)
+                  🚰 Faucets & Ads (SolPick + CoinPayU)
                 </button>
                 <button
                   onClick={() => setAppFilter('bandwidth')}
@@ -775,9 +775,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                   },
                   {
                     icon: Award,
-                    title: '5. ZebPay India (Brave BAT)',
-                    desc: 'Your custodial wallet for Brave Browser Rewards. Connects to Brave without phone OTP requirements for browsing, depositing BAT monthly.',
-                    status: 'Active (0.6021 BAT)',
+                    title: '5. SolPick.io Solana Faucet',
+                    desc: 'Free Solana hourly faucet hub (https://solpick.io/faucet.php). Accrues SOL directly to your balance, ready for 0.0025 SOL on-chain withdrawal to Phantom.',
+                    status: 'Active (0.0006 SOL)',
                   },
                   {
                     icon: FileText,
@@ -843,7 +843,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                 padding: '1.25rem',
               }}>
                 <h3 style={{ fontSize: '1.1rem', color: '#38bdf8', marginTop: 0, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Clock size={18} /> Step-by-Step Earning Process (Gmail-Only DePIN & Brave Ads)
+                  <Clock size={18} /> Step-by-Step Earning Process (Gmail-Only DePIN & SolPick Faucet)
                 </h3>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -867,15 +867,15 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                       reward: '+₹30 to +₹60 / day passive',
                     },
                     {
-                      step: 'Step 4: Browse Normally on Brave & CoinPayU',
-                      title: 'Daily Ad Views & Background Browsing',
-                      action: 'Use Brave Browser as your default browser. Sponsored wallpaper tabs and notification ads generate BAT tokens deposited into ZebPay every month on the 7th.',
-                      reward: '0.6021 BAT Linked to ZebPay',
+                      step: 'Step 4: Claim Hourly on SolPick & Surf CoinPayU',
+                      title: 'Hourly Faucet Rolls & Ad Surfing',
+                      action: 'Claim free SOL hourly on SolPick (https://solpick.io/faucet.php) and view CoinPayU ads to stack free crypto with zero deposits.',
+                      reward: '0.0006 SOL (Min withdraw 0.0025 SOL)',
                     },
                     {
                       step: 'Step 5: Swap & Cashout to Bank via UPI',
                       title: 'Swap Tokens in Phantom to SOL / USDT & Withdraw',
-                      action: 'When you want cash, open Phantom, swap UPT or GRASS into SOL or USDT on Jupiter DEX. Send SOL to Binance (where you have ₹375) or ZebPay (where your Brave BAT lands) and withdraw direct INR via UPI!',
+                      action: 'When you reach 0.0025 SOL on SolPick or want to cash out UPT/GRASS, swap to SOL or USDT on Jupiter DEX, transfer to Binance (₹375), and withdraw directly to your bank account via UPI!',
                       reward: 'Direct Real INR into Bank',
                     },
                   ].map((item, idx) => (

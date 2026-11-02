@@ -60,17 +60,23 @@ export function App() {
           balance: syncedBankBalance,
         };
 
+        // Clean out deprecated Brave BAT and ensure SolPick is included
+        const cleanedHoldings = (parsed.cryptoHoldings || [])
+          .filter((h: any) => h.id !== 'crypto-brave-bat');
+
+        const mergedHoldings = [
+          ...cleanedHoldings,
+          ...(INITIAL_STATE.cryptoHoldings || []).filter(
+            (initH) => !cleanedHoldings.some((ex: any) => ex.id === initH.id)
+          ),
+        ];
+
         return {
           ...INITIAL_STATE,
           ...parsed,
           claimLogs: cleanClaimLogs,
           bankAccount: loadedBankAccount,
-          cryptoHoldings: [
-            ...(parsed.cryptoHoldings || []),
-            ...(INITIAL_STATE.cryptoHoldings || []).filter(
-              (initH) => !(parsed.cryptoHoldings || []).some((ex: any) => ex.id === initH.id)
-            ),
-          ],
+          cryptoHoldings: mergedHoldings,
           rewardApps: INITIAL_STATE.rewardApps.map((initApp) => {
             const existing = parsed.rewardApps?.find((a: any) => a.id === initApp.id);
             return existing ? { ...initApp, ...existing } : initApp;

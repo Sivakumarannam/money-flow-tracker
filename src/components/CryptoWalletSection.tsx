@@ -102,6 +102,8 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
         return { bg: 'rgba(168, 85, 247, 0.15)', color: '#c084fc', border: 'rgba(168, 85, 247, 0.3)' };
       case 'Sweat Wallet':
         return { bg: 'rgba(236, 72, 153, 0.15)', color: '#f472b6', border: 'rgba(236, 72, 153, 0.3)' };
+      case 'SolPick':
+        return { bg: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: 'rgba(16, 185, 129, 0.3)' };
       case 'ZebPay':
         return { bg: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: 'rgba(59, 130, 246, 0.3)' };
       default:
@@ -299,8 +301,10 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     {h.balance.toLocaleString()} <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>{h.symbol}</span>
                   </div>
                   {h.availableBalance !== undefined && (
-                    <span style={{ fontSize: '0.72rem', color: '#38bdf8' }}>
-                      Available to trade: {h.availableBalance.toLocaleString()} {h.symbol}
+                    <span style={{ fontSize: '0.72rem', color: h.category === 'Faucet' ? '#34d399' : '#38bdf8' }}>
+                      {h.category === 'Faucet'
+                        ? `Target / Min Payout: ${h.availableBalance} ${h.symbol} (${Math.round((h.balance / h.availableBalance) * 100)}% reached)`
+                        : `Available to trade: ${h.availableBalance.toLocaleString()} ${h.symbol}`}
                     </span>
                   )}
                 </div>
@@ -333,7 +337,21 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
               {/* Note / Source */}
               <div style={{ marginTop: '0.75rem', paddingTop: '0.6rem', borderTop: '1px solid rgba(255, 255, 255, 0.05)', fontSize: '0.72rem', color: '#64748b' }}>
-                {h.notes || `Held in ${h.platform}`}
+                {h.notes?.includes('http') ? (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span>{h.notes.split('(')[0]}</span>
+                    <a
+                      href="https://solpick.io/faucet.php"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#38bdf8', textDecoration: 'underline', fontWeight: 600 }}
+                    >
+                      Open Faucet ↗
+                    </a>
+                  </div>
+                ) : (
+                  h.notes || `Held in ${h.platform}`
+                )}
               </div>
             </div>
           );
@@ -633,6 +651,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     }}
                   >
                     <option value="Phantom">Phantom Wallet (Solana)</option>
+                    <option value="SolPick">SolPick Faucet</option>
                     <option value="Binance">Binance App</option>
                     <option value="Sweat Wallet">Sweat Wallet</option>
                     <option value="Other">Other Wallet</option>
@@ -656,6 +675,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     }}
                   >
                     <option value="DePIN">DePIN (Bandwidth/Hardware)</option>
+                    <option value="Faucet">Faucet (Free Hourly Roll)</option>
                     <option value="Move-to-Earn">Move-to-Earn</option>
                     <option value="Layer 1">Layer 1 Crypto</option>
                     <option value="Exchange">Exchange Cash/Crypto</option>
