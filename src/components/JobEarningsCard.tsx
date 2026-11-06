@@ -35,24 +35,14 @@ export const JobEarningsCard: React.FC<JobEarningsCardProps> = ({ job, onUpdateJ
   };
 
   return (
-    <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2.5rem' }}>
+    <div className="card card-blue mb-10" style={{ padding: '1.5rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            background: 'rgba(56, 189, 248, 0.15)',
-            border: '1px solid rgba(56, 189, 248, 0.3)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#38bdf8',
-          }}>
+          <div className="section-icon section-icon-blue">
             <Briefcase size={22} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', margin: 0 }}>
+            <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', margin: 0 }}>
               Primary Job & Career Earnings
             </h3>
             <p style={{ color: '#94a3b8', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>

@@ -15,14 +15,14 @@ export const DetailedCalculationMatrix: React.FC<DetailedCalculationMatrixProps>
   const enabledApps = state.rewardApps.filter((a) => a.enabled);
 
   return (
-    <section className="glass-panel" style={{ padding: '1.75rem', marginBottom: '2.5rem' }}>
+    <section className="card mb-10" style={{ padding: '1.75rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
             <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
               Master Cashflow & Projections Matrix
             </h2>
-            <span className="badge badge-cyan">
+            <span className="badge badge-blue">
               All 4 Timeframes Side-by-Side
             </span>
           </div>

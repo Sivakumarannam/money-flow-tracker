@@ -55,7 +55,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isAdApp: true,
       description: 'Free hourly Solana faucet (https://solpick.io/faucet.php). Enter captcha every hour to earn free SOL. Minimum withdrawal is 0.002500000 SOL directly to your Solana wallet (2qft***fWaa) with zero fees.',
       alreadyTracking: true,
-      badgeColor: 'badge-emerald',
+      badgeColor: 'badge-green',
       badgeText: 'Active: 0.0006 SOL (24% to 0.0025 SOL)',
     },
     {
@@ -71,7 +71,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isAdApp: true,
       description: 'Watch short 10-30 second sponsor video ads and surf websites. Instant crypto cashout directly into your Binance or Phantom wallet. 100% Gmail only, zero phone number required.',
       alreadyTracking: existingAppIds.includes('coinpayu-ads'),
-      badgeColor: 'badge-cyan',
+      badgeColor: 'badge-blue',
       appData: {
         id: 'coinpayu-ads',
         name: 'CoinPayU Ad Surfing',
@@ -116,7 +116,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isBandwidthApp: true,
       description: 'The #1 decentralized web scraping network in the world. Sells unused internet bandwidth to AI companies. Register using ONLY Gmail + Password with ZERO phone number required!',
       alreadyTracking: existingAppIds.includes('grass-solana'),
-      badgeColor: 'badge-emerald',
+      badgeColor: 'badge-green',
       appData: {
         id: 'grass-solana',
         name: 'Grass Solana Bandwidth',
@@ -146,7 +146,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isBandwidthApp: true,
       description: 'Decentralized bandwidth network on Solana training AI foundation models. Register with 1-Click Google Sign-In with NO phone number needed.',
       alreadyTracking: existingAppIds.includes('nodepay-ai'),
-      badgeColor: 'badge-cyan',
+      badgeColor: 'badge-blue',
       appData: {
         id: 'nodepay-ai',
         name: 'Nodepay Solana Bandwidth',
@@ -176,7 +176,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isBandwidthApp: true,
       description: 'Legitimate bandwidth sharing app (not Honeygain). Shares unused internet with verified businesses for price comparison. Sign up with Gmail + password with ZERO phone number required.',
       alreadyTracking: existingAppIds.includes('pawns-bandwidth'),
-      badgeColor: 'badge-emerald',
+      badgeColor: 'badge-green',
       appData: {
         id: 'pawns-bandwidth',
         name: 'Pawns.app Bandwidth Sharing',
@@ -296,7 +296,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isBandwidthApp: false,
       description: 'Official Google app. Links directly to your existing Google/Gmail account. No phone number entry needed to answer surveys and earn ₹5 to ₹35 per survey.',
       alreadyTracking: existingAppIds.includes('google-opinion-rewards'),
-      badgeColor: 'badge-cyan',
+      badgeColor: 'badge-blue',
       appData: {
         id: 'google-opinion-rewards',
         name: 'Google Opinion Rewards',
@@ -371,7 +371,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       isBandwidthApp: false,
       description: 'Awards 10 points every Tuesday for active device usage. Requires Indian mobile number for OTP.',
       alreadyTracking: true,
-      badgeColor: 'badge-emerald',
+      badgeColor: 'badge-green',
       badgeText: 'Active in Your Tracker (60 pts)',
     },
   ];
@@ -439,7 +439,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                 <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
                   Zero-Investment Earning Hub (2026)
                 </h2>
-                <span className="badge badge-emerald" style={{ fontSize: '0.68rem' }}>
+                <span className="badge badge-green" style={{ fontSize: '0.68rem' }}>
                   100% Free
                 </span>
                 <span className="badge badge-purple" style={{ fontSize: '0.68rem' }}>
@@ -640,7 +640,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                             <CheckCircle2 size={11} /> {app.badgeText || 'Tracking'}
                           </span>
                         ) : (
-                          <span className="badge badge-emerald" style={{ fontSize: '0.65rem' }}>
+                          <span className="badge badge-green" style={{ fontSize: '0.65rem' }}>
                             {app.signupRequirement === 'Gmail Only (No Phone #)' ? 'Gmail Only' : 'Phone Required'}
                           </span>
                         )}
@@ -823,7 +823,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                       <p style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: '1.45', margin: '0 0 0.5rem 0' }}>
                         {item.desc}
                       </p>
-                      <span className="badge badge-emerald" style={{ fontSize: '0.65rem' }}>
+                      <span className="badge badge-green" style={{ fontSize: '0.65rem' }}>
                         {item.status}
                       </span>
                     </div>

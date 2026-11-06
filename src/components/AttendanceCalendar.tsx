@@ -69,7 +69,7 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
   const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   return (
-    <section className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2.5rem' }}>
+    <section className="card mb-10" style={{ padding: '1.5rem' }}>
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>

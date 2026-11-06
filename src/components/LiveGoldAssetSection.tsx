@@ -156,7 +156,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
   const isLoss = goldHolding.pnlAmount < 0;
 
   return (
-    <section className="glass-panel" style={{ padding: '1.75rem', marginBottom: '2.5rem' }}>
+    <section className="card card-amber mb-10" style={{ padding: '1.75rem' }}>
       
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
@@ -185,7 +185,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
               {onOpenZeroGuide && (
                 <button
                   onClick={onOpenZeroGuide}
-                  className="badge badge-emerald"
+                  className="badge badge-green"
                   style={{
                     fontSize: '0.7rem',
                     cursor: 'pointer',
@@ -399,7 +399,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
       }}>
         
         {/* 1. BANK ACCOUNT CARD */}
-        <div className="glass-panel" style={{
+        <div className="card" style={{
           padding: '1.5rem',
           border: '1px solid rgba(56, 189, 248, 0.3)',
           background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(22, 33, 59, 0.75) 100%)',
@@ -458,7 +458,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
               <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
                 {formatINR(bankAccount.balance, true)}
               </div>
-              <span className="badge badge-emerald" style={{ marginTop: '0.4rem', fontSize: '0.7rem' }}>
+              <span className="badge badge-green" style={{ marginTop: '0.4rem', fontSize: '0.7rem' }}>
                 ✓ Verified in your bank account
               </span>
             </div>
@@ -479,7 +479,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
         </div>
 
         {/* 2. PAYTM 24K DIGITAL GOLD LIVE CARD */}
-        <div className="glass-panel" style={{
+        <div className="card" style={{
           padding: '1.5rem',
           border: '1px solid rgba(245, 158, 11, 0.4)',
           background: 'linear-gradient(135deg, rgba(30, 20, 10, 0.4) 0%, rgba(15, 23, 42, 0.9) 100%)',
@@ -689,7 +689,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           zIndex: 1000,
           padding: '1rem',
         }}>
-          <div className="glass-panel-elevated" style={{ width: '100%', maxWidth: '420px', padding: '1.75rem' }}>
+          <div className="card-elevated" style={{ width: '100%', maxWidth: '420px', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '0.5rem' }}>
               Update Bank Account Balance
             </h3>
@@ -740,7 +740,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           zIndex: 1000,
           padding: '1rem',
         }}>
-          <div className="glass-panel-elevated" style={{ width: '100%', maxWidth: '440px', padding: '1.75rem' }}>
+          <div className="card-elevated" style={{ width: '100%', maxWidth: '440px', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '0.5rem' }}>
               Update Paytm Gold Holding
             </h3>

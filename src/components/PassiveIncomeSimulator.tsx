@@ -42,7 +42,7 @@ export const PassiveIncomeSimulator: React.FC<PassiveIncomeSimulatorProps> = ({ 
   const presets = [250, 500, 1000, 2500, 5000];
 
   return (
-    <section className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2.5rem' }}>
+    <section className="card mb-10" style={{ padding: '1.5rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
         <div style={{
           width: '42px',

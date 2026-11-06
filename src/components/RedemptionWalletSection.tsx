@@ -76,7 +76,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
   };
 
   return (
-    <section className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2.5rem' }}>
+    <section className="card mb-10" style={{ padding: '1.5rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <div style={{
@@ -104,7 +104,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="btn-emerald"
+          className="btn-green"
           style={{ padding: '0.5rem 0.95rem', fontSize: '0.825rem' }}
         >
           <Plus size={14} /> Log Cashout / Voucher
@@ -244,7 +244,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
                     <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#34d399' }}>
                       +{formatINR(red.cashValueRupees, true)}
                     </div>
-                    <span className="badge badge-emerald" style={{ fontSize: '0.65rem', padding: '0.1rem 0.4rem' }}>
+                    <span className="badge badge-green" style={{ fontSize: '0.65rem', padding: '0.1rem 0.4rem' }}>
                       Claimed
                     </span>
                   </div>
@@ -287,7 +287,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
           zIndex: 1000,
           padding: '1rem',
         }}>
-          <div className="glass-panel-elevated" style={{ width: '100%', maxWidth: '480px', padding: '1.75rem' }}>
+          <div className="card-elevated" style={{ width: '100%', maxWidth: '480px', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '1rem' }}>
               Log Points Redemption / Cashout
             </h3>
@@ -372,7 +372,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
                 <button type="button" onClick={() => setIsModalOpen(false)} className="btn-secondary">
                   Cancel
                 </button>
-                <button type="submit" className="btn-emerald">
+                <button type="submit" className="btn-green">
                   <CheckCircle size={15} /> Save Redemption
                 </button>
               </div>

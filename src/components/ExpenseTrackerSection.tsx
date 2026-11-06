@@ -57,7 +57,7 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
   };
 
   return (
-    <section className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2.5rem' }}>
+    <section className="card mb-10" style={{ padding: '1.5rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <div style={{
@@ -186,7 +186,7 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
           zIndex: 1000,
           padding: '1rem',
         }}>
-          <div className="glass-panel-elevated" style={{ width: '100%', maxWidth: '440px', padding: '1.75rem' }}>
+          <div className="card-elevated" style={{ width: '100%', maxWidth: '440px', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '1rem' }}>
               Add New Expense
             </h3>

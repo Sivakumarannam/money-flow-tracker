@@ -26,18 +26,9 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
       marginBottom: '2.5rem',
     }}>
       {/* 1. Cashflow Allocation Visualizer */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
+      <div className="card card-blue" style={{ padding: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
-          <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '10px',
-            background: 'rgba(56, 189, 248, 0.15)',
-            color: '#38bdf8',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+          <div className="section-icon section-icon-blue" style={{ width: 36, height: 36 }}>
             <BarChart3 size={18} />
           </div>
           <div>
@@ -104,7 +95,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
       </div>
 
       {/* 2. Income Diversification Engine */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
+      <div className="card" style={{ padding: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
           <div style={{
             width: '36px',

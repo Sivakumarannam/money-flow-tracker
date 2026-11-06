@@ -112,7 +112,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
   };
 
   return (
-    <section className="glass-panel" style={{ padding: '1.75rem', marginBottom: '2.5rem' }}>
+    <section className="card mb-10" style={{ padding: '1.75rem' }}>
       
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
@@ -235,7 +235,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
           return (
             <div
               key={h.id}
-              className="glass-panel"
+              className="card"
               style={{
                 padding: '1.25rem',
                 border: '1px solid rgba(255, 255, 255, 0.08)',

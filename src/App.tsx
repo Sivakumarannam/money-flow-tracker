@@ -544,7 +544,7 @@ export function App() {
   );
 
   return (
-    <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '1.5rem 1.25rem 4rem 1.25rem' }}>
+    <div className="app-container">
       
       {/* Hidden File Input for Import */}
       <input
@@ -653,11 +653,7 @@ export function App() {
       />
 
       {/* Grid: Expenses & Investments side-by-side or stacked */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
-        gap: '1.5rem',
-      }}>
+      <div className="grid-2col">
         <ExpenseTrackerSection
           expenses={state.expenses}
           activePeriod={activePeriod}
@@ -673,41 +669,16 @@ export function App() {
       </div>
 
       {/* Footer Info */}
-      <footer style={{
-        marginTop: '3.5rem',
-        textAlign: 'center',
-        padding: '2rem 1rem',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        color: '#64748b',
-        fontSize: '0.85rem',
-      }}>
-        <p style={{ margin: 0 }}>
-          <strong>MoneyFlow OS</strong> — Built for personal wealth tracking, Nielsen More, Vtion Digital, salary and investment planning.
+      <footer className="app-footer">
+        <p>
+          <strong style={{ color: 'var(--text-secondary)' }}>MoneyFlow OS</strong> — Built for personal wealth tracking: Nielsen More, Vtion Digital, salary &amp; investment planning.
         </p>
-        <p style={{ margin: '0.35rem 0 0 0', fontSize: '0.78rem' }}>
-          All data is saved locally on your browser in real-time. Use Export anytime for offline backup.
-        </p>
+        <p>All data is saved locally on your browser in real-time. Use Export anytime for offline backup.</p>
       </footer>
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div style={{
-          position: 'fixed',
-          bottom: '1.75rem',
-          right: '1.75rem',
-          background: 'rgba(15, 23, 42, 0.95)',
-          border: '1px solid rgba(56, 189, 248, 0.4)',
-          borderRadius: '12px',
-          padding: '0.85rem 1.25rem',
-          color: '#f8fafc',
-          fontSize: '0.9rem',
-          fontWeight: 600,
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.25)',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-        }}>
+        <div className="toast">
           {toastMessage}
         </div>
       )}

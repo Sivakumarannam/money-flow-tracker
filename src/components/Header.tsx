@@ -9,7 +9,13 @@ interface HeaderProps {
   onOpenZeroGuide?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onExport, onExportCsv, onImport, onReset, onOpenZeroGuide }) => {
+export const Header: React.FC<HeaderProps> = ({
+  onExport,
+  onExportCsv,
+  onImport,
+  onReset,
+  onOpenZeroGuide,
+}) => {
   const today = new Date();
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayName = dayNames[today.getDay()];
@@ -22,60 +28,46 @@ export const Header: React.FC<HeaderProps> = ({ onExport, onExportCsv, onImport,
   });
 
   return (
-    <header className="glass-panel" style={{ padding: '1.25rem 1.75rem', marginBottom: '1.75rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        
-        {/* Brand & Title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            borderRadius: '14px',
-            background: 'linear-gradient(135deg, #0284c7 0%, #10b981 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 18px rgba(56, 189, 248, 0.35)',
-          }}>
-            <Coins size={26} color="#ffffff" />
+    <header className="app-header">
+      <div className="flex items-center justify-between flex-wrap gap-4">
+
+        {/* ── Brand ─────────────────────────────────────── */}
+        <div className="header-brand">
+          <div className="header-logo-pill">
+            <Coins size={24} color="#ffffff" />
           </div>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
-                MoneyFlow <span style={{ color: '#38bdf8' }}>OS</span>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h1 className="header-title">
+                MoneyFlow <span>OS</span>
               </h1>
-              <span className="badge badge-cyan" style={{ fontSize: '0.7rem' }}>
-                <Sparkles size={11} /> Multi-Stream Tracker
+              <span className="badge badge-blue">
+                <Sparkles size={10} /> Multi-Stream Tracker
               </span>
             </div>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.15rem' }}>
-              Track Nielsen More, Vtion Digital, Job Earnings, Expenses & Long-Term Wealth
+            <p className="header-subtitle">
+              Track Nielsen More, Vtion Digital, Job Earnings, Expenses &amp; Long-Term Wealth
             </p>
           </div>
         </div>
 
-        {/* Date and actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-          
-          {/* Day & Date Indicator */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            background: 'rgba(15, 23, 42, 0.8)',
-            padding: '0.5rem 0.9rem',
-            borderRadius: '12px',
-            border: isTuesday ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid rgba(255, 255, 255, 0.08)',
-          }}>
-            <CalendarCheck size={16} color={isTuesday ? '#34d399' : '#38bdf8'} />
+        {/* ── Actions ───────────────────────────────────── */}
+        <div className="header-actions">
+
+          {/* Date Badge */}
+          <div
+            className="header-date-badge"
+            style={isTuesday ? { borderColor: 'rgba(34, 197, 94, 0.4)' } : undefined}
+          >
+            <CalendarCheck size={15} color={isTuesday ? '#4ade80' : '#60a5fa'} />
             <div>
-              <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Today
               </div>
-              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5f9' }}>
+              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 {dayName}, {dateStr}
                 {isTuesday && (
-                  <span className="badge badge-emerald" style={{ marginLeft: '0.4rem', fontSize: '0.65rem', padding: '0.15rem 0.4rem' }}>
+                  <span className="badge badge-green" style={{ fontSize: '0.62rem', padding: '0.12rem 0.4rem' }}>
                     Vtion Day!
                   </span>
                 )}
@@ -83,64 +75,56 @@ export const Header: React.FC<HeaderProps> = ({ onExport, onExportCsv, onImport,
             </div>
           </div>
 
-          {/* 2026 Zero Investment Free Apps Guide */}
+          {/* Zero Guide Button */}
           {onOpenZeroGuide && (
             <button
               onClick={onOpenZeroGuide}
-              className="btn btn-primary"
-              style={{
-                background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
-                border: 'none',
-                boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)',
-                padding: '0.55rem 0.95rem',
-                fontSize: '0.825rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-              }}
+              className="btn-primary"
+              style={{ background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)', borderColor: 'rgba(34,197,94,0.5)', boxShadow: 'var(--shadow-green)' }}
+              title="2026 Zero Investment Earning Guide"
             >
-              <Sparkles size={14} /> 2026 Free Apps Guide
+              <Sparkles size={13} /> Free Apps Guide
             </button>
           )}
 
-          {/* Action Buttons */}
-          <button 
+          {/* CSV Export */}
+          <button
             onClick={onExportCsv}
             className="btn-secondary"
             title="Download Excel / CSV Report"
-            style={{ padding: '0.55rem 0.85rem', fontSize: '0.825rem', color: '#34d399', borderColor: 'rgba(16, 185, 129, 0.3)' }}
+            style={{ color: '#4ade80', borderColor: 'rgba(34,197,94,0.3)' }}
           >
             <Download size={13} /> Excel CSV
           </button>
 
-          <button 
+          {/* JSON Export */}
+          <button
             onClick={onExport}
             className="btn-secondary"
             title="Download JSON Backup"
-            style={{ padding: '0.55rem 0.85rem', fontSize: '0.825rem' }}
           >
             JSON
           </button>
 
-          <button 
+          {/* Import */}
+          <button
             onClick={onImport}
             className="btn-secondary"
             title="Import Backup Data"
-            style={{ padding: '0.55rem 0.85rem', fontSize: '0.825rem' }}
           >
             <Upload size={13} />
           </button>
 
-          <button 
+          {/* Reset */}
+          <button
             onClick={onReset}
-            className="btn-secondary"
+            className="btn-ghost"
             title="Reset to Defaults"
-            style={{ padding: '0.55rem 0.75rem', color: '#94a3b8' }}
           >
             <RotateCcw size={13} />
           </button>
-        </div>
 
+        </div>
       </div>
     </header>
   );

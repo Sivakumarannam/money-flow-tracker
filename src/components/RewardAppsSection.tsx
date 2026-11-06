@@ -91,7 +91,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
             <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
               Reward Apps & Passive Streams
             </h2>
-            <span className="badge badge-emerald">
+            <span className="badge badge-green">
               Active Engines
             </span>
           </div>
@@ -127,7 +127,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           return (
             <div
               key={app.id}
-              className="glass-panel"
+              className="card"
               style={{
                 padding: '1.5rem',
                 border: app.enabled 
@@ -173,7 +173,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                             : app.badge}
                         </span>
                         {isVtion && isTuesday && (
-                          <span className="badge badge-emerald" style={{ fontSize: '0.7rem', animation: 'pulseSubtle 2s infinite' }}>
+                          <span className="badge badge-green" style={{ fontSize: '0.7rem', animation: 'pulseSubtle 2s infinite' }}>
                             <Flame size={11} /> Tuesday Credit!
                           </span>
                         )}
@@ -336,7 +336,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                       {currentPts >= 50 && onQuickRedeem && (
                         <button
                           onClick={() => onQuickRedeem(app, currentPts, currentPts)}
-                          className="btn-emerald"
+                          className="btn-green"
                           style={{ width: '100%', marginTop: '0.65rem', padding: '0.45rem', fontSize: '0.8rem' }}
                         >
                           Redeem ₹{currentPts} via UPI Now
@@ -476,7 +476,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                 ) : (
                   <button
                     onClick={() => onClaimApp(app)}
-                    className={isVtion && !isTuesday ? 'btn-secondary' : 'btn-emerald'}
+                    className={isVtion && !isTuesday ? 'btn-secondary' : 'btn-green'}
                     style={{
                       width: '100%',
                       padding: '0.55rem',
@@ -549,7 +549,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           zIndex: 1000,
           padding: '1rem',
         }}>
-          <div className="glass-panel-elevated" style={{ width: '100%', maxWidth: '420px', padding: '1.75rem' }}>
+          <div className="card-elevated" style={{ width: '100%', maxWidth: '420px', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '0.4rem' }}>
               Update {editingPointsApp.name} Balance
             </h3>
@@ -603,7 +603,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           zIndex: 1000,
           padding: '1rem',
         }}>
-          <div className="glass-panel-elevated" style={{ width: '100%', maxWidth: '480px', padding: '1.75rem' }}>
+          <div className="card-elevated" style={{ width: '100%', maxWidth: '480px', padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '1rem' }}>
               Add New Earning / Reward App
             </h3>

@@ -59,7 +59,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
       zIndex: 1000,
       padding: '1rem',
     }}>
-      <div className="glass-panel-elevated" style={{
+      <div className="card-elevated" style={{
         width: '100%',
         maxWidth: '560px',
         padding: '1.75rem',
@@ -206,7 +206,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
               <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 600 }}>EFFECTIVE VALUE</span>
-              <span className="badge badge-cyan">
+              <span className="badge badge-blue">
                 1 Point = ₹{calculatedRatio.toFixed(3)}
               </span>
             </div>

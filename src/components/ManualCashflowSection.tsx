@@ -86,7 +86,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
   });
 
   return (
-    <section className="glass-panel" style={{ padding: '1.75rem', marginBottom: '2.5rem' }}>
+    <section className="card card-blue mb-10" style={{ padding: '1.75rem' }}>
       
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
@@ -109,7 +109,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
               <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
                 Manual Money Tracker (Added & Debited)
               </h2>
-              <span className="badge badge-cyan" style={{ fontSize: '0.7rem' }}>
+              <span className="badge badge-blue" style={{ fontSize: '0.7rem' }}>
                 Quick Cashflow
               </span>
             </div>
@@ -349,7 +349,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
           <button
             type="submit"
-            className={type === 'credit' ? 'btn-emerald' : 'btn-primary'}
+            className={type === 'credit' ? 'btn-green' : 'btn-primary'}
             style={{
               padding: '0.75rem 1.75rem',
               fontSize: '0.95rem',

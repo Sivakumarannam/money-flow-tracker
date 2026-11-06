@@ -44,7 +44,7 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
       zIndex: 1000,
       padding: '1rem',
     }}>
-      <div className="glass-panel-elevated" style={{
+      <div className="card-elevated" style={{
         width: '100%',
         maxWidth: '520px',
         maxHeight: '90vh',
@@ -58,7 +58,7 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span className="badge badge-cyan" style={{ fontSize: '0.7rem' }}>
+              <span className="badge badge-blue" style={{ fontSize: '0.7rem' }}>
                 Nielsen Official App Rates
               </span>
             </div>
@@ -142,7 +142,7 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
                         onSelectTier(tier.points, tier.inr);
                         onClose();
                       }}
-                      className="btn-emerald"
+                      className="btn-green"
                       style={{ padding: '0.45rem 0.85rem', fontSize: '0.8rem' }}
                     >
                       Redeem ₹{tier.inr}
