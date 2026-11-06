@@ -23,6 +23,7 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
   const [category, setCategory] = useState<ExpenseCategory>('Food & Groceries');
 
   const categories: ExpenseCategory[] = [
+    'Home Taken',
     'Food & Groceries',
     'Rent & Housing',
     'Bills & Utilities',

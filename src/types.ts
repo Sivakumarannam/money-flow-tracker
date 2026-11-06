@@ -31,6 +31,7 @@ export interface JobIncome {
 }
 
 export type ExpenseCategory = 
+  | 'Home Taken'
   | 'Food & Groceries'
   | 'Rent & Housing'
   | 'Bills & Utilities'

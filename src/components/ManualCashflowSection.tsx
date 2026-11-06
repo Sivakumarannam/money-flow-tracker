@@ -33,6 +33,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
   ];
 
   const debitCategories = [
+    'Home Taken',
     'Food & Dining',
     'Groceries & Daily Items',
     'Rent & Room Expenses',
