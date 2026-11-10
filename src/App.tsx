@@ -687,6 +687,7 @@ export function App() {
       {page === 'cashflow' && (
         <>
           <TimeframeTabs activePeriod={activePeriod} onChange={setActivePeriod} />
+          <MetricCards summary={currentSummary} />
           <ManualCashflowSection
             transactions={state.manualTransactions || []}
             onAddTransaction={handleAddTransaction}
