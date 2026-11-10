@@ -172,7 +172,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       earningPotential: '0.48 - 1.2 PI / day (High Future Upside)',
       payoutMethod: 'Pi Browser Wallet / Mainnet Transfer',
       minPayout: '1 PI (Mainnet Checklist)',
-      signupRequirement: 'Phone / Facebook / Apple ID',
+      signupRequirement: 'Phone Number Required',
       isBandwidthApp: false,
       description: 'Zero-battery, zero-investment mobile mining. Developed by Stanford PhDs. Mine native Pi coins daily by tapping the lightning button every 24 hours.',
       alreadyTracking: existingAppIds.includes('pi-network'),
