@@ -950,3 +950,19 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#22d3ee;box-sh
 
 /* Decorative glows must never get the glass blur or sit above content */
 [style*="pointer-events: none"],[style*="pointer-events:none"]{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+/* ── Lock screen ── */
+.lock-wrap{min-height:100vh;display:grid;place-items:center;padding:1.5rem}
+.lock-card{width:100%;max-width:380px;display:flex;flex-direction:column;gap:.9rem;padding:2rem 1.8rem;text-align:center;border-radius:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),rgba(14,20,45,.6);border:1px solid var(--border-default);
+  backdrop-filter:blur(22px) saturate(160%);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(34,211,238,.15)}
+.lock-logo{width:60px;height:60px;margin:0 auto;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#67e8f9,#a78bfa);box-shadow:0 0 30px rgba(34,211,238,.55)}
+.lock-card h1{font-size:1.7rem;margin:0}.lock-card h1 span{background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff3d7f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lock-sub{color:var(--text-secondary);font-size:.9rem;margin:0 0 .3rem}
+.lock-field{display:flex;align-items:center;gap:.6rem;padding:.2rem 1rem;border-radius:14px;background:var(--bg-input);border:1px solid var(--border-default);color:var(--text-secondary)}
+.lock-field:focus-within{border-color:#22d3ee;box-shadow:0 0 0 3px rgba(34,211,238,.25),0 0 18px rgba(34,211,238,.3)}
+.lock-field input{flex:1;border:0!important;background:transparent!important;box-shadow:none!important;padding:.8rem 0;font-size:1.15rem;letter-spacing:.35em;text-align:center;color:var(--text-primary)}
+.lock-field input::placeholder{letter-spacing:normal;font-size:.9rem;color:var(--text-muted)}
+.lock-error{color:#ff6b9a;font-size:.85rem;font-weight:600}
+.lock-btn{padding:.8rem 1rem;font-size:1rem;cursor:pointer}.lock-btn:disabled{opacity:.5;cursor:not-allowed}
+.lock-note{color:var(--text-muted);font-size:.7rem;line-height:1.4}

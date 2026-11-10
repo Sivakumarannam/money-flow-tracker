@@ -25,6 +25,7 @@ import { ZeroInvestmentGuideModal } from './components/ZeroInvestmentGuideModal'
 import { GamingPcGoalCard } from './components/GamingPcGoalCard';
 import { GamingPcSetupModal } from './components/GamingPcSetupModal';
 import { PageTabs, PAGES } from './components/PageTabs';
+import { LockScreen } from './components/LockScreen';
 import type { PageId } from './components/PageTabs';
 
 const STORAGE_KEY = 'moneyflow_app_state_real_v9';
@@ -130,6 +131,7 @@ export function App() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isZeroGuideOpen, setIsZeroGuideOpen] = useState(false);
   const [isGamingPcOpen, setIsGamingPcOpen] = useState(false);
+  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem('mf_unlocked') === '1');
   const [page, setPageState] = useState<PageId>(() => {
     const h = window.location.hash.slice(1) as PageId;
     return PAGES.some((x) => x.id === h) ? h : 'overview';
@@ -593,6 +595,8 @@ export function App() {
     (netInHandBalance + (state.goldHolding?.currentValue || 24.8) + totalCryptoVal + nielsenCashVal + vtionCashVal) * 100
   ) / 100;
 
+  if (!unlocked) return <LockScreen onUnlock={() => setUnlocked(true)} />;
+
   return (
     <div className="app-container">
       
@@ -613,6 +617,7 @@ export function App() {
         onReset={handleReset}
         onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
         onOpenGamingPc={() => setIsGamingPcOpen(true)}
+        onLock={() => { sessionStorage.removeItem('mf_unlocked'); setUnlocked(false); }}
       />
 
       <PageTabs active={page} onChange={setPage} />
