@@ -704,8 +704,10 @@ export function App() {
 
       {page === 'planner' && (
         <>
-          <DetailedCalculationMatrix state={state} />
-          <PassiveIncomeSimulator state={state} />
+          <div className="planner-grid">
+            <div className="planner-col"><DetailedCalculationMatrix state={state} /></div>
+            <div className="planner-col"><PassiveIncomeSimulator state={state} /></div>
+          </div>
         </>
       )}
       </main>

@@ -343,431 +343,105 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
     link.remove();
   };
 
+  const ownedCount = ALL_PC_PARTS.filter((p) => ownedPartIds[p.id]).length;
+  const ringR = 52;
+  const ringC = 2 * Math.PI * ringR;
+
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(4,6,16, 0.88)',
-      backdropFilter: 'blur(14px)',
-      WebkitBackdropFilter: 'blur(14px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 9999,
-      padding: '1rem',
-      overflowY: 'auto',
-    }}>
-      <div style={{
-        background: '#0b1020',
-        border: '1px solid rgba(167,139,250, 0.35)',
-        borderRadius: '20px',
-        width: '100%',
-        maxWidth: '1240px',
-        maxHeight: '94vh',
-        display: 'flex',
-        flexDirection: 'column',
-        boxShadow: '0 25px 70px rgba(0,0,0, 0.8), 0 0 35px rgba(167,139,250, 0.25)',
-        overflow: 'hidden',
-      }}>
+    <div className="gp-overlay" onClick={onClose}>
+      <div className="gp-modal" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
 
-        {/* ── Top Modal Header ── */}
-        <div style={{
-          padding: '1.25rem 1.75rem',
-          borderBottom: '1px solid rgba(255,255,255, 0.08)',
-          background: 'linear-gradient(135deg, rgba(30,20,50, 0.8) 0%, rgba(14,20,45, 0.95) 100%)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-            <div style={{
-              width: 44,
-              height: 44,
-              borderRadius: 12,
-              background: 'linear-gradient(135deg, #a78bfa 0%, #ec4899 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fff',
-              boxShadow: '0 4px 16px rgba(167,139,250, 0.4)',
-            }}>
-              <Gamepad2 size={24} />
-            </div>
+        {/* ── Sidebar: summary + categories + actions ── */}
+        <aside className="gp-side">
+          <div className="gp-brand">
+            <div className="gp-brand-icon"><Gamepad2 size={22} color="#04121a" /></div>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fbff', margin: 0 }}>
-                  Complete Pro Gaming PC Setup Blueprint
-                </h2>
-                <span className="badge badge-purple" style={{ fontSize: '0.7rem' }}>
-                  2026 Edition · 20 Components
-                </span>
-              </div>
-              <p style={{ color: '#a5b4d4', fontSize: '0.82rem', margin: '0.15rem 0 0 0' }}>
-                Full hardware specs, individual prices, images, and live financial gap calculation
-              </p>
+              <h2>Pro Gaming PC Blueprint</h2>
+              <span className="badge badge-purple">2026 Edition · {ALL_PC_PARTS.length} components</span>
             </div>
           </div>
+          <p className="gp-sub">Full hardware specs, individual prices, images, and live financial gap calculation</p>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <button
-              onClick={handleExportCsv}
-              className="btn-secondary"
-              style={{ fontSize: '0.8rem', padding: '0.45rem 0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-            >
-              <Download size={13} /> Export Parts CSV
-            </button>
-            <button
-              onClick={onClose}
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255, 0.08)',
-                border: '1px solid rgba(255,255,255, 0.15)',
-                color: '#cbd5ee',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.15s ease',
-              }}
-              title="Close modal"
-            >
-              <X size={18} />
-            </button>
-          </div>
-        </div>
-
-        {/* ── Financial Gap Dashboard Banner ── */}
-        <div style={{
-          padding: '1.25rem 1.75rem',
-          background: 'rgba(10,16,30, 0.85)',
-          borderBottom: '1px solid rgba(255,255,255, 0.08)',
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '1rem',
-            marginBottom: '1rem',
-          }}>
-            {/* Total Build Price */}
-            <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(255,255,255, 0.06)' }}>
-              <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Total 20-Part Setup Cost
-              </span>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.2rem' }}>
-                {formatINR(totalBuildPriceInr, true)}
-              </div>
-              <span style={{ fontSize: '0.72rem', color: '#a78bfa' }}>
-                ${totalBuildPriceUsd.toLocaleString()} USD (All Categories)
-              </span>
-            </div>
-
-            {/* Current Net Wealth */}
-            <div style={{ background: 'rgba(34,197,94, 0.05)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(34,197,94, 0.25)' }}>
-              <span style={{ fontSize: '0.72rem', color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Your Current Net Wealth
-              </span>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#4ade80', marginTop: '0.2rem' }}>
-                {formatINR(currentNetWealth, true)}
-              </div>
-              <span style={{ fontSize: '0.72rem', color: '#86efac' }}>
-                Bank + Gold + Crypto + App Rewards
-              </span>
-            </div>
-
-            {/* Still Remaining Needed Price (Highlighted!) */}
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(239,68,68, 0.15) 0%, rgba(245,158,11, 0.1) 100%)',
-              padding: '0.9rem',
-              borderRadius: 12,
-              border: '1px solid rgba(239,68,68, 0.4)',
-              boxShadow: '0 4px 18px rgba(239,68,68, 0.15)',
-            }}>
-              <span style={{ fontSize: '0.72rem', color: '#ffb3cc', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 700 }}>
-                ⚡ Still How Much Price We Want
-              </span>
-              <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#ff6b9a', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
-                {formatINR(remainingNeededInr, true)}
-              </div>
-              <span style={{ fontSize: '0.72rem', color: '#fecaca' }}>
-                Exact Remaining Gap to Reach Goal
-              </span>
-            </div>
-
-            {/* Owned vs Target */}
-            <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(255,255,255, 0.06)' }}>
-              <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Parts Status
-              </span>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#22d3ee', marginTop: '0.2rem' }}>
-                {Object.values(ownedPartIds).filter(Boolean).length} / {ALL_PC_PARTS.length} Owned
-              </div>
-              <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
-                {percentFunded}% of setup funded
-              </span>
-            </div>
+          <div className="gp-ring">
+            <svg viewBox="0 0 120 120" width="150" height="150">
+              <circle cx="60" cy="60" r={ringR} fill="none" stroke="rgba(160,190,255,.12)" strokeWidth="10" />
+              <circle cx="60" cy="60" r={ringR} fill="none" stroke="url(#gpg)" strokeWidth="10" strokeLinecap="round"
+                strokeDasharray={ringC} strokeDashoffset={ringC * (1 - Math.min(100, percentFunded) / 100)} transform="rotate(-90 60 60)" />
+              <defs><linearGradient id="gpg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#22d3ee" /><stop offset="1" stopColor="#a78bfa" /></linearGradient></defs>
+            </svg>
+            <div className="gp-ring-label"><strong>{percentFunded}%</strong><span>funded</span></div>
           </div>
 
-          {/* Progress Bar */}
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#a5b4d4', marginBottom: '0.35rem' }}>
-              <span>Progress: <strong>{percentFunded}%</strong> Funded</span>
-              <span>Still Remaining: <strong style={{ color: '#ff6b9a' }}>{formatINR(remainingNeededInr, true)}</strong></span>
-            </div>
-            <div style={{
-              height: 8,
-              borderRadius: 999,
-              background: 'rgba(255,255,255, 0.08)',
-              overflow: 'hidden',
-            }}>
-              <div style={{
-                height: '100%',
-                width: `${Math.max(1, percentFunded)}%`,
-                borderRadius: 999,
-                background: 'linear-gradient(90deg, #a78bfa 0%, #ec4899 50%, #22d3ee 100%)',
-                boxShadow: '0 0 10px rgba(167,139,250, 0.5)',
-                transition: 'width 0.4s ease',
-              }} />
-            </div>
+          <dl className="gp-stats">
+            <div><dt>Total {ALL_PC_PARTS.length}-part setup cost</dt><dd>{formatINR(totalBuildPriceInr, true)}<small>${totalBuildPriceUsd.toLocaleString()} USD</small></dd></div>
+            <div><dt>Your current net wealth</dt><dd className="pos">{formatINR(currentNetWealth, true)}<small>Bank + Gold + Crypto + Rewards</small></dd></div>
+            <div><dt>Still needed</dt><dd className="neg">{formatINR(remainingNeededInr, true)}<small>Exact remaining gap to reach goal</small></dd></div>
+            <div><dt>Parts status</dt><dd>{ownedCount} / {ALL_PC_PARTS.length} owned<small>{percentFunded}% of setup funded</small></dd></div>
+          </dl>
+
+          <nav className="gp-cats" aria-label="Part categories">
+            {categories.map((cat) => (
+              <button key={cat} className={selectedCategory === cat ? 'active' : ''} onClick={() => setSelectedCategory(cat)}>
+                <span>{cat}</span>
+                <em>{cat === 'All' ? ALL_PC_PARTS.length : ALL_PC_PARTS.filter((p) => p.category === cat).length}</em>
+              </button>
+            ))}
+          </nav>
+
+          <div className="gp-actions">
+            <button className="btn-secondary" onClick={handleExportCsv} title="Export parts list as CSV"><Download size={14} /> Export Parts CSV</button>
+            <button className="btn-secondary gp-close" onClick={onClose} title="Close modal"><X size={16} /></button>
           </div>
-        </div>
+        </aside>
 
-        {/* ── Category Filter Pills ── */}
-        <div style={{
-          padding: '0.75rem 1.75rem',
-          borderBottom: '1px solid rgba(255,255,255, 0.06)',
-          display: 'flex',
-          gap: '0.4rem',
-          overflowX: 'auto',
-          background: 'rgba(10,15,35, 0.5)',
-        }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              style={{
-                padding: '0.35rem 0.85rem',
-                borderRadius: '8px',
-                fontSize: '0.78rem',
-                fontWeight: 600,
-                border: selectedCategory === cat ? '1px solid #a78bfa' : '1px solid rgba(255,255,255, 0.08)',
-                background: selectedCategory === cat ? 'rgba(167,139,250, 0.25)' : 'rgba(255,255,255, 0.04)',
-                color: selectedCategory === cat ? '#ffffff' : '#a5b4d4',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                transition: 'all 0.15s ease',
-              }}
-            >
-              {cat} {cat === 'All' ? `(${ALL_PC_PARTS.length})` : `(${ALL_PC_PARTS.filter((p) => p.category === cat).length})`}
-            </button>
-          ))}
-        </div>
+        {/* ── Main: parts grid ── */}
+        <section className="gp-main">
+          <header className="gp-main-head">
+            <div>
+              <h3>{selectedCategory === 'All' ? 'All Components' : selectedCategory}</h3>
+              <span>{filteredParts.length} parts</span>
+            </div>
+            <div className="gp-goal">Goal <strong>{formatINR(totalBuildPriceInr, true)}</strong> · Still needed <strong className="neg">{formatINR(remainingNeededInr, true)}</strong></div>
+          </header>
 
-        {/* ── Scrollable Parts List Grid ── */}
-        <div style={{
-          padding: '1.5rem 1.75rem',
-          overflowY: 'auto',
-          flex: 1,
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-            gap: '1.25rem',
-          }}>
+          <div className="gp-grid">
             {filteredParts.map((part) => {
               const isOwned = Boolean(ownedPartIds[part.id]);
-
               return (
-                <div
-                  key={part.id}
-                  style={{
-                    background: isOwned ? 'rgba(34,197,94, 0.04)' : 'rgba(10,15,35, 0.8)',
-                    border: isOwned ? '1px solid rgba(34,197,94, 0.4)' : '1px solid rgba(255,255,255, 0.08)',
-                    borderRadius: '16px',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    transition: 'all 0.2s ease',
-                    boxShadow: '0 4px 20px rgba(0,0,0, 0.3)',
-                  }}
-                >
-                  {/* Image with Category Badge & Price Tag */}
-                  <div style={{
-                    position: 'relative',
-                    height: 190,
-                    width: '100%',
-                    background: '#05070f',
-                    overflow: 'hidden',
-                  }}>
+                <article key={part.id} className={`gp-card${isOwned ? ' owned' : ''}`}>
+                  <div className="gp-img">
                     <img
                       src={part.imageUrl}
                       alt={part.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        opacity: isOwned ? 0.6 : 0.9,
-                        transition: 'transform 0.3s ease',
-                      }}
+                      loading="lazy"
                       onError={(e) => {
-                        // Fallback image if unsplash link fails
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&auto=format&fit=crop&q=80';
                       }}
                     />
-                    <div style={{
-                      position: 'absolute',
-                      top: 10,
-                      left: 10,
-                      display: 'flex',
-                      gap: '0.4rem',
-                    }}>
-                      <span className="badge badge-purple" style={{ fontSize: '0.65rem', backdropFilter: 'blur(8px)', background: 'rgba(10,15,35, 0.85)' }}>
-                        {part.subcategory}
-                      </span>
-                    </div>
-
-                    <div style={{
-                      position: 'absolute',
-                      bottom: 10,
-                      right: 10,
-                      background: 'rgba(10,15,35, 0.9)',
-                      border: '1px solid rgba(34,211,238, 0.3)',
-                      borderRadius: '8px',
-                      padding: '0.3rem 0.65rem',
-                      backdropFilter: 'blur(8px)',
-                    }}>
-                      <div style={{ fontSize: '1rem', fontWeight: 800, color: '#f8fbff', lineHeight: 1.1 }}>
-                        {formatINR(part.priceInr, true)}
-                      </div>
-                      <div style={{ fontSize: '0.68rem', color: '#a5b4d4', textAlign: 'right' }}>
-                        ${part.priceUsd} USD
-                      </div>
+                    <span className="badge badge-purple gp-chip">{part.subcategory}</span>
+                    <div className="gp-price"><strong>{formatINR(part.priceInr, true)}</strong><small>${part.priceUsd} USD</small></div>
+                  </div>
+                  <div className="gp-body">
+                    <h4>{part.name}</h4>
+                    <div className="gp-brandline">Recommended brand: {part.recommendedBrand}</div>
+                    <p className="gp-why"><strong>Why chosen:</strong> {part.whyChosen}</p>
+                    <div className="gp-specs">
+                      {part.specs.map((spec, i) => (<span key={i}>{spec}</span>))}
                     </div>
                   </div>
-
-                  {/* Body Content */}
-                  <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                    <div>
-                      {/* Title & Brand */}
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                        <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fbff', margin: 0, lineHeight: 1.3 }}>
-                          {part.name}
-                        </h4>
-                      </div>
-
-                      <div style={{ fontSize: '0.74rem', color: '#a78bfa', fontWeight: 600, marginBottom: '0.65rem' }}>
-                        Recommended Brand: {part.recommendedBrand}
-                      </div>
-
-                      {/* Why Chosen Callout */}
-                      <p style={{
-                        fontSize: '0.78rem',
-                        color: '#a5b4d4',
-                        lineHeight: 1.45,
-                        marginBottom: '0.85rem',
-                        background: 'rgba(255,255,255, 0.03)',
-                        padding: '0.55rem 0.75rem',
-                        borderRadius: '8px',
-                        borderLeft: '3px solid #a78bfa',
-                      }}>
-                        <strong style={{ color: '#cbd5ee' }}>Why Chosen:</strong> {part.whyChosen}
-                      </p>
-
-                      {/* Tech Specs List */}
-                      <div style={{ marginBottom: '1rem' }}>
-                        <span style={{ fontSize: '0.7rem', color: '#6b7a99', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
-                          Technical Specs:
-                        </span>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.3rem' }}>
-                          {part.specs.map((spec, i) => (
-                            <span
-                              key={i}
-                              style={{
-                                fontSize: '0.7rem',
-                                color: '#e2e8f8',
-                                background: 'rgba(255,255,255, 0.06)',
-                                border: '1px solid rgba(255,255,255, 0.08)',
-                                padding: '0.2rem 0.5rem',
-                                borderRadius: '6px',
-                              }}
-                            >
-                              {spec}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Action: Owned / Purchase Toggle */}
-                    <div style={{
-                      paddingTop: '0.85rem',
-                      borderTop: '1px solid rgba(255,255,255, 0.06)',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}>
-                      <button
-                        onClick={() => toggleOwned(part.id)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.45rem',
-                          background: isOwned ? 'rgba(34,197,94, 0.2)' : 'rgba(255,255,255, 0.05)',
-                          border: isOwned ? '1px solid #22c55e' : '1px solid rgba(255,255,255, 0.1)',
-                          color: isOwned ? '#4ade80' : '#a5b4d4',
-                          padding: '0.4rem 0.75rem',
-                          borderRadius: '8px',
-                          fontSize: '0.78rem',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                        }}
-                      >
-                        {isOwned ? <CheckCircle2 size={15} color="#4ade80" /> : <Circle size={15} />}
-                        {isOwned ? 'Purchased / Owned' : 'Mark as Owned'}
-                      </button>
-
-                      <span style={{ fontSize: '0.78rem', fontWeight: 700, color: isOwned ? '#4ade80' : '#f8fbff' }}>
-                        {isOwned ? '₹0 Still Needed' : formatINR(part.priceInr, true)}
-                      </span>
-                    </div>
-
-                  </div>
-                </div>
+                  <button className={`gp-own${isOwned ? ' on' : ''}`} onClick={() => toggleOwned(part.id)}>
+                    <span className="gp-own-l">{isOwned ? <CheckCircle2 size={16} /> : <Circle size={16} />}{isOwned ? 'Purchased / Owned' : 'Mark as owned'}</span>
+                    <span>{isOwned ? '₹0 still needed' : formatINR(part.priceInr, true)}</span>
+                  </button>
+                </article>
               );
             })}
           </div>
-        </div>
 
-        {/* ── Footer ── */}
-        <div style={{
-          padding: '1rem 1.75rem',
-          borderTop: '1px solid rgba(255,255,255, 0.08)',
-          background: '#05070f',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '0.75rem',
-        }}>
-          <div style={{ fontSize: '0.8rem', color: '#a5b4d4' }}>
-            Goal: <strong style={{ color: '#f8fbff' }}>{formatINR(totalBuildPriceInr, true)}</strong> · Still Needed: <strong style={{ color: '#ff6b9a' }}>{formatINR(remainingNeededInr, true)}</strong>
-          </div>
-          <button
-            onClick={onClose}
-            className="btn-primary"
-            style={{ fontSize: '0.85rem', padding: '0.5rem 1.25rem' }}
-          >
-            Done &amp; Return to Dashboard
-          </button>
-        </div>
-
+          <footer className="gp-foot">
+            <button onClick={onClose} className="btn-primary" style={{ padding: '0.6rem 1.5rem' }}>Done &amp; Return to Dashboard</button>
+          </footer>
+        </section>
       </div>
     </div>
   );
