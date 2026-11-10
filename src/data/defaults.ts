@@ -56,21 +56,21 @@ export const INITIAL_STATE: AppState = {
       notes: 'Current balance: 60 points. Ready to redeem via UPI (min 50 pts threshold met)!',
     },
     {
-      id: 'pawns-app',
-      name: 'Pawns.app (IPRoyal)',
+      id: 'pi-network',
+      name: 'Pi Network (Pi Coin)',
       frequency: 'daily',
-      pointsPerCycle: 0.05,
-      currentBalancePoints: 1.447, // User's exact balance: $1.447 USD!
-      pointToRupeeRatio: 84.0, // 1 USD ≈ ₹84 INR
+      pointsPerCycle: 0.48, // Daily mining session (~0.02 Pi/hr)
+      currentBalancePoints: 125.50, // Active mined Pi coins balance
+      pointToRupeeRatio: 3100.0, // Pi consensus / IOU price (~$37 USD ≈ ₹3,100 INR)
       pointConversionFormula: {
         points: 1,
-        rupees: 84,
+        rupees: 3100,
       },
-      ruleDescription: 'Shares unused Wi-Fi bandwidth. Current balance: $1.447 (≈ ₹121.55). Minimum payout is $5.',
-      accentColor: '#a855f7',
-      badge: '$1.447 (₹121.55) — 29% to $5',
+      ruleDescription: '24-hour daily mobile mining session. Tap the lightning bolt every 24 hours to mine Pi.',
+      accentColor: '#f59e0b',
+      badge: '125.5 PI (₹3,89,050 IOU)',
       enabled: true,
-      notes: 'Current balance: $1.447 (≈ ₹121.55). Progress: 29% toward $5 (₹420) PayPal/Bitcoin cashout.',
+      notes: 'Active daily mobile mining. 125.5 PI balance. Mainnet checklist KYC verified.',
     },
   ],
   jobIncome: {
@@ -180,6 +180,19 @@ export const INITIAL_STATE: AppState = {
       currentPriceInr: 14800, // ~₹14,800 per SOL
       valueInr: 8.88, // 0.0006 * 14800
       notes: 'Hourly Faucet (https://solpick.io/faucet.php). Min withdraw: 0.0025 SOL (24% reached, 0.0019 SOL left)',
+      lastUpdated: new Date().toISOString(),
+    },
+    {
+      id: 'crypto-pi-network',
+      name: 'Pi Network Coin',
+      symbol: 'PI',
+      platform: 'Pi Browser',
+      category: 'Layer 1',
+      balance: 125.50,
+      availableBalance: 125.50,
+      currentPriceInr: 3100, // ~₹3,100 per PI (IOU / Consensus)
+      valueInr: 389050, // 125.5 * 3100
+      notes: 'Pi Network non-custodial wallet (Pi Browser). Mainnet migrated.',
       lastUpdated: new Date().toISOString(),
     },
   ],

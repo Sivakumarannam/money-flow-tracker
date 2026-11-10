@@ -165,32 +165,32 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       },
     },
     {
-      id: 'pawns-bandwidth',
-      name: 'Pawns.app (IPRoyal - Not Honeygain)',
-      category: 'Network Usage / Bandwidth Sharing',
-      difficulty: '100% Zero Effort (Android / PC)',
-      earningPotential: '₹400 - ₹1,200 / month ($5 - $15)',
-      payoutMethod: 'PayPal / Bitcoin / Virtual Visa Card',
-      minPayout: '$5 (≈ ₹420)',
-      signupRequirement: 'Gmail Only (No Phone #)',
-      isBandwidthApp: true,
-      description: 'Legitimate bandwidth sharing app (not Honeygain). Shares unused internet with verified businesses for price comparison. Sign up with Gmail + password with ZERO phone number required.',
-      alreadyTracking: existingAppIds.includes('pawns-bandwidth'),
-      badgeColor: 'badge-green',
+      id: 'pi-network',
+      name: 'Pi Network (Pi Coin Mining)',
+      category: 'Mobile Crypto Mining (Layer 1)',
+      difficulty: '1 Tap / 24 Hours (Android / iOS)',
+      earningPotential: '0.48 - 1.2 PI / day (High Future Upside)',
+      payoutMethod: 'Pi Browser Wallet / Mainnet Transfer',
+      minPayout: '1 PI (Mainnet Checklist)',
+      signupRequirement: 'Phone / Facebook / Apple ID',
+      isBandwidthApp: false,
+      description: 'Zero-battery, zero-investment mobile mining. Developed by Stanford PhDs. Mine native Pi coins daily by tapping the lightning button every 24 hours.',
+      alreadyTracking: existingAppIds.includes('pi-network'),
+      badgeColor: 'badge-amber',
       appData: {
-        id: 'pawns-bandwidth',
-        name: 'Pawns.app Bandwidth Sharing',
-        frequency: 'monthly',
-        pointsPerCycle: 500,
-        pointToRupeeRatio: 1,
+        id: 'pi-network',
+        name: 'Pi Network (Pi Coin)',
+        frequency: 'daily',
+        pointsPerCycle: 0.48,
+        pointToRupeeRatio: 3100,
         pointConversionFormula: {
           points: 1,
-          rupees: 1,
+          rupees: 3100,
         },
-        currentBalancePoints: 200,
-        ruleDescription: 'Passive background internet sharing when connected to Wi-Fi. Payouts in USD/PayPal.',
-        accentColor: '#10b981',
-        badge: '100% Passive',
+        currentBalancePoints: 125.50,
+        ruleDescription: '24-hour daily mobile mining session. Tap the lightning bolt every 24 hours to mine Pi.',
+        accentColor: '#f59e0b',
+        badge: '125.5 PI (₹3,89,050 IOU)',
         enabled: true,
       },
     },
@@ -740,7 +740,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                 color: '#cbd5e1',
                 fontSize: '0.85rem',
               }}>
-                <strong style={{ color: '#34d399' }}>Gmail-Only Strategy:</strong> Since you only want to use Gmail (no phone number), DePIN bandwidth apps like <strong>UpRock, Grass, Nodepay, Pawns, and Repocket</strong> are perfect! They only require an email address or Google OAuth, keeping your personal phone number 100% private.
+                <strong style={{ color: '#34d399' }}>Gmail-Only Strategy:</strong> Since you only want to use Gmail (no phone number), DePIN bandwidth apps like <strong>UpRock, Grass, Nodepay, and Repocket</strong> are perfect! They only require an email address or Google OAuth, keeping your personal phone number 100% private.
               </div>
 
               <div style={{
@@ -752,7 +752,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                   {
                     icon: Mail,
                     title: '1. Secondary Gmail Account',
-                    desc: 'Create a free dedicated Gmail (e.g. yourname.depin@gmail.com). You will use this single email to log into Grass, UpRock, Nodepay, Pawns, and Repocket without entering any phone number.',
+                    desc: 'Create a free dedicated Gmail (e.g. yourname.depin@gmail.com). You will use this single email to log into Grass, UpRock, Nodepay, and Repocket without entering any phone number.',
                     status: 'Essential (No Phone #)',
                   },
                   {
@@ -781,9 +781,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                   },
                   {
                     icon: FileText,
-                    title: '6. Free PayPal India Account',
-                    desc: 'Used to withdraw cash from Pawns.app or Repocket. Links your USD earnings directly to your Indian bank account.',
-                    status: 'Optional for USD',
+                    title: '6. Pi Browser & Non-Custodial Wallet',
+                    desc: 'Used to store and transfer mined Pi Network coins on Mainnet. Secure with your 24-word passphrase.',
+                    status: 'Active (125.5 PI)',
                   },
                   {
                     icon: DollarSign,
@@ -851,7 +851,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     {
                       step: 'Step 1: Setup Dedicated Gmail',
                       title: 'Prepare Dedicated Gmail Account',
-                      action: 'Use 1 Gmail account to sign into UpRock, Grass, Nodepay, Pawns, and Repocket. Never enter a phone number on any of them.',
+                      action: 'Use 1 Gmail account to sign into UpRock, Grass, Nodepay, and Repocket. Never enter a phone number on any of them.',
                       reward: '100% Privacy',
                     },
                     {

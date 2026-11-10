@@ -141,7 +141,7 @@ export interface CryptoHolding {
   id: string;
   name: string;
   symbol: string;
-  platform: 'Binance' | 'Phantom' | 'Sweat Wallet' | 'ZebPay' | 'SolPick' | 'Other';
+  platform: 'Binance' | 'Phantom' | 'Sweat Wallet' | 'ZebPay' | 'SolPick' | 'Pi Browser' | 'Other';
   category: 'DePIN' | 'Move-to-Earn' | 'Layer 1' | 'Exchange' | 'Ad Rewards' | 'Faucet';
   balance: number;
   availableBalance?: number;

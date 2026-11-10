@@ -30,7 +30,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
   // Form states for adding new coin
   const [newName, setNewName] = useState('');
   const [newSymbol, setNewSymbol] = useState('');
-  const [newPlatform, setNewPlatform] = useState<'Binance' | 'Phantom' | 'Sweat Wallet' | 'Other'>('Phantom');
+  const [newPlatform, setNewPlatform] = useState<'Binance' | 'Phantom' | 'Sweat Wallet' | 'SolPick' | 'Pi Browser' | 'Other'>('Phantom');
   const [newCategory, setNewCategory] = useState<'DePIN' | 'Move-to-Earn' | 'Layer 1' | 'Exchange'>('DePIN');
   const [newBalance, setNewBalance] = useState<number>(0);
   const [newPriceInr, setNewPriceInr] = useState<number>(1);
@@ -106,6 +106,8 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
         return { bg: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: 'rgba(16, 185, 129, 0.3)' };
       case 'ZebPay':
         return { bg: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: 'rgba(59, 130, 246, 0.3)' };
+      case 'Pi Browser':
+        return { bg: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: 'rgba(245, 158, 11, 0.3)' };
       default:
         return { bg: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', border: 'rgba(56, 189, 248, 0.3)' };
     }
@@ -651,6 +653,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     }}
                   >
                     <option value="Phantom">Phantom Wallet (Solana)</option>
+                    <option value="Pi Browser">Pi Browser (Pi Network)</option>
                     <option value="SolPick">SolPick Faucet</option>
                     <option value="Binance">Binance App</option>
                     <option value="Sweat Wallet">Sweat Wallet</option>

@@ -60,7 +60,7 @@ export function App() {
           balance: syncedBankBalance,
         };
 
-        // Clean out deprecated Brave BAT and ensure SolPick is included
+        // Clean out deprecated Brave BAT and ensure SolPick and Pi Network are included
         const cleanedHoldings = (parsed.cryptoHoldings || [])
           .filter((h: any) => h.id !== 'crypto-brave-bat');
 
@@ -71,6 +71,10 @@ export function App() {
           ),
         ];
 
+        // Filter out Pawns.app from cached reward apps
+        const savedRewardApps = (parsed.rewardApps || [])
+          .filter((a: any) => a.id !== 'pawns-app' && a.id !== 'pawns-bandwidth');
+
         return {
           ...INITIAL_STATE,
           ...parsed,
@@ -78,7 +82,7 @@ export function App() {
           bankAccount: loadedBankAccount,
           cryptoHoldings: mergedHoldings,
           rewardApps: INITIAL_STATE.rewardApps.map((initApp) => {
-            const existing = parsed.rewardApps?.find((a: any) => a.id === initApp.id);
+            const existing = savedRewardApps.find((a: any) => a.id === initApp.id);
             return existing ? { ...initApp, ...existing } : initApp;
           }),
           manualTransactions: loadedTxs,
