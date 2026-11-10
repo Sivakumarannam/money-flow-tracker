@@ -24,6 +24,8 @@ import { InvestmentGrowthSection } from './components/InvestmentGrowthSection';
 import { ZeroInvestmentGuideModal } from './components/ZeroInvestmentGuideModal';
 import { GamingPcGoalCard } from './components/GamingPcGoalCard';
 import { GamingPcSetupModal } from './components/GamingPcSetupModal';
+import { PageTabs, PAGES } from './components/PageTabs';
+import type { PageId } from './components/PageTabs';
 
 const STORAGE_KEY = 'moneyflow_app_state_real_v9';
 
@@ -128,6 +130,15 @@ export function App() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isZeroGuideOpen, setIsZeroGuideOpen] = useState(false);
   const [isGamingPcOpen, setIsGamingPcOpen] = useState(false);
+  const [page, setPageState] = useState<PageId>(() => {
+    const h = window.location.hash.slice(1) as PageId;
+    return PAGES.some((x) => x.id === h) ? h : 'overview';
+  });
+  const setPage = (p: PageId) => {
+    setPageState(p);
+    window.location.hash = p;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Sync to localStorage
@@ -604,115 +615,100 @@ export function App() {
         onOpenGamingPc={() => setIsGamingPcOpen(true)}
       />
 
-      {/* Today's Claim Center Widget */}
-      <TodayClaimWidget
-        apps={state.rewardApps}
-        todayClaims={todayClaims}
-        onClaim={handleClaimApp}
-        onUnclaim={handleUnclaimApp}
-        recentLogs={state.claimLogs.slice(0, 5)}
-      />
+      <PageTabs active={page} onChange={setPage} />
 
-      {/* Bank Account & Live Paytm Gold Portfolio */}
-      <LiveGoldAssetSection
-        bankAccount={syncedBankAccount}
-        goldHolding={state.goldHolding || INITIAL_STATE.goldHolding}
-        cryptoTotalInr={totalCryptoVal}
-        nielsenCashValue={nielsenCashVal}
-        vtionCashValue={vtionCashVal}
-        nielsenPoints={nielsenApp?.currentBalancePoints || 2450}
-        vtionPoints={vtionApp?.currentBalancePoints || 60}
-        onUpdateBank={handleUpdateBank}
-        onUpdateGold={handleUpdateGold}
-        onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
-      />
+      <main className="page" key={page}>
+      {page === 'overview' && (
+        <>
+          <TodayClaimWidget
+            apps={state.rewardApps}
+            todayClaims={todayClaims}
+            onClaim={handleClaimApp}
+            onUnclaim={handleUnclaimApp}
+            recentLogs={state.claimLogs.slice(0, 5)}
+          />
+          <TimeframeTabs activePeriod={activePeriod} onChange={setActivePeriod} />
+          <MetricCards summary={currentSummary} />
+          <GamingPcGoalCard currentWealth={totalNetWealth} onOpenModal={() => setIsGamingPcOpen(true)} />
+          <ProjectionsVisualizer summary={currentSummary} />
+        </>
+      )}
 
-      {/* Crypto, Web3 & DePIN Portfolio (Binance, Sweat Wallet, UpRock, Solana) */}
-      <CryptoWalletSection
-        holdings={currentCryptoHoldings}
-        onUpdateHolding={handleUpdateCrypto}
-        onAddHolding={handleAddCrypto}
-        onDeleteHolding={handleDeleteCrypto}
-        onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
-      />
+      {page === 'wealth' && (
+        <>
+          <LiveGoldAssetSection
+            bankAccount={syncedBankAccount}
+            goldHolding={state.goldHolding || INITIAL_STATE.goldHolding}
+            cryptoTotalInr={totalCryptoVal}
+            nielsenCashValue={nielsenCashVal}
+            vtionCashValue={vtionCashVal}
+            nielsenPoints={nielsenApp?.currentBalancePoints || 2450}
+            vtionPoints={vtionApp?.currentBalancePoints || 60}
+            onUpdateBank={handleUpdateBank}
+            onUpdateGold={handleUpdateGold}
+            onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
+          />
+          <CryptoWalletSection
+            holdings={currentCryptoHoldings}
+            onUpdateHolding={handleUpdateCrypto}
+            onAddHolding={handleAddCrypto}
+            onDeleteHolding={handleDeleteCrypto}
+            onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
+          />
+          <InvestmentGrowthSection
+            investments={state.investments}
+            onAddInvestment={handleAddInvestment}
+            onDeleteInvestment={handleDeleteInvestment}
+          />
+        </>
+      )}
 
-      {/* Timeframe Selector Tabs */}
-      <TimeframeTabs
-        activePeriod={activePeriod}
-        onChange={setActivePeriod}
-      />
+      {page === 'rewards' && (
+        <>
+          <RewardAppsSection
+            apps={state.rewardApps}
+            onUpdateApp={handleUpdateApp}
+            onAddApp={handleAddApp}
+            onDeleteApp={handleDeleteApp}
+            onClaimApp={handleClaimApp}
+            onUnclaimApp={handleUnclaimApp}
+            onQuickRedeem={handleQuickRedeem}
+            todayClaims={todayClaims}
+          />
+          <AttendanceCalendar state={state} onToggleClaimDate={handleToggleClaimDate} />
+          <RedemptionWalletSection
+            state={state}
+            onAddRedemption={handleAddRedemption}
+            onDeleteRedemption={handleDeleteRedemption}
+          />
+        </>
+      )}
 
-      {/* Top Metric Cards for Active Period */}
-      <MetricCards summary={currentSummary} />
+      {page === 'cashflow' && (
+        <>
+          <TimeframeTabs activePeriod={activePeriod} onChange={setActivePeriod} />
+          <ManualCashflowSection
+            transactions={state.manualTransactions || []}
+            onAddTransaction={handleAddTransaction}
+            onDeleteTransaction={handleDeleteTransaction}
+          />
+          <JobEarningsCard job={state.jobIncome} onUpdateJob={handleUpdateJob} />
+          <ExpenseTrackerSection
+            expenses={state.expenses}
+            activePeriod={activePeriod}
+            onAddExpense={handleAddExpense}
+            onDeleteExpense={handleDeleteExpense}
+          />
+        </>
+      )}
 
-      {/* Dream Target Goal: Complete Pro Gaming PC Setup Card */}
-      <GamingPcGoalCard
-        currentWealth={totalNetWealth}
-        onOpenModal={() => setIsGamingPcOpen(true)}
-      />
-
-      {/* Manual Money Tracker: Added & Debited Inputs with Submit Button */}
-      <ManualCashflowSection
-        transactions={state.manualTransactions || []}
-        onAddTransaction={handleAddTransaction}
-        onDeleteTransaction={handleDeleteTransaction}
-      />
-
-      {/* Master Calculations Matrix: All 4 Timeframes Side-by-Side */}
-      <DetailedCalculationMatrix state={state} />
-
-      {/* Visual Charts: Cashflow Outflows & Income Stream Distribution */}
-      <ProjectionsVisualizer summary={currentSummary} />
-
-      {/* Passive Earning Goal & Compounding Simulator */}
-      <PassiveIncomeSimulator state={state} />
-
-      {/* Attendance & Streak Calendar */}
-      <AttendanceCalendar
-        state={state}
-        onToggleClaimDate={handleToggleClaimDate}
-      />
-
-      {/* Reward Apps Section: Nielsen More & Vtion Digital & Custom Apps */}
-      <RewardAppsSection
-        apps={state.rewardApps}
-        onUpdateApp={handleUpdateApp}
-        onAddApp={handleAddApp}
-        onDeleteApp={handleDeleteApp}
-        onClaimApp={handleClaimApp}
-        onUnclaimApp={handleUnclaimApp}
-        onQuickRedeem={handleQuickRedeem}
-        todayClaims={todayClaims}
-      />
-
-      {/* Points Wallet & Cashout Ledger */}
-      <RedemptionWalletSection
-        state={state}
-        onAddRedemption={handleAddRedemption}
-        onDeleteRedemption={handleDeleteRedemption}
-      />
-
-      {/* Job Earnings Card */}
-      <JobEarningsCard
-        job={state.jobIncome}
-        onUpdateJob={handleUpdateJob}
-      />
-
-      {/* Grid: Expenses & Investments side-by-side or stacked */}
-      <div className="grid-2col">
-        <ExpenseTrackerSection
-          expenses={state.expenses}
-          activePeriod={activePeriod}
-          onAddExpense={handleAddExpense}
-          onDeleteExpense={handleDeleteExpense}
-        />
-
-        <InvestmentGrowthSection
-          investments={state.investments}
-          onAddInvestment={handleAddInvestment}
-          onDeleteInvestment={handleDeleteInvestment}
-        />
-      </div>
+      {page === 'planner' && (
+        <>
+          <DetailedCalculationMatrix state={state} />
+          <PassiveIncomeSimulator state={state} />
+        </>
+      )}
+      </main>
 
       {/* Footer Info */}
       <footer className="app-footer">

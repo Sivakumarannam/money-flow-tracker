@@ -51,7 +51,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(0, 0, 0, 0.75)',
+      background: 'rgba(0,0,0, 0.75)',
       backdropFilter: 'blur(8px)',
       display: 'flex',
       alignItems: 'center',
@@ -63,8 +63,8 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
         width: '100%',
         maxWidth: '560px',
         padding: '1.75rem',
-        border: '1px solid rgba(56, 189, 248, 0.35)',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.2)',
+        border: '1px solid rgba(34,211,238, 0.35)',
+        boxShadow: '0 20px 50px rgba(0,0,0, 0.6), 0 0 30px rgba(34,211,238, 0.2)',
       }}>
         {/* Modal Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
@@ -73,19 +73,19 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
               width: '40px',
               height: '40px',
               borderRadius: '12px',
-              background: 'rgba(56, 189, 248, 0.2)',
+              background: 'rgba(34,211,238, 0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#38bdf8',
+              color: '#22d3ee',
             }}>
               <Sparkles size={20} />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', margin: 0 }}>
+              <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', margin: 0 }}>
                 Configure {app.name} Point Conversion
               </h3>
-              <p style={{ fontSize: '0.825rem', color: '#94a3b8', margin: '0.15rem 0 0 0' }}>
+              <p style={{ fontSize: '0.825rem', color: '#a5b4d4', margin: '0.15rem 0 0 0' }}>
                 Set your exact redemption rules (gift vouchers, UPI cash, etc.)
               </p>
             </div>
@@ -95,7 +95,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#94a3b8',
+              color: '#a5b4d4',
               cursor: 'pointer',
               padding: '0.35rem',
             }}
@@ -106,8 +106,8 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
 
         {/* Info Banner */}
         <div style={{
-          background: 'rgba(56, 189, 248, 0.08)',
-          border: '1px solid rgba(56, 189, 248, 0.2)',
+          background: 'rgba(34,211,238, 0.08)',
+          border: '1px solid rgba(34,211,238, 0.2)',
           borderRadius: '12px',
           padding: '0.85rem 1rem',
           marginBottom: '1.25rem',
@@ -117,7 +117,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
           gap: '0.65rem',
           alignItems: 'flex-start',
         }}>
-          <HelpCircle size={18} style={{ flexShrink: 0, marginTop: '2px', color: '#38bdf8' }} />
+          <HelpCircle size={18} style={{ flexShrink: 0, marginTop: '2px', color: '#22d3ee' }} />
           <div>
             <strong>How it works:</strong> You earn <strong>50 points daily</strong> on Nielsen More.
             When you know how many points are needed for cash or vouchers, type it here! All calculations will instantly update.
@@ -138,14 +138,14 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
                 required
                 style={{ fontSize: '1.1rem', fontWeight: 700 }}
               />
-              <span style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.2rem', display: 'block' }}>
+              <span style={{ fontSize: '0.75rem', color: '#6b7a99', marginTop: '0.2rem', display: 'block' }}>
                 e.g. 1,000 points
               </span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '1rem' }}>
-              <span style={{ fontSize: '0.85rem', color: '#94a3b8', fontWeight: 600 }}>EQUALS</span>
-              <ArrowRight size={20} color="#38bdf8" />
+              <span style={{ fontSize: '0.85rem', color: '#a5b4d4', fontWeight: 600 }}>EQUALS</span>
+              <ArrowRight size={20} color="#22d3ee" />
             </div>
 
             <div>
@@ -160,7 +160,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
                 required
                 style={{ fontSize: '1.1rem', fontWeight: 700 }}
               />
-              <span style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.2rem', display: 'block' }}>
+              <span style={{ fontSize: '0.75rem', color: '#6b7a99', marginTop: '0.2rem', display: 'block' }}>
                 e.g. ₹100 Rupees
               </span>
             </div>
@@ -168,7 +168,7 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
 
           {/* Quick Presets */}
           <div style={{ marginBottom: '1.25rem' }}>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>
+            <span style={{ fontSize: '0.75rem', color: '#a5b4d4', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>
               POPULAR QUICK PRESETS:
             </span>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
@@ -181,12 +181,12 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
                     setRupeesInput(p.rs);
                   }}
                   style={{
-                    background: 'rgba(30, 41, 59, 0.6)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: 'rgba(26,36,70, 0.6)',
+                    border: '1px solid rgba(255,255,255, 0.08)',
                     borderRadius: '8px',
                     padding: '0.35rem 0.65rem',
                     fontSize: '0.75rem',
-                    color: '#e2e8f0',
+                    color: '#e2e8f8',
                     cursor: 'pointer',
                   }}
                 >
@@ -198,35 +198,35 @@ export const NielsenFormulaModal: React.FC<NielsenFormulaModalProps> = ({
 
           {/* Live Preview Box */}
           <div style={{
-            background: 'rgba(15, 23, 42, 0.9)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            background: 'rgba(10,15,35, 0.9)',
+            border: '1px solid rgba(255,255,255, 0.1)',
             borderRadius: '14px',
             padding: '1rem',
             marginBottom: '1.5rem',
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
-              <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 600 }}>EFFECTIVE VALUE</span>
+              <span style={{ fontSize: '0.8rem', color: '#a5b4d4', fontWeight: 600 }}>EFFECTIVE VALUE</span>
               <span className="badge badge-blue">
                 1 Point = ₹{calculatedRatio.toFixed(3)}
               </span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', textAlign: 'center' }}>
-              <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Daily (50 pts)</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#38bdf8' }}>{formatINR(dailyYieldRupees, true)}</div>
+              <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
+                <div style={{ fontSize: '0.7rem', color: '#a5b4d4' }}>Daily (50 pts)</div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#22d3ee' }}>{formatINR(dailyYieldRupees, true)}</div>
               </div>
-              <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Weekly (350 pts)</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#38bdf8' }}>{formatINR(weeklyYieldRupees, true)}</div>
+              <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
+                <div style={{ fontSize: '0.7rem', color: '#a5b4d4' }}>Weekly (350 pts)</div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#22d3ee' }}>{formatINR(weeklyYieldRupees, true)}</div>
               </div>
-              <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Monthly (~1.5k)</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#38bdf8' }}>{formatINR(monthlyYieldRupees, true)}</div>
+              <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
+                <div style={{ fontSize: '0.7rem', color: '#a5b4d4' }}>Monthly (~1.5k)</div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#22d3ee' }}>{formatINR(monthlyYieldRupees, true)}</div>
               </div>
-              <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Yearly (18.2k)</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#34d399' }}>{formatINR(yearlyYieldRupees)}</div>
+              <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.5rem', borderRadius: '8px' }}>
+                <div style={{ fontSize: '0.7rem', color: '#a5b4d4' }}>Yearly (18.2k)</div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#34f5c5' }}>{formatINR(yearlyYieldRupees)}</div>
               </div>
             </div>
           </div>

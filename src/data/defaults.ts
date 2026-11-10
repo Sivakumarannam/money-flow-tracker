@@ -32,7 +32,7 @@ export const INITIAL_STATE: AppState = {
         rupees: 100,
       },
       ruleDescription: '50 points daily. 1,100 pts = ₹100 UPI (11 pts = ₹1).',
-      accentColor: '#38bdf8', // Sky Cyan
+      accentColor: '#22d3ee', // Sky Cyan
       badge: '2,450 Pts (₹222.73) — ₹200 UPI Ready!',
       enabled: true,
       notes: 'Current balance: 2,450 points. You are eligible for ₹200 UPI redemption (2200 pts) right now!',
@@ -50,7 +50,7 @@ export const INITIAL_STATE: AppState = {
         rupees: 1,
       },
       ruleDescription: 'Points added every Tuesday. 1 Point = ₹1. Min 50 points to redeem via UPI.',
-      accentColor: '#10b981', // Emerald Green
+      accentColor: '#14d9a0', // Emerald Green
       badge: '60 Pts (₹60) — Ready to Redeem!',
       enabled: true,
       notes: 'Current balance: 60 points. Ready to redeem via UPI (min 50 pts threshold met)!',

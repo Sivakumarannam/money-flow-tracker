@@ -170,13 +170,13 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
             alignItems: 'center',
             justifyContent: 'center',
             color: '#fff',
-            boxShadow: '0 4px 14px rgba(245, 158, 11, 0.35)',
+            boxShadow: '0 4px 14px rgba(245,158,11, 0.35)',
           }}>
             <Landmark size={24} />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-              <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
+              <h2 style={{ fontSize: '1.35rem', color: '#f8fbff', margin: 0 }}>
                 Bank Account & Live Paytm Gold Portfolio
               </h2>
               <span className="badge badge-amber" style={{ fontSize: '0.7rem' }}>
@@ -189,8 +189,8 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   style={{
                     fontSize: '0.7rem',
                     cursor: 'pointer',
-                    border: '1px solid rgba(16, 185, 129, 0.4)',
-                    background: 'rgba(16, 185, 129, 0.15)',
+                    border: '1px solid rgba(20,217,160, 0.4)',
+                    background: 'rgba(20,217,160, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.3rem',
@@ -201,7 +201,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                 </button>
               )}
             </div>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.2rem' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.85rem', marginTop: '0.2rem' }}>
               Your real-time bank funds and 24K digital gold with live market price tracking
             </p>
           </div>
@@ -209,12 +209,12 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
 
         {/* Total Liquid Net Worth Chip with View Mode Selector */}
         <div style={{
-          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%)',
-          border: '1px solid rgba(16, 185, 129, 0.35)',
+          background: 'linear-gradient(135deg, rgba(20,217,160, 0.12) 0%, rgba(10,15,35, 0.95) 100%)',
+          border: '1px solid rgba(20,217,160, 0.35)',
           borderRadius: '16px',
           padding: '0.75rem 1.25rem',
           textAlign: 'right',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+          boxShadow: '0 8px 24px rgba(0,0,0, 0.3)',
         }}>
           {/* Liquidity Mode Selector (3 options) */}
           <div style={{ display: 'flex', gap: '0.35rem', justifyContent: 'flex-end', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
@@ -225,9 +225,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                 fontWeight: liquidityMode === 'direct' ? 700 : 500,
                 padding: '0.22rem 0.55rem',
                 borderRadius: '8px',
-                border: liquidityMode === 'direct' ? '1px solid rgba(56, 189, 248, 0.5)' : '1px solid transparent',
-                background: liquidityMode === 'direct' ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                color: liquidityMode === 'direct' ? '#38bdf8' : '#94a3b8',
+                border: liquidityMode === 'direct' ? '1px solid rgba(34,211,238, 0.5)' : '1px solid transparent',
+                background: liquidityMode === 'direct' ? 'rgba(34,211,238, 0.2)' : 'rgba(255,255,255, 0.05)',
+                color: liquidityMode === 'direct' ? '#22d3ee' : '#a5b4d4',
                 cursor: 'pointer',
                 transition: 'all 0.15s',
               }}
@@ -241,9 +241,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                 fontWeight: liquidityMode === 'crypto' ? 700 : 500,
                 padding: '0.22rem 0.55rem',
                 borderRadius: '8px',
-                border: liquidityMode === 'crypto' ? '1px solid rgba(168, 85, 247, 0.5)' : '1px solid transparent',
-                background: liquidityMode === 'crypto' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                color: liquidityMode === 'crypto' ? '#c084fc' : '#94a3b8',
+                border: liquidityMode === 'crypto' ? '1px solid rgba(167,139,250, 0.5)' : '1px solid transparent',
+                background: liquidityMode === 'crypto' ? 'rgba(167,139,250, 0.2)' : 'rgba(255,255,255, 0.05)',
+                color: liquidityMode === 'crypto' ? '#c4b5fd' : '#a5b4d4',
                 cursor: 'pointer',
                 transition: 'all 0.15s',
               }}
@@ -257,9 +257,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                 fontWeight: liquidityMode === 'all' ? 700 : 500,
                 padding: '0.22rem 0.55rem',
                 borderRadius: '8px',
-                border: liquidityMode === 'all' ? '1px solid rgba(16, 185, 129, 0.5)' : '1px solid transparent',
-                background: liquidityMode === 'all' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                color: liquidityMode === 'all' ? '#34d399' : '#94a3b8',
+                border: liquidityMode === 'all' ? '1px solid rgba(20,217,160, 0.5)' : '1px solid transparent',
+                background: liquidityMode === 'all' ? 'rgba(20,217,160, 0.2)' : 'rgba(255,255,255, 0.05)',
+                color: liquidityMode === 'all' ? '#34f5c5' : '#a5b4d4',
                 cursor: 'pointer',
                 transition: 'all 0.15s',
               }}
@@ -269,16 +269,16 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           </div>
 
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: '0.5rem' }}>
-            <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               {liquidityMode === 'direct' ? 'Direct Liquid Assets' : liquidityMode === 'crypto' ? 'Liquid + Crypto Portfolio' : 'Grand Total Net Wealth'}:
             </span>
-            <span style={{ fontSize: '1.55rem', fontWeight: 800, color: liquidityMode === 'crypto' ? '#c084fc' : '#34d399', letterSpacing: '-0.02em' }}>
+            <span style={{ fontSize: '1.55rem', fontWeight: 800, color: liquidityMode === 'crypto' ? '#c4b5fd' : '#34f5c5', letterSpacing: '-0.02em' }}>
               {formatINR(displayedWealth, true)}
             </span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '0.25rem' }}>
-            <span style={{ fontSize: '0.72rem', color: liquidityMode === 'crypto' ? '#e9d5ff' : '#6ee7b7' }}>
+            <span style={{ fontSize: '0.72rem', color: liquidityMode === 'crypto' ? '#ede9fe' : '#8bffe0' }}>
               {liquidityMode === 'direct' ? (
                 <>Bank (₹{bankAccount.balance}) + Gold (₹{goldHolding.currentValue})</>
               ) : liquidityMode === 'crypto' ? (
@@ -292,7 +292,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: '#38bdf8',
+                color: '#22d3ee',
                 cursor: 'pointer',
                 fontSize: '0.7rem',
                 display: 'flex',
@@ -312,29 +312,29 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
       {/* Explanatory Math Audit Dropdown */}
       {showAuditExplainer && (
         <div style={{
-          background: 'rgba(15, 23, 42, 0.95)',
-          border: '1px solid rgba(56, 189, 248, 0.3)',
+          background: 'rgba(10,15,35, 0.95)',
+          border: '1px solid rgba(34,211,238, 0.3)',
           borderRadius: '14px',
           padding: '1.25rem',
           marginBottom: '1.5rem',
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+          boxShadow: '0 10px 30px rgba(0,0,0, 0.5)',
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <HelpCircle size={18} color="#38bdf8" />
-              <h4 style={{ margin: 0, fontSize: '0.95rem', color: '#f8fafc', fontWeight: 700 }}>
+              <HelpCircle size={18} color="#22d3ee" />
+              <h4 style={{ margin: 0, fontSize: '0.95rem', color: '#f8fbff', fontWeight: 700 }}>
                 Exact Wealth & Liquidity Audit (Why ₹2,228.64 was wrong)
               </h4>
             </div>
             <button
               onClick={() => setShowAuditExplainer(false)}
-              style={{ background: 'transparent', border: 'none', color: '#64748b', cursor: 'pointer' }}
+              style={{ background: 'transparent', border: 'none', color: '#6b7a99', cursor: 'pointer' }}
             >
               ✕
             </button>
           </div>
 
-          <p style={{ color: '#94a3b8', fontSize: '0.82rem', lineHeight: '1.5', margin: '0 0 1rem 0' }}>
+          <p style={{ color: '#a5b4d4', fontSize: '0.82rem', lineHeight: '1.5', margin: '0 0 1rem 0' }}>
             You rightly noticed the discrepancy! Here is the exact mathematical breakdown of every rupee:
           </p>
 
@@ -344,40 +344,40 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
             gap: '0.75rem',
             marginBottom: '1rem',
           }}>
-            <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <span style={{ fontSize: '0.7rem', color: '#64748b', display: 'block' }}>1. Primary Bank Account</span>
-              <strong style={{ fontSize: '1rem', color: '#38bdf8' }}>₹{bankAccount.balance.toFixed(2)}</strong>
-              <span style={{ fontSize: '0.7rem', color: '#94a3b8', display: 'block' }}>100% Instant In-Hand Cash</span>
+            <div style={{ background: 'rgba(26,36,70, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+              <span style={{ fontSize: '0.7rem', color: '#6b7a99', display: 'block' }}>1. Primary Bank Account</span>
+              <strong style={{ fontSize: '1rem', color: '#22d3ee' }}>₹{bankAccount.balance.toFixed(2)}</strong>
+              <span style={{ fontSize: '0.7rem', color: '#a5b4d4', display: 'block' }}>100% Instant In-Hand Cash</span>
             </div>
 
-            <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <span style={{ fontSize: '0.7rem', color: '#64748b', display: 'block' }}>2. Paytm 24K Gold (0.0017g)</span>
+            <div style={{ background: 'rgba(26,36,70, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+              <span style={{ fontSize: '0.7rem', color: '#6b7a99', display: 'block' }}>2. Paytm 24K Gold (0.0017g)</span>
               <strong style={{ fontSize: '1rem', color: '#f59e0b' }}>₹{goldHolding.currentValue.toFixed(2)}</strong>
-              <span style={{ fontSize: '0.7rem', color: '#94a3b8', display: 'block' }}>Direct Liquid Gold Asset</span>
+              <span style={{ fontSize: '0.7rem', color: '#a5b4d4', display: 'block' }}>Direct Liquid Gold Asset</span>
             </div>
 
-            <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <span style={{ fontSize: '0.7rem', color: '#64748b', display: 'block' }}>3. Nielsen More (2,450 pts)</span>
-              <strong style={{ fontSize: '1rem', color: '#34d399' }}>₹{nielsenEligibleCash.toFixed(2)}</strong>
-              <span style={{ fontSize: '0.7rem', color: '#94a3b8', display: 'block' }}>2,200 pts eligible (₹200 UPI); 250 pts reserve (₹{nielsenPendingCash.toFixed(2)})</span>
+            <div style={{ background: 'rgba(26,36,70, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+              <span style={{ fontSize: '0.7rem', color: '#6b7a99', display: 'block' }}>3. Nielsen More (2,450 pts)</span>
+              <strong style={{ fontSize: '1rem', color: '#34f5c5' }}>₹{nielsenEligibleCash.toFixed(2)}</strong>
+              <span style={{ fontSize: '0.7rem', color: '#a5b4d4', display: 'block' }}>2,200 pts eligible (₹200 UPI); 250 pts reserve (₹{nielsenPendingCash.toFixed(2)})</span>
             </div>
 
-            <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <span style={{ fontSize: '0.7rem', color: '#64748b', display: 'block' }}>4. VTION Digital (60 pts)</span>
-              <strong style={{ fontSize: '1rem', color: '#34d399' }}>₹{vtionEligibleCash.toFixed(2)}</strong>
-              <span style={{ fontSize: '0.7rem', color: '#94a3b8', display: 'block' }}>60 pts = ₹60 (Tuesdays credit)</span>
+            <div style={{ background: 'rgba(26,36,70, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+              <span style={{ fontSize: '0.7rem', color: '#6b7a99', display: 'block' }}>4. VTION Digital (60 pts)</span>
+              <strong style={{ fontSize: '1rem', color: '#34f5c5' }}>₹{vtionEligibleCash.toFixed(2)}</strong>
+              <span style={{ fontSize: '0.7rem', color: '#a5b4d4', display: 'block' }}>60 pts = ₹60 (Tuesdays credit)</span>
             </div>
 
-            <div style={{ background: 'rgba(30, 41, 59, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <span style={{ fontSize: '0.7rem', color: '#64748b', display: 'block' }}>5. Crypto Portfolio</span>
-              <strong style={{ fontSize: '1rem', color: '#c084fc' }}>₹{cryptoVal.toFixed(2)}</strong>
-              <span style={{ fontSize: '0.7rem', color: '#94a3b8', display: 'block' }}>Binance, Sweat, UpRock & SOL</span>
+            <div style={{ background: 'rgba(26,36,70, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+              <span style={{ fontSize: '0.7rem', color: '#6b7a99', display: 'block' }}>5. Crypto Portfolio</span>
+              <strong style={{ fontSize: '1rem', color: '#c4b5fd' }}>₹{cryptoVal.toFixed(2)}</strong>
+              <span style={{ fontSize: '0.7rem', color: '#a5b4d4', display: 'block' }}>Binance, Sweat, UpRock & SOL</span>
             </div>
           </div>
 
           <div style={{
-            background: 'rgba(245, 158, 11, 0.1)',
-            border: '1px solid rgba(245, 158, 11, 0.3)',
+            background: 'rgba(245,158,11, 0.1)',
+            border: '1px solid rgba(245,158,11, 0.3)',
             borderRadius: '10px',
             padding: '0.75rem 1rem',
             fontSize: '0.8rem',
@@ -401,8 +401,8 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
         {/* 1. BANK ACCOUNT CARD */}
         <div className="card" style={{
           padding: '1.5rem',
-          border: '1px solid rgba(56, 189, 248, 0.3)',
-          background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(22, 33, 59, 0.75) 100%)',
+          border: '1px solid rgba(34,211,238, 0.3)',
+          background: 'linear-gradient(135deg, rgba(10,15,35, 0.9) 0%, rgba(20,28,60, 0.75) 100%)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -414,8 +414,8 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   width: '40px',
                   height: '40px',
                   borderRadius: '10px',
-                  background: 'rgba(56, 189, 248, 0.15)',
-                  color: '#38bdf8',
+                  background: 'rgba(34,211,238, 0.15)',
+                  color: '#22d3ee',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -423,10 +423,10 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   <Landmark size={22} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#f8fafc', margin: 0 }}>
+                  <h3 style={{ fontSize: '1.15rem', color: '#f8fbff', margin: 0 }}>
                     {bankAccount.accountName}
                   </h3>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                  <span style={{ fontSize: '0.75rem', color: '#a5b4d4' }}>
                     {bankAccount.bankName} • Active Liquid Cash
                   </span>
                 </div>
@@ -446,16 +446,16 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
 
             {/* Large Balance Display */}
             <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
+              background: 'rgba(10,15,35, 0.8)',
               padding: '1.25rem',
               borderRadius: '14px',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              border: '1px solid rgba(255,255,255, 0.08)',
               marginBottom: '1rem',
             }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <span style={{ fontSize: '0.75rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Current Available Bank Balance
               </span>
-              <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
+              <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
                 {formatINR(bankAccount.balance, true)}
               </div>
               <span className="badge badge-green" style={{ marginTop: '0.4rem', fontSize: '0.7rem' }}>
@@ -466,23 +466,23 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
 
           <div style={{
             fontSize: '0.78rem',
-            color: '#94a3b8',
+            color: '#a5b4d4',
             paddingTop: '0.75rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+            borderTop: '1px solid rgba(255,255,255, 0.06)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
             <span>100% liquid & ready to spend or invest</span>
-            <span style={{ color: '#64748b', fontSize: '0.72rem' }}>Instant funds</span>
+            <span style={{ color: '#6b7a99', fontSize: '0.72rem' }}>Instant funds</span>
           </div>
         </div>
 
         {/* 2. PAYTM 24K DIGITAL GOLD LIVE CARD */}
         <div className="card" style={{
           padding: '1.5rem',
-          border: '1px solid rgba(245, 158, 11, 0.4)',
-          background: 'linear-gradient(135deg, rgba(30, 20, 10, 0.4) 0%, rgba(15, 23, 42, 0.9) 100%)',
+          border: '1px solid rgba(245,158,11, 0.4)',
+          background: 'linear-gradient(135deg, rgba(30,20,10, 0.4) 0%, rgba(10,15,35, 0.9) 100%)',
           position: 'relative',
         }}>
           {/* Header */}
@@ -497,20 +497,20 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(245, 158, 11, 0.3)',
+                boxShadow: '0 4px 12px rgba(245,158,11, 0.3)',
               }}>
                 <Sparkles size={20} />
               </div>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <h3 style={{ fontSize: '1.15rem', color: '#f8fafc', margin: 0 }}>
+                  <h3 style={{ fontSize: '1.15rem', color: '#f8fbff', margin: 0 }}>
                     {goldHolding.platform}
                   </h3>
                   <span className="badge badge-amber" style={{ fontSize: '0.65rem' }}>
                     24K 99.9%
                   </span>
                 </div>
-                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                <span style={{ fontSize: '0.75rem', color: '#a5b4d4' }}>
                   Holding: <strong style={{ color: '#f59e0b' }}>{goldHolding.grams}g</strong>
                 </span>
               </div>
@@ -533,32 +533,32 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
 
           {/* Current Value & Returns Hero */}
           <div style={{
-            background: 'rgba(15, 23, 42, 0.85)',
-            border: '1px solid rgba(245, 158, 11, 0.25)',
+            background: 'rgba(10,15,35, 0.85)',
+            border: '1px solid rgba(245,158,11, 0.25)',
             borderRadius: '14px',
             padding: '1.15rem',
             marginBottom: '1rem',
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div>
-                <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                <span style={{ fontSize: '0.75rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   Current Market Value
                 </span>
                 <div style={{ fontSize: '2rem', fontWeight: 800, color: '#f59e0b', marginTop: '0.15rem', letterSpacing: '-0.02em' }}>
                   {formatINR(goldHolding.currentValue, true)}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#cbd5e1', marginTop: '0.2rem' }}>
+                <div style={{ fontSize: '0.78rem', color: '#cbd5ee', marginTop: '0.2rem' }}>
                   Total Invested: <strong>{formatINR(goldHolding.investedAmount, true)}</strong>
                 </div>
               </div>
 
               {/* PnL Loss/Gain Pill matching user's -1.37 and -5.23% */}
               <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase' }}>Returns</span>
+                <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase' }}>Returns</span>
                 <div style={{
                   fontSize: '1.25rem',
                   fontWeight: 800,
-                  color: isLoss ? '#f87171' : '#34d399',
+                  color: isLoss ? '#ff6b9a' : '#34f5c5',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'flex-end',
@@ -569,9 +569,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                 </div>
                 <span className="badge" style={{
                   fontSize: '0.7rem',
-                  background: isLoss ? 'rgba(244, 63, 94, 0.15)' : 'rgba(16, 185, 129, 0.15)',
-                  color: isLoss ? '#f87171' : '#34d399',
-                  border: isLoss ? '1px solid rgba(244, 63, 94, 0.35)' : '1px solid rgba(16, 185, 129, 0.35)',
+                  background: isLoss ? 'rgba(255,61,127, 0.15)' : 'rgba(20,217,160, 0.15)',
+                  color: isLoss ? '#ff6b9a' : '#34f5c5',
+                  border: isLoss ? '1px solid rgba(255,61,127, 0.35)' : '1px solid rgba(20,217,160, 0.35)',
                   marginTop: '0.25rem',
                 }}>
                   {goldHolding.pnlPercentage}% Growth {isLoss ? 'Down' : 'Up'}
@@ -582,10 +582,10 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
 
           {/* LIVE GOLD RATE TICKER & CONTROLS */}
           <div style={{
-            background: 'rgba(15, 23, 42, 0.6)',
+            background: 'rgba(10,15,35, 0.6)',
             borderRadius: '12px',
             padding: '0.75rem 1rem',
-            border: '1px solid rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255,255,255, 0.06)',
             marginBottom: '0.75rem',
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -594,20 +594,20 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  background: isLiveSimulating ? '#10b981' : '#64748b',
+                  background: isLiveSimulating ? '#14d9a0' : '#6b7a99',
                   display: 'inline-block',
-                  boxShadow: isLiveSimulating ? '0 0 10px #10b981' : 'none',
+                  boxShadow: isLiveSimulating ? '0 0 10px #14d9a0' : 'none',
                 }} />
-                <span style={{ fontSize: '0.78rem', color: '#cbd5e1', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.78rem', color: '#cbd5ee', fontWeight: 600 }}>
                   24K Gold Rate:
                 </span>
-                <strong style={{ color: priceDirection === 'up' ? '#34d399' : '#f87171', fontSize: '0.88rem' }}>
+                <strong style={{ color: priceDirection === 'up' ? '#34f5c5' : '#ff6b9a', fontSize: '0.88rem' }}>
                   ₹{Math.round(currentGoldRatePerGram).toLocaleString()}/g
                 </strong>
                 {priceDirection === 'up' ? (
-                  <ArrowUpRight size={14} color="#34d399" />
+                  <ArrowUpRight size={14} color="#34f5c5" />
                 ) : (
-                  <ArrowDownRight size={14} color="#f87171" />
+                  <ArrowDownRight size={14} color="#ff6b9a" />
                 )}
               </div>
 
@@ -617,9 +617,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   onClick={() => nudgeGoldPrice(0.5)}
                   title="Simulate Market Increase (+0.5%)"
                   style={{
-                    background: 'rgba(16, 185, 129, 0.15)',
-                    border: '1px solid rgba(16, 185, 129, 0.3)',
-                    color: '#34d399',
+                    background: 'rgba(20,217,160, 0.15)',
+                    border: '1px solid rgba(20,217,160, 0.3)',
+                    color: '#34f5c5',
                     borderRadius: '6px',
                     padding: '0.2rem 0.5rem',
                     fontSize: '0.72rem',
@@ -634,9 +634,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   onClick={() => nudgeGoldPrice(-0.5)}
                   title="Simulate Market Drop (-0.5%)"
                   style={{
-                    background: 'rgba(244, 63, 94, 0.15)',
-                    border: '1px solid rgba(244, 63, 94, 0.3)',
-                    color: '#f87171',
+                    background: 'rgba(255,61,127, 0.15)',
+                    border: '1px solid rgba(255,61,127, 0.3)',
+                    color: '#ff6b9a',
                     borderRadius: '6px',
                     padding: '0.2rem 0.5rem',
                     fontSize: '0.72rem',
@@ -651,9 +651,9 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
                   onClick={() => setIsLiveSimulating(!isLiveSimulating)}
                   title="Toggle Live Ticker"
                   style={{
-                    background: isLiveSimulating ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    color: isLiveSimulating ? '#38bdf8' : '#94a3b8',
+                    background: isLiveSimulating ? 'rgba(34,211,238, 0.2)' : 'rgba(255,255,255, 0.05)',
+                    border: '1px solid rgba(255,255,255, 0.1)',
+                    color: isLiveSimulating ? '#22d3ee' : '#a5b4d4',
                     borderRadius: '6px',
                     padding: '0.2rem 0.5rem',
                     fontSize: '0.72rem',
@@ -681,7 +681,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
+          background: 'rgba(0,0,0, 0.75)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -690,10 +690,10 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           padding: '1rem',
         }}>
           <div className="card-elevated" style={{ width: '100%', maxWidth: '420px', padding: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', marginBottom: '0.5rem' }}>
               Update Bank Account Balance
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', marginBottom: '1.25rem' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', marginBottom: '1.25rem' }}>
               Enter your current active bank balance
             </p>
 
@@ -732,7 +732,7 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
+          background: 'rgba(0,0,0, 0.75)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -741,10 +741,10 @@ export const LiveGoldAssetSection: React.FC<LiveGoldAssetSectionProps> = ({
           padding: '1rem',
         }}>
           <div className="card-elevated" style={{ width: '100%', maxWidth: '440px', padding: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', marginBottom: '0.5rem' }}>
               Update Paytm Gold Holding
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', marginBottom: '1.25rem' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', marginBottom: '1.25rem' }}>
               Update grams and invested rupees to sync with your Paytm app
             </p>
 

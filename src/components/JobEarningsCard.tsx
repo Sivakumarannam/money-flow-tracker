@@ -45,7 +45,7 @@ export const JobEarningsCard: React.FC<JobEarningsCardProps> = ({ job, onUpdateJ
             <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', margin: 0 }}>
               Primary Job & Career Earnings
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
               {job.jobTitle} {job.company ? `at ${job.company}` : ''}
             </p>
           </div>
@@ -61,7 +61,7 @@ export const JobEarningsCard: React.FC<JobEarningsCardProps> = ({ job, onUpdateJ
       </div>
 
       {isEditing ? (
-        <form onSubmit={handleSave} style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '1.25rem', borderRadius: '14px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <form onSubmit={handleSave} style={{ background: 'rgba(10,15,35, 0.6)', padding: '1.25rem', borderRadius: '14px', border: '1px solid rgba(255,255,255, 0.08)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.85rem', marginBottom: '1rem' }}>
             <div>
               <label>Job Title</label>
@@ -129,36 +129,36 @@ export const JobEarningsCard: React.FC<JobEarningsCardProps> = ({ job, onUpdateJ
           gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
           gap: '0.85rem',
         }}>
-          <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Daily Equivalent</span>
-            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.2rem' }}>
+          <div style={{ background: 'rgba(10,15,35, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+            <span style={{ fontSize: '0.75rem', color: '#a5b4d4', textTransform: 'uppercase' }}>Daily Equivalent</span>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.2rem' }}>
               {formatINR(dailyWage, true)}
             </div>
-            <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Every single day</span>
+            <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>Every single day</span>
           </div>
 
-          <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Weekly Equivalent</span>
-            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.2rem' }}>
+          <div style={{ background: 'rgba(10,15,35, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(255,255,255, 0.05)' }}>
+            <span style={{ fontSize: '0.75rem', color: '#a5b4d4', textTransform: 'uppercase' }}>Weekly Equivalent</span>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.2rem' }}>
               {formatINR(weeklyWage, true)}
             </div>
-            <span style={{ fontSize: '0.72rem', color: '#64748b' }}>7-day pace</span>
+            <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>7-day pace</span>
           </div>
 
-          <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(56, 189, 248, 0.25)' }}>
-            <span style={{ fontSize: '0.75rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 600 }}>Monthly Payday</span>
-            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#38bdf8', marginTop: '0.2rem' }}>
+          <div style={{ background: 'rgba(10,15,35, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(34,211,238, 0.25)' }}>
+            <span style={{ fontSize: '0.75rem', color: '#22d3ee', textTransform: 'uppercase', fontWeight: 600 }}>Monthly Payday</span>
+            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#22d3ee', marginTop: '0.2rem' }}>
               {formatINR(baseMonthly)}
             </div>
-            <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Credited on {job.payDay}st</span>
+            <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>Credited on {job.payDay}st</span>
           </div>
 
-          <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
-            <span style={{ fontSize: '0.75rem', color: '#34d399', textTransform: 'uppercase', fontWeight: 600 }}>Yearly In-Hand CTC</span>
-            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#34d399', marginTop: '0.2rem' }}>
+          <div style={{ background: 'rgba(10,15,35, 0.8)', padding: '1rem', borderRadius: '12px', border: '1px solid rgba(20,217,160, 0.25)' }}>
+            <span style={{ fontSize: '0.75rem', color: '#34f5c5', textTransform: 'uppercase', fontWeight: 600 }}>Yearly In-Hand CTC</span>
+            <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#34f5c5', marginTop: '0.2rem' }}>
               {formatINR(yearlyTotal)}
             </div>
-            <span style={{ fontSize: '0.72rem', color: '#6ee7b7' }}>Annualized income</span>
+            <span style={{ fontSize: '0.72rem', color: '#8bffe0' }}>Annualized income</span>
           </div>
         </div>
       )}

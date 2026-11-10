@@ -95,25 +95,25 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
             width: '44px',
             height: '44px',
             borderRadius: '12px',
-            background: 'linear-gradient(135deg, #0284c7 0%, #10b981 100%)',
+            background: 'linear-gradient(135deg, #0891b2 0%, #14d9a0 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#fff',
-            boxShadow: '0 4px 14px rgba(56, 189, 248, 0.3)',
+            boxShadow: '0 4px 14px rgba(34,211,238, 0.3)',
           }}>
             <WalletCards size={24} />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
+              <h2 style={{ fontSize: '1.35rem', color: '#f8fbff', margin: 0 }}>
                 Manual Money Tracker (Added & Debited)
               </h2>
               <span className="badge badge-blue" style={{ fontSize: '0.7rem' }}>
                 Quick Cashflow
               </span>
             </div>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.2rem' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.85rem', marginTop: '0.2rem' }}>
               Add money received or record money spent with real-time balance calculations
             </p>
           </div>
@@ -129,59 +129,59 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
       }}>
         {/* Total Added */}
         <div style={{
-          background: 'rgba(16, 185, 129, 0.08)',
-          border: '1px solid rgba(16, 185, 129, 0.25)',
+          background: 'rgba(20,217,160, 0.08)',
+          border: '1px solid rgba(20,217,160, 0.25)',
           padding: '1.1rem',
           borderRadius: '14px',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34d399', fontSize: '0.75rem', fontWeight: 700 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34f5c5', fontSize: '0.75rem', fontWeight: 700 }}>
             <ArrowUpRight size={16} /> TOTAL MONEY ADDED (CREDIT)
           </div>
-          <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#34d399', marginTop: '0.25rem' }}>
+          <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#34f5c5', marginTop: '0.25rem' }}>
             +{formatINR(totalCredited, true)}
           </div>
-          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
             {transactions.filter((t) => t.type === 'credit').length} credit entries
           </span>
         </div>
 
         {/* Total Debited */}
         <div style={{
-          background: 'rgba(244, 63, 94, 0.08)',
-          border: '1px solid rgba(244, 63, 94, 0.25)',
+          background: 'rgba(255,61,127, 0.08)',
+          border: '1px solid rgba(255,61,127, 0.25)',
           padding: '1.1rem',
           borderRadius: '14px',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#f87171', fontSize: '0.75rem', fontWeight: 700 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#ff6b9a', fontSize: '0.75rem', fontWeight: 700 }}>
             <ArrowDownLeft size={16} /> TOTAL MONEY DEBITED (SPENT)
           </div>
-          <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#f87171', marginTop: '0.25rem' }}>
+          <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#ff6b9a', marginTop: '0.25rem' }}>
             -{formatINR(totalDebited, true)}
           </div>
-          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
             {transactions.filter((t) => t.type === 'debit').length} debit entries
           </span>
         </div>
 
         {/* Net In-Hand Balance */}
         <div style={{
-          background: netBalance >= 0 ? 'rgba(56, 189, 248, 0.1)' : 'rgba(239, 68, 68, 0.1)',
-          border: netBalance >= 0 ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid rgba(239, 68, 68, 0.35)',
+          background: netBalance >= 0 ? 'rgba(34,211,238, 0.1)' : 'rgba(239,68,68, 0.1)',
+          border: netBalance >= 0 ? '1px solid rgba(34,211,238, 0.35)' : '1px solid rgba(239,68,68, 0.35)',
           padding: '1.1rem',
           borderRadius: '14px',
         }}>
-          <span style={{ fontSize: '0.75rem', color: netBalance >= 0 ? '#38bdf8' : '#f87171', textTransform: 'uppercase', fontWeight: 700 }}>
+          <span style={{ fontSize: '0.75rem', color: netBalance >= 0 ? '#22d3ee' : '#ff6b9a', textTransform: 'uppercase', fontWeight: 700 }}>
             CURRENT NET IN-HAND BALANCE
           </span>
           <div style={{
             fontSize: '1.75rem',
             fontWeight: 800,
-            color: netBalance >= 0 ? '#f8fafc' : '#f87171',
+            color: netBalance >= 0 ? '#f8fbff' : '#ff6b9a',
             marginTop: '0.25rem',
           }}>
             {formatINR(netBalance, true)}
           </div>
-          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
             {netBalance >= 0 ? 'Surplus cash remaining' : 'Deficit / overspent'}
           </span>
         </div>
@@ -189,16 +189,16 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
 
       {/* INPUT FORM (CREDIT / DEBIT) */}
       <form onSubmit={handleSubmit} style={{
-        background: 'rgba(15, 23, 42, 0.85)',
-        border: type === 'credit' ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid rgba(244, 63, 94, 0.4)',
+        background: 'rgba(10,15,35, 0.85)',
+        border: type === 'credit' ? '1px solid rgba(20,217,160, 0.4)' : '1px solid rgba(255,61,127, 0.4)',
         borderRadius: '16px',
         padding: '1.5rem',
         marginBottom: '1.75rem',
-        boxShadow: type === 'credit' ? '0 8px 30px rgba(16, 185, 129, 0.1)' : '0 8px 30px rgba(244, 63, 94, 0.1)',
+        boxShadow: type === 'credit' ? '0 8px 30px rgba(20,217,160, 0.1)' : '0 8px 30px rgba(255,61,127, 0.1)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
           {/* Credit / Debit Selector Tabs */}
-          <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(0, 0, 0, 0.4)', padding: '0.35rem', borderRadius: '12px' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(0,0,0, 0.4)', padding: '0.35rem', borderRadius: '12px' }}>
             <button
               type="button"
               onClick={() => {
@@ -209,8 +209,8 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.45rem',
-                background: type === 'credit' ? 'linear-gradient(135deg, #059669 0%, #10b981 100%)' : 'transparent',
-                color: type === 'credit' ? '#ffffff' : '#94a3b8',
+                background: type === 'credit' ? 'linear-gradient(135deg, #0fb98a 0%, #14d9a0 100%)' : 'transparent',
+                color: type === 'credit' ? '#ffffff' : '#a5b4d4',
                 border: 'none',
                 borderRadius: '9px',
                 padding: '0.6rem 1.15rem',
@@ -233,8 +233,8 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.45rem',
-                background: type === 'debit' ? 'linear-gradient(135deg, #e11d48 0%, #f43f5e 100%)' : 'transparent',
-                color: type === 'debit' ? '#ffffff' : '#94a3b8',
+                background: type === 'debit' ? 'linear-gradient(135deg, #e11d48 0%, #ff3d7f 100%)' : 'transparent',
+                color: type === 'debit' ? '#ffffff' : '#a5b4d4',
                 border: 'none',
                 borderRadius: '9px',
                 padding: '0.6rem 1.15rem',
@@ -248,7 +248,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
             </button>
           </div>
 
-          <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.8rem', color: '#a5b4d4' }}>
             {type === 'credit' ? 'Record money received into your pocket/bank' : 'Record an expense or payment made'}
           </span>
         </div>
@@ -258,7 +258,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
           
           {/* Amount Field */}
           <div>
-            <label style={{ color: type === 'credit' ? '#34d399' : '#f87171', fontWeight: 700 }}>
+            <label style={{ color: type === 'credit' ? '#34f5c5' : '#ff6b9a', fontWeight: 700 }}>
               {type === 'credit' ? 'Amount to Add (₹)' : 'Amount Debited (₹)'} *
             </label>
             <div style={{ position: 'relative' }}>
@@ -274,7 +274,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                   fontSize: '1.25rem',
                   fontWeight: 800,
                   paddingLeft: '2.2rem',
-                  borderColor: type === 'credit' ? 'rgba(16, 185, 129, 0.4)' : 'rgba(244, 63, 94, 0.4)',
+                  borderColor: type === 'credit' ? 'rgba(20,217,160, 0.4)' : 'rgba(255,61,127, 0.4)',
                 }}
               />
               <span style={{
@@ -284,7 +284,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                 transform: 'translateY(-50%)',
                 fontWeight: 800,
                 fontSize: '1.1rem',
-                color: type === 'credit' ? '#34d399' : '#f87171',
+                color: type === 'credit' ? '#34f5c5' : '#ff6b9a',
               }}>
                 ₹
               </span>
@@ -355,9 +355,9 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
               fontSize: '0.95rem',
               fontWeight: 700,
               background: type === 'credit' 
-                ? 'linear-gradient(135deg, #059669 0%, #10b981 100%)' 
-                : 'linear-gradient(135deg, #e11d48 0%, #f43f5e 100%)',
-              borderColor: type === 'credit' ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)',
+                ? 'linear-gradient(135deg, #0fb98a 0%, #14d9a0 100%)' 
+                : 'linear-gradient(135deg, #e11d48 0%, #ff3d7f 100%)',
+              borderColor: type === 'credit' ? 'rgba(20,217,160, 0.5)' : 'rgba(255,61,127, 0.5)',
             }}
           >
             {type === 'credit' ? (
@@ -376,7 +376,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
       {/* TRANSACTION HISTORY LEDGER */}
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
-          <h3 style={{ fontSize: '1.1rem', color: '#f1f5f9', margin: 0 }}>
+          <h3 style={{ fontSize: '1.1rem', color: '#f1f5ff', margin: 0 }}>
             Transaction History ({transactions.length})
           </h3>
 
@@ -388,9 +388,9 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                 type="button"
                 onClick={() => setFilter(f)}
                 style={{
-                  background: filter === f ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                  border: filter === f ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                  color: filter === f ? '#ffffff' : '#94a3b8',
+                  background: filter === f ? 'rgba(34,211,238, 0.2)' : 'rgba(255,255,255, 0.05)',
+                  border: filter === f ? '1px solid #22d3ee' : '1px solid rgba(255,255,255, 0.08)',
+                  color: filter === f ? '#ffffff' : '#a5b4d4',
                   borderRadius: '8px',
                   padding: '0.3rem 0.75rem',
                   fontSize: '0.78rem',
@@ -407,12 +407,12 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
 
         {filteredTransactions.length === 0 ? (
           <div style={{
-            background: 'rgba(15, 23, 42, 0.5)',
-            border: '1px dashed rgba(255, 255, 255, 0.1)',
+            background: 'rgba(10,15,35, 0.5)',
+            border: '1px dashed rgba(255,255,255, 0.1)',
             borderRadius: '12px',
             padding: '2rem',
             textAlign: 'center',
-            color: '#64748b',
+            color: '#6b7a99',
             fontSize: '0.875rem',
           }}>
             No manual money entries yet. Use the form above to <strong>Add Money (+)</strong> or record <strong>Debited Money (-)</strong>!
@@ -431,8 +431,8 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                     justifyContent: 'space-between',
                     padding: '0.85rem 1.15rem',
                     borderRadius: '12px',
-                    background: 'rgba(15, 23, 42, 0.7)',
-                    border: isCredit ? '1px solid rgba(16, 185, 129, 0.2)' : '1px solid rgba(244, 63, 94, 0.2)',
+                    background: 'rgba(10,15,35, 0.7)',
+                    border: isCredit ? '1px solid rgba(20,217,160, 0.2)' : '1px solid rgba(255,61,127, 0.2)',
                     transition: 'all 0.15s ease',
                   }}
                 >
@@ -441,8 +441,8 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                       width: '36px',
                       height: '36px',
                       borderRadius: '10px',
-                      background: isCredit ? 'rgba(16, 185, 129, 0.15)' : 'rgba(244, 63, 94, 0.15)',
-                      color: isCredit ? '#34d399' : '#f87171',
+                      background: isCredit ? 'rgba(20,217,160, 0.15)' : 'rgba(255,61,127, 0.15)',
+                      color: isCredit ? '#34f5c5' : '#ff6b9a',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -451,15 +451,15 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                       {isCredit ? <ArrowUpRight size={20} /> : <ArrowDownLeft size={20} />}
                     </div>
                     <div>
-                      <div style={{ fontWeight: 700, color: '#f1f5f9', fontSize: '0.95rem' }}>
+                      <div style={{ fontWeight: 700, color: '#f1f5ff', fontSize: '0.95rem' }}>
                         {tx.category}
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.15rem' }}>
-                        <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>{tx.date}</span>
+                        <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>{tx.date}</span>
                         {tx.notes && (
                           <>
-                            <span style={{ fontSize: '0.72rem', color: '#64748b' }}>•</span>
-                            <span style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>{tx.notes}</span>
+                            <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>•</span>
+                            <span style={{ fontSize: '0.72rem', color: '#cbd5ee' }}>{tx.notes}</span>
                           </>
                         )}
                       </div>
@@ -471,7 +471,7 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                       <div style={{
                         fontSize: '1.15rem',
                         fontWeight: 800,
-                        color: isCredit ? '#34d399' : '#f87171',
+                        color: isCredit ? '#34f5c5' : '#ff6b9a',
                         letterSpacing: '-0.02em',
                       }}>
                         {isCredit ? '+' : '-'}{formatINR(tx.amount, true)}
@@ -479,9 +479,9 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                       <span className="badge" style={{
                         fontSize: '0.65rem',
                         padding: '0.1rem 0.4rem',
-                        background: isCredit ? 'rgba(16, 185, 129, 0.15)' : 'rgba(244, 63, 94, 0.15)',
-                        color: isCredit ? '#34d399' : '#f87171',
-                        border: isCredit ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(244, 63, 94, 0.3)',
+                        background: isCredit ? 'rgba(20,217,160, 0.15)' : 'rgba(255,61,127, 0.15)',
+                        color: isCredit ? '#34f5c5' : '#ff6b9a',
+                        border: isCredit ? '1px solid rgba(20,217,160, 0.3)' : '1px solid rgba(255,61,127, 0.3)',
                       }}>
                         {isCredit ? 'Credit Added' : 'Debited'}
                       </span>
@@ -493,12 +493,12 @@ export const ManualCashflowSection: React.FC<ManualCashflowSectionProps> = ({
                       style={{
                         background: 'transparent',
                         border: 'none',
-                        color: '#64748b',
+                        color: '#6b7a99',
                         cursor: 'pointer',
                         padding: '0.4rem',
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = '#f43f5e')}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#ff3d7f')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#6b7a99')}
                     >
                       <Trash2 size={16} />
                     </button>

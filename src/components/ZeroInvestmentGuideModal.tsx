@@ -84,7 +84,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 10,
         ruleDescription: 'Surf ads & watch videos. Direct crypto payout to Binance.',
-        accentColor: '#0ea5e9',
+        accentColor: '#06b6d4',
         badge: 'PTC Ads',
         enabled: true,
       },
@@ -129,7 +129,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 250,
         ruleDescription: 'Passive background internet bandwidth sharing on Solana. Gmail only signup.',
-        accentColor: '#10b981',
+        accentColor: '#14d9a0',
         badge: 'Grass DePIN',
         enabled: true,
       },
@@ -159,7 +159,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 150,
         ruleDescription: 'Shares idle bandwidth for AI training. Sign up with Gmail only.',
-        accentColor: '#0ea5e9',
+        accentColor: '#06b6d4',
         badge: 'Nodepay AI',
         enabled: true,
       },
@@ -219,7 +219,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 165,
         ruleDescription: 'Shares idle bandwidth. Gmail registration only, no phone number required.',
-        accentColor: '#3b82f6',
+        accentColor: '#22d3ee',
         badge: 'Repocket',
         enabled: true,
       },
@@ -249,7 +249,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 120,
         ruleDescription: 'Shares unused residential IP data. Sign up with Gmail only.',
-        accentColor: '#8b5cf6',
+        accentColor: '#a78bfa',
         badge: 'PacketShare',
         enabled: true,
       },
@@ -309,7 +309,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 25,
         ruleDescription: 'Short 20-second opinion surveys directly from Google. Instant credit.',
-        accentColor: '#0ea5e9',
+        accentColor: '#06b6d4',
         badge: 'Instant Surveys',
         enabled: true,
       },
@@ -339,7 +339,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         },
         currentBalancePoints: 120,
         ruleDescription: 'High-rated consumer surveys paying ₹25 to ₹120 per completed survey.',
-        accentColor: '#8b5cf6',
+        accentColor: '#a78bfa',
         badge: 'High Payout',
         enabled: true,
       },
@@ -390,7 +390,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(2, 6, 23, 0.85)',
+      background: 'rgba(5,8,20, 0.85)',
       backdropFilter: 'blur(8px)',
       display: 'flex',
       alignItems: 'center',
@@ -399,44 +399,44 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
       padding: '1rem',
     }}>
       <div style={{
-        background: '#0f172a',
-        border: '1px solid rgba(56, 189, 248, 0.25)',
+        background: '#0b1020',
+        border: '1px solid rgba(34,211,238, 0.25)',
         borderRadius: '20px',
         maxWidth: '920px',
         width: '100%',
         maxHeight: '92vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7)',
+        boxShadow: '0 25px 60px -15px rgba(0,0,0, 0.7)',
         overflow: 'hidden',
       }}>
         
         {/* Modal Header */}
         <div style={{
           padding: '1.25rem 1.75rem',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid rgba(255,255,255, 0.08)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(139, 92, 246, 0.1) 100%)',
+          background: 'linear-gradient(135deg, rgba(6,182,212, 0.12) 0%, rgba(167,139,250, 0.1) 100%)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <div style={{
               width: '42px',
               height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+              background: 'linear-gradient(135deg, #0fb98a 0%, #14d9a0 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#fff',
-              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.4)',
+              boxShadow: '0 4px 12px rgba(20,217,160, 0.4)',
             }}>
               <DollarSign size={22} />
             </div>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f8fbff', margin: 0 }}>
                   Zero-Investment Earning Hub (2026)
                 </h2>
                 <span className="badge badge-green" style={{ fontSize: '0.68rem' }}>
@@ -446,7 +446,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                   Gmail-Only Apps Included
                 </span>
               </div>
-              <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: 0 }}>
+              <p style={{ color: '#a5b4d4', fontSize: '0.8rem', margin: 0 }}>
                 Passive bandwidth sharing (Not Honeygain), Gmail-only signup apps, and daily routines
               </p>
             </div>
@@ -455,9 +455,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
           <button
             onClick={onClose}
             style={{
-              background: 'rgba(255, 255, 255, 0.06)',
+              background: 'rgba(255,255,255, 0.06)',
               border: 'none',
-              color: '#94a3b8',
+              color: '#a5b4d4',
               padding: '0.5rem',
               borderRadius: '10px',
               cursor: 'pointer',
@@ -476,8 +476,8 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
           display: 'flex',
           gap: '0.5rem',
           padding: '0.75rem 1.5rem',
-          background: 'rgba(15, 23, 42, 0.6)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+          background: 'rgba(10,15,35, 0.6)',
+          borderBottom: '1px solid rgba(255,255,255, 0.06)',
           overflowX: 'auto',
         }}>
           {[
@@ -498,9 +498,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                   gap: '0.5rem',
                   padding: '0.55rem 1rem',
                   borderRadius: '10px',
-                  border: isActive ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid transparent',
-                  background: isActive ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
-                  color: isActive ? '#38bdf8' : '#94a3b8',
+                  border: isActive ? '1px solid rgba(34,211,238, 0.4)' : '1px solid transparent',
+                  background: isActive ? 'rgba(34,211,238, 0.15)' : 'transparent',
+                  color: isActive ? '#22d3ee' : '#a5b4d4',
                   fontWeight: isActive ? 600 : 500,
                   fontSize: '0.82rem',
                   cursor: 'pointer',
@@ -523,8 +523,8 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
             <div>
               {/* Highlight Banner about UpRock and Gmail-only */}
               <div style={{
-                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(56, 189, 248, 0.1) 100%)',
-                border: '1px solid rgba(168, 85, 247, 0.35)',
+                background: 'linear-gradient(135deg, rgba(167,139,250, 0.15) 0%, rgba(34,211,238, 0.1) 100%)',
+                border: '1px solid rgba(167,139,250, 0.35)',
                 borderRadius: '14px',
                 padding: '0.95rem 1.25rem',
                 marginBottom: '1.25rem',
@@ -532,15 +532,15 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                 alignItems: 'center',
                 gap: '0.85rem',
               }}>
-                <Sparkles size={24} color="#c084fc" />
-                <div style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.45' }}>
-                  <strong style={{ color: '#c084fc' }}>Active in Your Setup:</strong> You are tracking <strong>SolPick.io Faucet (0.0006 SOL)</strong>, <strong>347 UPT in Phantom</strong> from <strong>UpRock</strong>, and <strong>1,486 GRASS</strong>! All are <strong>100% GMAIL ONLY (NO Phone Number required)</strong>. Explore verified faucets, ads, and passive DePIN apps below:
+                <Sparkles size={24} color="#c4b5fd" />
+                <div style={{ fontSize: '0.85rem', color: '#e2e8f8', lineHeight: '1.45' }}>
+                  <strong style={{ color: '#c4b5fd' }}>Active in Your Setup:</strong> You are tracking <strong>SolPick.io Faucet (0.0006 SOL)</strong>, <strong>347 UPT in Phantom</strong> from <strong>UpRock</strong>, and <strong>1,486 GRASS</strong>! All are <strong>100% GMAIL ONLY (NO Phone Number required)</strong>. Explore verified faucets, ads, and passive DePIN apps below:
                 </div>
               </div>
 
               {/* Sub-Filters for Apps */}
               <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.75rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                <span style={{ fontSize: '0.75rem', color: '#6b7a99', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                   <Filter size={12} /> Filter:
                 </span>
                 <button
@@ -550,9 +550,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     borderRadius: '8px',
                     fontSize: '0.75rem',
                     fontWeight: appFilter === 'all' ? 700 : 500,
-                    border: appFilter === 'all' ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.1)',
-                    background: appFilter === 'all' ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                    color: appFilter === 'all' ? '#38bdf8' : '#94a3b8',
+                    border: appFilter === 'all' ? '1px solid #22d3ee' : '1px solid rgba(255,255,255, 0.1)',
+                    background: appFilter === 'all' ? 'rgba(34,211,238, 0.2)' : 'rgba(255,255,255, 0.05)',
+                    color: appFilter === 'all' ? '#22d3ee' : '#a5b4d4',
                     cursor: 'pointer',
                   }}
                 >
@@ -565,9 +565,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     borderRadius: '8px',
                     fontSize: '0.75rem',
                     fontWeight: appFilter === 'gmail_only' ? 700 : 500,
-                    border: appFilter === 'gmail_only' ? '1px solid #10b981' : '1px solid rgba(255, 255, 255, 0.1)',
-                    background: appFilter === 'gmail_only' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                    color: appFilter === 'gmail_only' ? '#34d399' : '#94a3b8',
+                    border: appFilter === 'gmail_only' ? '1px solid #14d9a0' : '1px solid rgba(255,255,255, 0.1)',
+                    background: appFilter === 'gmail_only' ? 'rgba(20,217,160, 0.2)' : 'rgba(255,255,255, 0.05)',
+                    color: appFilter === 'gmail_only' ? '#34f5c5' : '#a5b4d4',
                     cursor: 'pointer',
                   }}
                 >
@@ -580,9 +580,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     borderRadius: '8px',
                     fontSize: '0.75rem',
                     fontWeight: appFilter === 'ads_browsing' ? 700 : 500,
-                    border: appFilter === 'ads_browsing' ? '1px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.1)',
-                    background: appFilter === 'ads_browsing' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                    color: appFilter === 'ads_browsing' ? '#fbbf24' : '#94a3b8',
+                    border: appFilter === 'ads_browsing' ? '1px solid #f59e0b' : '1px solid rgba(255,255,255, 0.1)',
+                    background: appFilter === 'ads_browsing' ? 'rgba(245,158,11, 0.2)' : 'rgba(255,255,255, 0.05)',
+                    color: appFilter === 'ads_browsing' ? '#fbbf24' : '#a5b4d4',
                     cursor: 'pointer',
                   }}
                 >
@@ -595,9 +595,9 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     borderRadius: '8px',
                     fontSize: '0.75rem',
                     fontWeight: appFilter === 'bandwidth' ? 700 : 500,
-                    border: appFilter === 'bandwidth' ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.1)',
-                    background: appFilter === 'bandwidth' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                    color: appFilter === 'bandwidth' ? '#c084fc' : '#94a3b8',
+                    border: appFilter === 'bandwidth' ? '1px solid #a78bfa' : '1px solid rgba(255,255,255, 0.1)',
+                    background: appFilter === 'bandwidth' ? 'rgba(167,139,250, 0.2)' : 'rgba(255,255,255, 0.05)',
+                    color: appFilter === 'bandwidth' ? '#c4b5fd' : '#a5b4d4',
                     cursor: 'pointer',
                   }}
                 >
@@ -615,8 +615,8 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                   <div
                     key={app.id}
                     style={{
-                      background: 'rgba(30, 41, 59, 0.65)',
-                      border: app.signupRequirement === 'Gmail Only (No Phone #)' ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
+                      background: 'rgba(26,36,70, 0.65)',
+                      border: app.signupRequirement === 'Gmail Only (No Phone #)' ? '1px solid rgba(20,217,160, 0.3)' : '1px solid rgba(255,255,255, 0.08)',
                       borderRadius: '14px',
                       padding: '1.2rem',
                       display: 'flex',
@@ -628,10 +628,10 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                         <div>
-                          <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', margin: 0 }}>
+                          <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fbff', margin: 0 }}>
                             {app.name}
                           </h4>
-                          <span style={{ fontSize: '0.75rem', color: '#38bdf8' }}>
+                          <span style={{ fontSize: '0.75rem', color: '#22d3ee' }}>
                             {app.category}
                           </span>
                         </div>
@@ -651,12 +651,12 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '0.35rem',
-                        background: app.signupRequirement === 'Gmail Only (No Phone #)' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(234, 179, 8, 0.15)',
-                        border: app.signupRequirement === 'Gmail Only (No Phone #)' ? '1px solid rgba(16, 185, 129, 0.35)' : '1px solid rgba(234, 179, 8, 0.35)',
+                        background: app.signupRequirement === 'Gmail Only (No Phone #)' ? 'rgba(20,217,160, 0.15)' : 'rgba(234,179,8, 0.15)',
+                        border: app.signupRequirement === 'Gmail Only (No Phone #)' ? '1px solid rgba(20,217,160, 0.35)' : '1px solid rgba(234,179,8, 0.35)',
                         borderRadius: '6px',
                         padding: '0.2rem 0.55rem',
                         fontSize: '0.72rem',
-                        color: app.signupRequirement === 'Gmail Only (No Phone #)' ? '#34d399' : '#facc15',
+                        color: app.signupRequirement === 'Gmail Only (No Phone #)' ? '#34f5c5' : '#facc15',
                         fontWeight: 600,
                         marginBottom: '0.6rem',
                       }}>
@@ -664,12 +664,12 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                         Signup: {app.signupRequirement}
                       </div>
 
-                      <p style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: '1.4', margin: '0.2rem 0 0.8rem 0' }}>
+                      <p style={{ color: '#a5b4d4', fontSize: '0.8rem', lineHeight: '1.4', margin: '0.2rem 0 0.8rem 0' }}>
                         {app.description}
                       </p>
 
                       <div style={{
-                        background: 'rgba(15, 23, 42, 0.6)',
+                        background: 'rgba(10,15,35, 0.6)',
                         borderRadius: '10px',
                         padding: '0.65rem 0.85rem',
                         fontSize: '0.78rem',
@@ -677,19 +677,19 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                         gridTemplateColumns: '1fr 1fr',
                         gap: '0.5rem',
                         marginBottom: '1rem',
-                        border: '1px solid rgba(255, 255, 255, 0.04)',
+                        border: '1px solid rgba(255,255,255, 0.04)',
                       }}>
                         <div>
-                          <span style={{ color: '#64748b', display: 'block', fontSize: '0.7rem' }}>Monthly Potential</span>
-                          <strong style={{ color: '#34d399' }}>{app.earningPotential}</strong>
+                          <span style={{ color: '#6b7a99', display: 'block', fontSize: '0.7rem' }}>Monthly Potential</span>
+                          <strong style={{ color: '#34f5c5' }}>{app.earningPotential}</strong>
                         </div>
                         <div>
-                          <span style={{ color: '#64748b', display: 'block', fontSize: '0.7rem' }}>Payout Method</span>
-                          <strong style={{ color: '#38bdf8' }}>{app.payoutMethod}</strong>
+                          <span style={{ color: '#6b7a99', display: 'block', fontSize: '0.7rem' }}>Payout Method</span>
+                          <strong style={{ color: '#22d3ee' }}>{app.payoutMethod}</strong>
                         </div>
                         <div style={{ gridColumn: 'span 2' }}>
-                          <span style={{ color: '#64748b', display: 'inline', fontSize: '0.7rem' }}>Minimum Cashout: </span>
-                          <span style={{ color: '#f1f5f9', fontWeight: 600 }}>{app.minPayout}</span>
+                          <span style={{ color: '#6b7a99', display: 'inline', fontSize: '0.7rem' }}>Minimum Cashout: </span>
+                          <span style={{ color: '#f1f5ff', fontWeight: 600 }}>{app.minPayout}</span>
                         </div>
                       </div>
                     </div>
@@ -697,7 +697,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     {/* Action button */}
                     <div>
                       {app.alreadyTracking ? (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#10b981', fontSize: '0.78rem', fontWeight: 600 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#14d9a0', fontSize: '0.78rem', fontWeight: 600 }}>
                           <CheckCircle2 size={14} /> Active in your Portfolio / Tracker
                         </div>
                       ) : (
@@ -712,7 +712,7 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                             width: '100%',
                             fontSize: '0.78rem',
                             padding: '0.5rem 0.85rem',
-                            background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+                            background: 'linear-gradient(135deg, #0891b2 0%, #0369a1 100%)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -733,14 +733,14 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
           {activeTab === 'requirements' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{
-                background: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
+                background: 'rgba(20,217,160, 0.08)',
+                border: '1px solid rgba(20,217,160, 0.2)',
                 borderRadius: '12px',
                 padding: '1rem',
-                color: '#cbd5e1',
+                color: '#cbd5ee',
                 fontSize: '0.85rem',
               }}>
-                <strong style={{ color: '#34d399' }}>Gmail-Only Strategy:</strong> Since you only want to use Gmail (no phone number), DePIN bandwidth apps like <strong>UpRock, Grass, Nodepay, and Repocket</strong> are perfect! They only require an email address or Google OAuth, keeping your personal phone number 100% private.
+                <strong style={{ color: '#34f5c5' }}>Gmail-Only Strategy:</strong> Since you only want to use Gmail (no phone number), DePIN bandwidth apps like <strong>UpRock, Grass, Nodepay, and Repocket</strong> are perfect! They only require an email address or Google OAuth, keeping your personal phone number 100% private.
               </div>
 
               <div style={{
@@ -797,8 +797,8 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     <div
                       key={idx}
                       style={{
-                        background: 'rgba(30, 41, 59, 0.6)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        background: 'rgba(26,36,70, 0.6)',
+                        border: '1px solid rgba(255,255,255, 0.08)',
                         borderRadius: '12px',
                         padding: '1.1rem',
                       }}
@@ -808,19 +808,19 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                           width: '34px',
                           height: '34px',
                           borderRadius: '8px',
-                          background: 'rgba(56, 189, 248, 0.15)',
+                          background: 'rgba(34,211,238, 0.15)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#38bdf8',
+                          color: '#22d3ee',
                         }}>
                           <Icon size={18} />
                         </div>
-                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#f8fafc', margin: 0 }}>
+                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#f8fbff', margin: 0 }}>
                           {item.title}
                         </h4>
                       </div>
-                      <p style={{ color: '#94a3b8', fontSize: '0.8rem', lineHeight: '1.45', margin: '0 0 0.5rem 0' }}>
+                      <p style={{ color: '#a5b4d4', fontSize: '0.8rem', lineHeight: '1.45', margin: '0 0 0.5rem 0' }}>
                         {item.desc}
                       </p>
                       <span className="badge badge-green" style={{ fontSize: '0.65rem' }}>
@@ -837,12 +837,12 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
           {activeTab === 'process' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{
-                background: 'rgba(30, 41, 59, 0.7)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(26,36,70, 0.7)',
+                border: '1px solid rgba(255,255,255, 0.08)',
                 borderRadius: '14px',
                 padding: '1.25rem',
               }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#38bdf8', marginTop: 0, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <h3 style={{ fontSize: '1.1rem', color: '#22d3ee', marginTop: 0, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Clock size={18} /> Step-by-Step Earning Process (Gmail-Only DePIN & SolPick Faucet)
                 </h3>
                 
@@ -886,14 +886,14 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                         gap: '1rem',
                         alignItems: 'flex-start',
                         paddingBottom: '0.85rem',
-                        borderBottom: idx < 4 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
+                        borderBottom: idx < 4 ? '1px solid rgba(255,255,255, 0.05)' : 'none',
                       }}
                     >
                       <div style={{
                         minWidth: '28px',
                         height: '28px',
                         borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
+                        background: 'linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -905,17 +905,17 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                       </div>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.2rem' }}>
-                          <span style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase' }}>
+                          <span style={{ fontSize: '0.72rem', color: '#22d3ee', fontWeight: 600, textTransform: 'uppercase' }}>
                             {item.step}
                           </span>
                           <span className="badge badge-purple" style={{ fontSize: '0.65rem' }}>
                             {item.reward}
                           </span>
                         </div>
-                        <h4 style={{ fontSize: '0.92rem', color: '#f8fafc', margin: '0 0 0.25rem 0' }}>
+                        <h4 style={{ fontSize: '0.92rem', color: '#f8fbff', margin: '0 0 0.25rem 0' }}>
                           {item.title}
                         </h4>
-                        <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: 0, lineHeight: '1.4' }}>
+                        <p style={{ color: '#a5b4d4', fontSize: '0.8rem', margin: 0, lineHeight: '1.4' }}>
                           {item.action}
                         </p>
                       </div>
@@ -930,15 +930,15 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
           {activeTab === 'safety' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
+                background: 'rgba(239,68,68, 0.1)',
+                border: '1px solid rgba(239,68,68, 0.3)',
                 borderRadius: '14px',
                 padding: '1.25rem',
               }}>
-                <h3 style={{ fontSize: '1.1rem', color: '#f87171', marginTop: 0, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <h3 style={{ fontSize: '1.1rem', color: '#ff6b9a', marginTop: 0, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <AlertTriangle size={20} /> Critical Safety Rules: How to Spot Scams
                 </h3>
-                <p style={{ color: '#cbd5e1', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                <p style={{ color: '#cbd5ee', fontSize: '0.85rem', lineHeight: '1.5' }}>
                   Since you want to protect your privacy and use only Gmail, keep these rules in mind:
                 </p>
 
@@ -964,16 +964,16 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
                     <div
                       key={idx}
                       style={{
-                        background: 'rgba(15, 23, 42, 0.6)',
-                        border: '1px solid rgba(239, 68, 68, 0.2)',
+                        background: 'rgba(10,15,35, 0.6)',
+                        border: '1px solid rgba(239,68,68, 0.2)',
                         borderRadius: '10px',
                         padding: '0.85rem 1rem',
                       }}
                     >
-                      <strong style={{ color: '#fca5a5', fontSize: '0.85rem', display: 'block', marginBottom: '0.25rem' }}>
+                      <strong style={{ color: '#ffb3cc', fontSize: '0.85rem', display: 'block', marginBottom: '0.25rem' }}>
                         {rule.rule}
                       </strong>
-                      <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: 0, lineHeight: '1.45' }}>
+                      <p style={{ color: '#a5b4d4', fontSize: '0.8rem', margin: 0, lineHeight: '1.45' }}>
                         {rule.desc}
                       </p>
                     </div>
@@ -988,13 +988,13 @@ export const ZeroInvestmentGuideModal: React.FC<ZeroInvestmentGuideModalProps> =
         {/* Modal Footer */}
         <div style={{
           padding: '1rem 1.75rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+          borderTop: '1px solid rgba(255,255,255, 0.08)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: 'rgba(15, 23, 42, 0.8)',
+          background: 'rgba(10,15,35, 0.8)',
         }}>
-          <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
+          <span style={{ fontSize: '0.78rem', color: '#6b7a99' }}>
             MoneyFlow OS • 2026 Free Apps Guide
           </span>
           <button

@@ -32,10 +32,10 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             <BarChart3 size={18} />
           </div>
           <div>
-            <h4 style={{ fontSize: '1.05rem', color: '#f8fafc', margin: 0 }}>
+            <h4 style={{ fontSize: '1.05rem', color: '#f8fbff', margin: 0 }}>
               Where Does Every Rupee Go?
             </h4>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+            <span style={{ fontSize: '0.75rem', color: '#a5b4d4' }}>
               {summary.period.toUpperCase()} Cashflow Allocation
             </span>
           </div>
@@ -45,7 +45,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
         <div style={{
           height: '22px',
           borderRadius: '999px',
-          background: 'rgba(255, 255, 255, 0.05)',
+          background: 'rgba(255,255,255, 0.05)',
           overflow: 'hidden',
           display: 'flex',
           marginBottom: '1rem',
@@ -55,7 +55,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             title={`Living Expenses: ${expensePct}%`}
             style={{
               width: `${Math.min(100, expensePct)}%`,
-              background: 'linear-gradient(90deg, #f43f5e, #fb7185)',
+              background: 'linear-gradient(90deg, #ff3d7f, #ff7aa8)',
               transition: 'width 0.4s ease',
             }}
           />
@@ -63,7 +63,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             title={`Investments: ${invPct}%`}
             style={{
               width: `${Math.min(100, invPct)}%`,
-              background: 'linear-gradient(90deg, #9333ea, #c084fc)',
+              background: 'linear-gradient(90deg, #9333ea, #c4b5fd)',
               transition: 'width 0.4s ease',
             }}
           />
@@ -71,7 +71,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             title={`Free Savings: ${surplusPct}%`}
             style={{
               width: `${Math.min(100, surplusPct)}%`,
-              background: 'linear-gradient(90deg, #059669, #34d399)',
+              background: 'linear-gradient(90deg, #0fb98a, #34f5c5)',
               transition: 'width 0.4s ease',
             }}
           />
@@ -79,17 +79,17 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
 
         {/* Legend */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', textAlign: 'center' }}>
-          <div style={{ background: 'rgba(244, 63, 94, 0.08)', padding: '0.6rem', borderRadius: '10px', border: '1px solid rgba(244, 63, 94, 0.2)' }}>
-            <span style={{ fontSize: '0.7rem', color: '#fca5a5', display: 'block' }}>Spent ({expensePct}%)</span>
-            <strong style={{ color: '#f87171', fontSize: '0.9rem' }}>{formatINR(summary.totalExpenseRupees)}</strong>
+          <div style={{ background: 'rgba(255,61,127, 0.08)', padding: '0.6rem', borderRadius: '10px', border: '1px solid rgba(255,61,127, 0.2)' }}>
+            <span style={{ fontSize: '0.7rem', color: '#ffb3cc', display: 'block' }}>Spent ({expensePct}%)</span>
+            <strong style={{ color: '#ff6b9a', fontSize: '0.9rem' }}>{formatINR(summary.totalExpenseRupees)}</strong>
           </div>
-          <div style={{ background: 'rgba(168, 85, 247, 0.08)', padding: '0.6rem', borderRadius: '10px', border: '1px solid rgba(168, 85, 247, 0.2)' }}>
-            <span style={{ fontSize: '0.7rem', color: '#d8b4fe', display: 'block' }}>Invested ({invPct}%)</span>
-            <strong style={{ color: '#c084fc', fontSize: '0.9rem' }}>{formatINR(summary.investmentContributionRupees)}</strong>
+          <div style={{ background: 'rgba(167,139,250, 0.08)', padding: '0.6rem', borderRadius: '10px', border: '1px solid rgba(167,139,250, 0.2)' }}>
+            <span style={{ fontSize: '0.7rem', color: '#ddd6fe', display: 'block' }}>Invested ({invPct}%)</span>
+            <strong style={{ color: '#c4b5fd', fontSize: '0.9rem' }}>{formatINR(summary.investmentContributionRupees)}</strong>
           </div>
-          <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.6rem', borderRadius: '10px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-            <span style={{ fontSize: '0.7rem', color: '#6ee7b7', display: 'block' }}>Surplus ({surplusPct}%)</span>
-            <strong style={{ color: '#34d399', fontSize: '0.9rem' }}>{formatINR(summary.netSavingsRupees)}</strong>
+          <div style={{ background: 'rgba(20,217,160, 0.08)', padding: '0.6rem', borderRadius: '10px', border: '1px solid rgba(20,217,160, 0.2)' }}>
+            <span style={{ fontSize: '0.7rem', color: '#8bffe0', display: 'block' }}>Surplus ({surplusPct}%)</span>
+            <strong style={{ color: '#34f5c5', fontSize: '0.9rem' }}>{formatINR(summary.netSavingsRupees)}</strong>
           </div>
         </div>
       </div>
@@ -101,8 +101,8 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             width: '36px',
             height: '36px',
             borderRadius: '10px',
-            background: 'rgba(16, 185, 129, 0.15)',
-            color: '#34d399',
+            background: 'rgba(20,217,160, 0.15)',
+            color: '#34f5c5',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -110,10 +110,10 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             <PieChart size={18} />
           </div>
           <div>
-            <h4 style={{ fontSize: '1.05rem', color: '#f8fafc', margin: 0 }}>
+            <h4 style={{ fontSize: '1.05rem', color: '#f8fbff', margin: 0 }}>
               Income Sources & Passive Apps
             </h4>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+            <span style={{ fontSize: '0.75rem', color: '#a5b4d4' }}>
               Active vs Passive Reward Streams
             </span>
           </div>
@@ -123,7 +123,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
         <div style={{
           height: '22px',
           borderRadius: '999px',
-          background: 'rgba(255, 255, 255, 0.05)',
+          background: 'rgba(255,255,255, 0.05)',
           overflow: 'hidden',
           display: 'flex',
           marginBottom: '1rem',
@@ -133,7 +133,7 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             title={`Primary Job: ${jobPct}%`}
             style={{
               width: `${jobPct}%`,
-              background: 'linear-gradient(90deg, #0284c7, #38bdf8)',
+              background: 'linear-gradient(90deg, #0891b2, #22d3ee)',
               transition: 'width 0.4s ease',
             }}
           />
@@ -141,27 +141,27 @@ export const ProjectionsVisualizer: React.FC<ProjectionsVisualizerProps> = ({ su
             title={`Reward Apps: ${rewardsPct}%`}
             style={{
               width: `${rewardsPct}%`,
-              background: 'linear-gradient(90deg, #059669, #34d399)',
+              background: 'linear-gradient(90deg, #0fb98a, #34f5c5)',
               transition: 'width 0.4s ease',
             }}
           />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-          <div style={{ background: 'rgba(56, 189, 248, 0.08)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
+          <div style={{ background: 'rgba(34,211,238, 0.08)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(34,211,238, 0.2)' }}>
             <span style={{ fontSize: '0.72rem', color: '#7dd3fc', display: 'block' }}>Primary Job Career</span>
-            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#38bdf8', marginTop: '0.1rem' }}>
+            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#22d3ee', marginTop: '0.1rem' }}>
               {formatINR(summary.jobIncomeRupees)}
             </div>
-            <span style={{ fontSize: '0.68rem', color: '#94a3b8' }}>{jobPct}% of total income</span>
+            <span style={{ fontSize: '0.68rem', color: '#a5b4d4' }}>{jobPct}% of total income</span>
           </div>
 
-          <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-            <span style={{ fontSize: '0.72rem', color: '#6ee7b7', display: 'block' }}>Passive Apps Yield</span>
-            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#34d399', marginTop: '0.1rem' }}>
+          <div style={{ background: 'rgba(20,217,160, 0.08)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(20,217,160, 0.2)' }}>
+            <span style={{ fontSize: '0.72rem', color: '#8bffe0', display: 'block' }}>Passive Apps Yield</span>
+            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#34f5c5', marginTop: '0.1rem' }}>
               {formatINR(summary.rewardIncomeRupees)}
             </div>
-            <span style={{ fontSize: '0.68rem', color: '#94a3b8' }}>
+            <span style={{ fontSize: '0.68rem', color: '#a5b4d4' }}>
               {summary.totalRewardPoints.toLocaleString()} points earned
             </span>
           </div>

@@ -77,20 +77,20 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
             width: '42px',
             height: '42px',
             borderRadius: '12px',
-            background: 'rgba(56, 189, 248, 0.15)',
-            border: '1px solid rgba(56, 189, 248, 0.3)',
+            background: 'rgba(34,211,238, 0.15)',
+            border: '1px solid rgba(34,211,238, 0.3)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#38bdf8',
+            color: '#22d3ee',
           }}>
             <CalendarIcon size={22} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', margin: 0 }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', margin: 0 }}>
               Reward Streak & Attendance Calendar
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
               Track daily Nielsen 50-point check-ins & Tuesday Vtion credit streaks
             </p>
           </div>
@@ -101,7 +101,7 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
           <button onClick={prevMonth} className="btn-secondary" style={{ padding: '0.4rem 0.65rem' }}>
             <ChevronLeft size={16} />
           </button>
-          <span style={{ fontSize: '1rem', fontWeight: 700, color: '#f1f5f9', minWidth: '130px', textAlign: 'center' }}>
+          <span style={{ fontSize: '1rem', fontWeight: 700, color: '#f1f5ff', minWidth: '130px', textAlign: 'center' }}>
             {monthNames[month]} {year}
           </span>
           <button onClick={nextMonth} className="btn-secondary" style={{ padding: '0.4rem 0.65rem' }}>
@@ -117,22 +117,22 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
         gap: '0.75rem',
         marginBottom: '1.25rem',
       }}>
-        <div style={{ background: 'rgba(15, 23, 42, 0.7)', border: '1px solid rgba(255, 255, 255, 0.06)', padding: '0.75rem 1rem', borderRadius: '12px' }}>
-          <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase' }}>Check-in Attendance</span>
-          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.1rem' }}>
+        <div style={{ background: 'rgba(10,15,35, 0.7)', border: '1px solid rgba(255,255,255, 0.06)', padding: '0.75rem 1rem', borderRadius: '12px' }}>
+          <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase' }}>Check-in Attendance</span>
+          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.1rem' }}>
             {daysClaimedCount} / {daysInMonth} Days
           </div>
-          <span style={{ fontSize: '0.7rem', color: '#38bdf8' }}>
+          <span style={{ fontSize: '0.7rem', color: '#22d3ee' }}>
             {Math.round((daysClaimedCount / daysInMonth) * 100)}% monthly consistency
           </span>
         </div>
 
-        <div style={{ background: 'rgba(15, 23, 42, 0.7)', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '0.75rem 1rem', borderRadius: '12px' }}>
-          <span style={{ fontSize: '0.72rem', color: '#34d399', textTransform: 'uppercase' }}>Points Collected This Month</span>
-          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#34d399', marginTop: '0.1rem' }}>
+        <div style={{ background: 'rgba(10,15,35, 0.7)', border: '1px solid rgba(20,217,160, 0.2)', padding: '0.75rem 1rem', borderRadius: '12px' }}>
+          <span style={{ fontSize: '0.72rem', color: '#34f5c5', textTransform: 'uppercase' }}>Points Collected This Month</span>
+          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#34f5c5', marginTop: '0.1rem' }}>
             {monthPoints.toLocaleString()} Pts
           </div>
-          <span style={{ fontSize: '0.7rem', color: '#6ee7b7' }}>
+          <span style={{ fontSize: '0.7rem', color: '#8bffe0' }}>
             ≈ {formatINR(monthRupees, true)} earned
           </span>
         </div>
@@ -140,10 +140,10 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
 
       {/* Calendar Grid */}
       <div style={{
-        background: 'rgba(15, 23, 42, 0.6)',
+        background: 'rgba(10,15,35, 0.6)',
         borderRadius: '16px',
         padding: '1rem',
-        border: '1px solid rgba(255, 255, 255, 0.06)',
+        border: '1px solid rgba(255,255,255, 0.06)',
       }}>
         {/* Day of Week Headers */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '0.4rem', marginBottom: '0.65rem', textAlign: 'center' }}>
@@ -153,7 +153,7 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
               style={{
                 fontSize: '0.75rem',
                 fontWeight: 700,
-                color: idx === 2 ? '#34d399' : '#94a3b8',
+                color: idx === 2 ? '#34f5c5' : '#a5b4d4',
                 padding: '0.35rem',
               }}
             >
@@ -190,15 +190,15 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                   height: '76px',
                   borderRadius: '10px',
                   background: isToday
-                    ? 'rgba(56, 189, 248, 0.12)'
+                    ? 'rgba(34,211,238, 0.12)'
                     : dayClaims.length > 0
-                    ? 'rgba(15, 23, 42, 0.85)'
-                    : 'rgba(255, 255, 255, 0.02)',
+                    ? 'rgba(10,15,35, 0.85)'
+                    : 'rgba(255,255,255, 0.02)',
                   border: isToday
-                    ? '1px solid #38bdf8'
+                    ? '1px solid #22d3ee'
                     : isTue
-                    ? '1px solid rgba(16, 185, 129, 0.35)'
-                    : '1px solid rgba(255, 255, 255, 0.04)',
+                    ? '1px solid rgba(20,217,160, 0.35)'
+                    : '1px solid rgba(255,255,255, 0.04)',
                   padding: '0.4rem',
                   display: 'flex',
                   flexDirection: 'column',
@@ -212,12 +212,12 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                   <span style={{
                     fontSize: '0.8rem',
                     fontWeight: isToday ? 800 : 600,
-                    color: isToday ? '#38bdf8' : isTue ? '#34d399' : '#cbd5e1',
+                    color: isToday ? '#22d3ee' : isTue ? '#34f5c5' : '#cbd5ee',
                   }}>
                     {dayNum}
                   </span>
                   {isTue && (
-                    <span style={{ fontSize: '0.62rem', color: '#34d399', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.62rem', color: '#34f5c5', fontWeight: 600 }}>
                       Tue
                     </span>
                   )}
@@ -228,8 +228,8 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                   {hasNielsen && (
                     <span style={{
                       fontSize: '0.62rem',
-                      background: 'rgba(56, 189, 248, 0.2)',
-                      color: '#38bdf8',
+                      background: 'rgba(34,211,238, 0.2)',
+                      color: '#22d3ee',
                       borderRadius: '4px',
                       padding: '1px 3px',
                       fontWeight: 600,
@@ -242,8 +242,8 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                   {hasVtion && (
                     <span style={{
                       fontSize: '0.62rem',
-                      background: 'rgba(16, 185, 129, 0.25)',
-                      color: '#34d399',
+                      background: 'rgba(20,217,160, 0.25)',
+                      color: '#34f5c5',
                       borderRadius: '4px',
                       padding: '1px 3px',
                       fontWeight: 600,
@@ -261,13 +261,13 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                         style={{
                           background: 'transparent',
                           border: 'none',
-                          color: '#475569',
+                          color: '#4a5675',
                           fontSize: '0.62rem',
                           cursor: 'pointer',
                           padding: '1px 2px',
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = '#38bdf8')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = '#475569')}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = '#22d3ee')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = '#4a5675')}
                       >
                         +Nielsen
                       </button>
@@ -278,13 +278,13 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                           style={{
                             background: 'transparent',
                             border: 'none',
-                            color: '#059669',
+                            color: '#0fb98a',
                             fontSize: '0.62rem',
                             cursor: 'pointer',
                             padding: '1px 2px',
                           }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = '#34d399')}
-                          onMouseLeave={(e) => (e.currentTarget.style.color = '#059669')}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = '#34f5c5')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = '#0fb98a')}
                         >
                           +Vtion
                         </button>

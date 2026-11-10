@@ -350,7 +350,7 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(5, 10, 20, 0.88)',
+      background: 'rgba(4,6,16, 0.88)',
       backdropFilter: 'blur(14px)',
       WebkitBackdropFilter: 'blur(14px)',
       display: 'flex',
@@ -361,23 +361,23 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
       overflowY: 'auto',
     }}>
       <div style={{
-        background: '#0d1526',
-        border: '1px solid rgba(168, 85, 247, 0.35)',
+        background: '#0b1020',
+        border: '1px solid rgba(167,139,250, 0.35)',
         borderRadius: '20px',
         width: '100%',
         maxWidth: '1240px',
         maxHeight: '94vh',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 25px 70px rgba(0, 0, 0, 0.8), 0 0 35px rgba(168, 85, 247, 0.25)',
+        boxShadow: '0 25px 70px rgba(0,0,0, 0.8), 0 0 35px rgba(167,139,250, 0.25)',
         overflow: 'hidden',
       }}>
 
         {/* ── Top Modal Header ── */}
         <div style={{
           padding: '1.25rem 1.75rem',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          background: 'linear-gradient(135deg, rgba(30, 20, 50, 0.8) 0%, rgba(13, 21, 38, 0.95) 100%)',
+          borderBottom: '1px solid rgba(255,255,255, 0.08)',
+          background: 'linear-gradient(135deg, rgba(30,20,50, 0.8) 0%, rgba(14,20,45, 0.95) 100%)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -389,25 +389,25 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
               width: 44,
               height: 44,
               borderRadius: 12,
-              background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+              background: 'linear-gradient(135deg, #a78bfa 0%, #ec4899 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#fff',
-              boxShadow: '0 4px 16px rgba(139, 92, 246, 0.4)',
+              boxShadow: '0 4px 16px rgba(167,139,250, 0.4)',
             }}>
               <Gamepad2 size={24} />
             </div>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
+                <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#f8fbff', margin: 0 }}>
                   Complete Pro Gaming PC Setup Blueprint
                 </h2>
                 <span className="badge badge-purple" style={{ fontSize: '0.7rem' }}>
                   2026 Edition · 20 Components
                 </span>
               </div>
-              <p style={{ color: '#94a3b8', fontSize: '0.82rem', margin: '0.15rem 0 0 0' }}>
+              <p style={{ color: '#a5b4d4', fontSize: '0.82rem', margin: '0.15rem 0 0 0' }}>
                 Full hardware specs, individual prices, images, and live financial gap calculation
               </p>
             </div>
@@ -427,9 +427,9 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                 width: 36,
                 height: 36,
                 borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.08)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#cbd5e1',
+                background: 'rgba(255,255,255, 0.08)',
+                border: '1px solid rgba(255,255,255, 0.15)',
+                color: '#cbd5ee',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -446,8 +446,8 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
         {/* ── Financial Gap Dashboard Banner ── */}
         <div style={{
           padding: '1.25rem 1.75rem',
-          background: 'rgba(10, 16, 30, 0.85)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          background: 'rgba(10,16,30, 0.85)',
+          borderBottom: '1px solid rgba(255,255,255, 0.08)',
         }}>
           <div style={{
             display: 'grid',
@@ -456,20 +456,20 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
             marginBottom: '1rem',
           }}>
             {/* Total Build Price */}
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-              <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(255,255,255, 0.06)' }}>
+              <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Total 20-Part Setup Cost
               </span>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.2rem' }}>
+              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.2rem' }}>
                 {formatINR(totalBuildPriceInr, true)}
               </div>
-              <span style={{ fontSize: '0.72rem', color: '#a855f7' }}>
+              <span style={{ fontSize: '0.72rem', color: '#a78bfa' }}>
                 ${totalBuildPriceUsd.toLocaleString()} USD (All Categories)
               </span>
             </div>
 
             {/* Current Net Wealth */}
-            <div style={{ background: 'rgba(34, 197, 94, 0.05)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(34, 197, 94, 0.25)' }}>
+            <div style={{ background: 'rgba(34,197,94, 0.05)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(34,197,94, 0.25)' }}>
               <span style={{ fontSize: '0.72rem', color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Your Current Net Wealth
               </span>
@@ -483,16 +483,16 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
 
             {/* Still Remaining Needed Price (Highlighted!) */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%)',
+              background: 'linear-gradient(135deg, rgba(239,68,68, 0.15) 0%, rgba(245,158,11, 0.1) 100%)',
               padding: '0.9rem',
               borderRadius: 12,
-              border: '1px solid rgba(239, 68, 68, 0.4)',
-              boxShadow: '0 4px 18px rgba(239, 68, 68, 0.15)',
+              border: '1px solid rgba(239,68,68, 0.4)',
+              boxShadow: '0 4px 18px rgba(239,68,68, 0.15)',
             }}>
-              <span style={{ fontSize: '0.72rem', color: '#fca5a5', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 700 }}>
+              <span style={{ fontSize: '0.72rem', color: '#ffb3cc', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 700 }}>
                 ⚡ Still How Much Price We Want
               </span>
-              <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#f87171', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
+              <div style={{ fontSize: '1.65rem', fontWeight: 900, color: '#ff6b9a', marginTop: '0.2rem', letterSpacing: '-0.02em' }}>
                 {formatINR(remainingNeededInr, true)}
               </div>
               <span style={{ fontSize: '0.72rem', color: '#fecaca' }}>
@@ -501,14 +501,14 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
             </div>
 
             {/* Owned vs Target */}
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-              <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <div style={{ background: 'rgba(255,255,255, 0.03)', padding: '0.9rem', borderRadius: 12, border: '1px solid rgba(255,255,255, 0.06)' }}>
+              <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Parts Status
               </span>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#38bdf8', marginTop: '0.2rem' }}>
+              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#22d3ee', marginTop: '0.2rem' }}>
                 {Object.values(ownedPartIds).filter(Boolean).length} / {ALL_PC_PARTS.length} Owned
               </div>
-              <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+              <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
                 {percentFunded}% of setup funded
               </span>
             </div>
@@ -516,22 +516,22 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
 
           {/* Progress Bar */}
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.35rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#a5b4d4', marginBottom: '0.35rem' }}>
               <span>Progress: <strong>{percentFunded}%</strong> Funded</span>
-              <span>Still Remaining: <strong style={{ color: '#f87171' }}>{formatINR(remainingNeededInr, true)}</strong></span>
+              <span>Still Remaining: <strong style={{ color: '#ff6b9a' }}>{formatINR(remainingNeededInr, true)}</strong></span>
             </div>
             <div style={{
               height: 8,
               borderRadius: 999,
-              background: 'rgba(255, 255, 255, 0.08)',
+              background: 'rgba(255,255,255, 0.08)',
               overflow: 'hidden',
             }}>
               <div style={{
                 height: '100%',
                 width: `${Math.max(1, percentFunded)}%`,
                 borderRadius: 999,
-                background: 'linear-gradient(90deg, #8b5cf6 0%, #ec4899 50%, #38bdf8 100%)',
-                boxShadow: '0 0 10px rgba(168, 85, 247, 0.5)',
+                background: 'linear-gradient(90deg, #a78bfa 0%, #ec4899 50%, #22d3ee 100%)',
+                boxShadow: '0 0 10px rgba(167,139,250, 0.5)',
                 transition: 'width 0.4s ease',
               }} />
             </div>
@@ -541,11 +541,11 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
         {/* ── Category Filter Pills ── */}
         <div style={{
           padding: '0.75rem 1.75rem',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+          borderBottom: '1px solid rgba(255,255,255, 0.06)',
           display: 'flex',
           gap: '0.4rem',
           overflowX: 'auto',
-          background: 'rgba(15, 23, 42, 0.5)',
+          background: 'rgba(10,15,35, 0.5)',
         }}>
           {categories.map((cat) => (
             <button
@@ -556,9 +556,9 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                 borderRadius: '8px',
                 fontSize: '0.78rem',
                 fontWeight: 600,
-                border: selectedCategory === cat ? '1px solid #8b5cf6' : '1px solid rgba(255, 255, 255, 0.08)',
-                background: selectedCategory === cat ? 'rgba(139, 92, 246, 0.25)' : 'rgba(255, 255, 255, 0.04)',
-                color: selectedCategory === cat ? '#ffffff' : '#94a3b8',
+                border: selectedCategory === cat ? '1px solid #a78bfa' : '1px solid rgba(255,255,255, 0.08)',
+                background: selectedCategory === cat ? 'rgba(167,139,250, 0.25)' : 'rgba(255,255,255, 0.04)',
+                color: selectedCategory === cat ? '#ffffff' : '#a5b4d4',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.15s ease',
@@ -587,14 +587,14 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                 <div
                   key={part.id}
                   style={{
-                    background: isOwned ? 'rgba(34, 197, 94, 0.04)' : 'rgba(15, 23, 42, 0.8)',
-                    border: isOwned ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid rgba(255, 255, 255, 0.08)',
+                    background: isOwned ? 'rgba(34,197,94, 0.04)' : 'rgba(10,15,35, 0.8)',
+                    border: isOwned ? '1px solid rgba(34,197,94, 0.4)' : '1px solid rgba(255,255,255, 0.08)',
                     borderRadius: '16px',
                     overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
                     transition: 'all 0.2s ease',
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+                    boxShadow: '0 4px 20px rgba(0,0,0, 0.3)',
                   }}
                 >
                   {/* Image with Category Badge & Price Tag */}
@@ -602,7 +602,7 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                     position: 'relative',
                     height: 190,
                     width: '100%',
-                    background: '#070b14',
+                    background: '#05070f',
                     overflow: 'hidden',
                   }}>
                     <img
@@ -627,7 +627,7 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                       display: 'flex',
                       gap: '0.4rem',
                     }}>
-                      <span className="badge badge-purple" style={{ fontSize: '0.65rem', backdropFilter: 'blur(8px)', background: 'rgba(15, 23, 42, 0.85)' }}>
+                      <span className="badge badge-purple" style={{ fontSize: '0.65rem', backdropFilter: 'blur(8px)', background: 'rgba(10,15,35, 0.85)' }}>
                         {part.subcategory}
                       </span>
                     </div>
@@ -636,16 +636,16 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                       position: 'absolute',
                       bottom: 10,
                       right: 10,
-                      background: 'rgba(15, 23, 42, 0.9)',
-                      border: '1px solid rgba(56, 189, 248, 0.3)',
+                      background: 'rgba(10,15,35, 0.9)',
+                      border: '1px solid rgba(34,211,238, 0.3)',
                       borderRadius: '8px',
                       padding: '0.3rem 0.65rem',
                       backdropFilter: 'blur(8px)',
                     }}>
-                      <div style={{ fontSize: '1rem', fontWeight: 800, color: '#f8fafc', lineHeight: 1.1 }}>
+                      <div style={{ fontSize: '1rem', fontWeight: 800, color: '#f8fbff', lineHeight: 1.1 }}>
                         {formatINR(part.priceInr, true)}
                       </div>
-                      <div style={{ fontSize: '0.68rem', color: '#94a3b8', textAlign: 'right' }}>
+                      <div style={{ fontSize: '0.68rem', color: '#a5b4d4', textAlign: 'right' }}>
                         ${part.priceUsd} USD
                       </div>
                     </div>
@@ -656,32 +656,32 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                     <div>
                       {/* Title & Brand */}
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                        <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', margin: 0, lineHeight: 1.3 }}>
+                        <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fbff', margin: 0, lineHeight: 1.3 }}>
                           {part.name}
                         </h4>
                       </div>
 
-                      <div style={{ fontSize: '0.74rem', color: '#a855f7', fontWeight: 600, marginBottom: '0.65rem' }}>
+                      <div style={{ fontSize: '0.74rem', color: '#a78bfa', fontWeight: 600, marginBottom: '0.65rem' }}>
                         Recommended Brand: {part.recommendedBrand}
                       </div>
 
                       {/* Why Chosen Callout */}
                       <p style={{
                         fontSize: '0.78rem',
-                        color: '#94a3b8',
+                        color: '#a5b4d4',
                         lineHeight: 1.45,
                         marginBottom: '0.85rem',
-                        background: 'rgba(255, 255, 255, 0.03)',
+                        background: 'rgba(255,255,255, 0.03)',
                         padding: '0.55rem 0.75rem',
                         borderRadius: '8px',
-                        borderLeft: '3px solid #8b5cf6',
+                        borderLeft: '3px solid #a78bfa',
                       }}>
-                        <strong style={{ color: '#cbd5e1' }}>Why Chosen:</strong> {part.whyChosen}
+                        <strong style={{ color: '#cbd5ee' }}>Why Chosen:</strong> {part.whyChosen}
                       </p>
 
                       {/* Tech Specs List */}
                       <div style={{ marginBottom: '1rem' }}>
-                        <span style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
+                        <span style={{ fontSize: '0.7rem', color: '#6b7a99', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
                           Technical Specs:
                         </span>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.3rem' }}>
@@ -690,9 +690,9 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                               key={i}
                               style={{
                                 fontSize: '0.7rem',
-                                color: '#e2e8f0',
-                                background: 'rgba(255, 255, 255, 0.06)',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                color: '#e2e8f8',
+                                background: 'rgba(255,255,255, 0.06)',
+                                border: '1px solid rgba(255,255,255, 0.08)',
                                 padding: '0.2rem 0.5rem',
                                 borderRadius: '6px',
                               }}
@@ -707,7 +707,7 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                     {/* Bottom Action: Owned / Purchase Toggle */}
                     <div style={{
                       paddingTop: '0.85rem',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                      borderTop: '1px solid rgba(255,255,255, 0.06)',
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
@@ -718,9 +718,9 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                           display: 'flex',
                           alignItems: 'center',
                           gap: '0.45rem',
-                          background: isOwned ? 'rgba(34, 197, 94, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                          border: isOwned ? '1px solid #22c55e' : '1px solid rgba(255, 255, 255, 0.1)',
-                          color: isOwned ? '#4ade80' : '#94a3b8',
+                          background: isOwned ? 'rgba(34,197,94, 0.2)' : 'rgba(255,255,255, 0.05)',
+                          border: isOwned ? '1px solid #22c55e' : '1px solid rgba(255,255,255, 0.1)',
+                          color: isOwned ? '#4ade80' : '#a5b4d4',
                           padding: '0.4rem 0.75rem',
                           borderRadius: '8px',
                           fontSize: '0.78rem',
@@ -733,7 +733,7 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
                         {isOwned ? 'Purchased / Owned' : 'Mark as Owned'}
                       </button>
 
-                      <span style={{ fontSize: '0.78rem', fontWeight: 700, color: isOwned ? '#4ade80' : '#f8fafc' }}>
+                      <span style={{ fontSize: '0.78rem', fontWeight: 700, color: isOwned ? '#4ade80' : '#f8fbff' }}>
                         {isOwned ? '₹0 Still Needed' : formatINR(part.priceInr, true)}
                       </span>
                     </div>
@@ -748,16 +748,16 @@ export const GamingPcSetupModal: React.FC<GamingPcSetupModalProps> = ({
         {/* ── Footer ── */}
         <div style={{
           padding: '1rem 1.75rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          background: '#070b14',
+          borderTop: '1px solid rgba(255,255,255, 0.08)',
+          background: '#05070f',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '0.75rem',
         }}>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-            Goal: <strong style={{ color: '#f8fafc' }}>{formatINR(totalBuildPriceInr, true)}</strong> · Still Needed: <strong style={{ color: '#f87171' }}>{formatINR(remainingNeededInr, true)}</strong>
+          <div style={{ fontSize: '0.8rem', color: '#a5b4d4' }}>
+            Goal: <strong style={{ color: '#f8fbff' }}>{formatINR(totalBuildPriceInr, true)}</strong> · Still Needed: <strong style={{ color: '#ff6b9a' }}>{formatINR(remainingNeededInr, true)}</strong>
           </div>
           <button
             onClick={onClose}
