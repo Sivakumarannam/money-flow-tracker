@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coins, Sparkles, Download, Upload, RotateCcw, CalendarCheck, Gamepad2 } from 'lucide-react';
+import { Coins, Sparkles, Download, Upload, RotateCcw, CalendarCheck, Gamepad2, Lock } from 'lucide-react';
 
 interface HeaderProps {
   onExport: () => void;
@@ -8,6 +8,7 @@ interface HeaderProps {
   onReset: () => void;
   onOpenZeroGuide?: () => void;
   onOpenGamingPc?: () => void;
+  onLock?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,6 +18,7 @@ export const Header: React.FC<HeaderProps> = ({
   onReset,
   onOpenZeroGuide,
   onOpenGamingPc,
+  onLock,
 }) => {
   const today = new Date();
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -132,6 +134,13 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Upload size={13} />
           </button>
+
+          {/* Lock */}
+          {onLock && (
+            <button onClick={onLock} className="btn-secondary" title="Lock the app">
+              <Lock size={13} /> Lock
+            </button>
+          )}
 
           {/* Reset */}
           <button
