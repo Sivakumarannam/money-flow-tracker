@@ -64,21 +64,21 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
             width: '42px',
             height: '42px',
             borderRadius: '12px',
-            background: 'rgba(244, 63, 94, 0.15)',
-            border: '1px solid rgba(244, 63, 94, 0.3)',
+            background: 'rgba(255,61,127, 0.15)',
+            border: '1px solid rgba(255,61,127, 0.3)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#f43f5e',
+            color: '#ff3d7f',
           }}>
             <CreditCard size={22} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', margin: 0 }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', margin: 0 }}>
               Expenses & Spending Tracker
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
-              Normalized {activePeriod} spending: <strong style={{ color: '#f87171' }}>{formatINR(totalInPeriod, true)}</strong>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
+              Normalized {activePeriod} spending: <strong style={{ color: '#ff6b9a' }}>{formatINR(totalInPeriod, true)}</strong>
             </p>
           </div>
         </div>
@@ -107,8 +107,8 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
                 justifyContent: 'space-between',
                 padding: '0.85rem 1rem',
                 borderRadius: '12px',
-                background: 'rgba(15, 23, 42, 0.6)',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
+                background: 'rgba(10,15,35, 0.6)',
+                border: '1px solid rgba(255,255,255, 0.05)',
                 transition: 'all 0.2s ease',
               }}
             >
@@ -117,22 +117,22 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
                   width: '32px',
                   height: '32px',
                   borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.04)',
+                  background: 'rgba(255,255,255, 0.04)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#94a3b8',
+                  color: '#a5b4d4',
                 }}>
                   <Tag size={15} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: '0.925rem' }}>
+                  <div style={{ fontWeight: 600, color: '#f1f5ff', fontSize: '0.925rem' }}>
                     {item.title}
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.15rem' }}>
-                    <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>{item.category}</span>
-                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>•</span>
-                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                    <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>{item.category}</span>
+                    <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>•</span>
+                    <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>
                       Base: {formatINR(item.amount)}/{item.frequency}
                     </span>
                   </div>
@@ -141,10 +141,10 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '0.975rem', fontWeight: 700, color: '#f87171' }}>
+                  <div style={{ fontSize: '0.975rem', fontWeight: 700, color: '#ff6b9a' }}>
                     {formatINR(currentPeriodAmount, true)}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>
+                  <div style={{ fontSize: '0.7rem', color: '#a5b4d4' }}>
                     {activePeriod} share
                   </div>
                 </div>
@@ -155,12 +155,12 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
                   style={{
                     background: 'transparent',
                     border: 'none',
-                    color: '#64748b',
+                    color: '#6b7a99',
                     cursor: 'pointer',
                     padding: '0.35rem',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#f43f5e')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ff3d7f')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#6b7a99')}
                 >
                   <Trash2 size={16} />
                 </button>
@@ -178,7 +178,7 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
+          background: 'rgba(0,0,0, 0.75)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -187,7 +187,7 @@ export const ExpenseTrackerSection: React.FC<ExpenseTrackerSectionProps> = ({
           padding: '1rem',
         }}>
           <div className="card-elevated" style={{ width: '100%', maxWidth: '440px', padding: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', marginBottom: '1rem' }}>
               Add New Expense
             </h3>
             <form onSubmit={handleSubmit}>

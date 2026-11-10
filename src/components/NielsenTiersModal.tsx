@@ -36,7 +36,7 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(0, 0, 0, 0.75)',
+      background: 'rgba(0,0,0, 0.75)',
       backdropFilter: 'blur(8px)',
       display: 'flex',
       alignItems: 'center',
@@ -51,8 +51,8 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
         display: 'flex',
         flexDirection: 'column',
         padding: '1.75rem',
-        border: '1px solid rgba(56, 189, 248, 0.35)',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.7)',
+        border: '1px solid rgba(34,211,238, 0.35)',
+        boxShadow: '0 20px 50px rgba(0,0,0, 0.7)',
       }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
@@ -62,11 +62,11 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
                 Nielsen Official App Rates
               </span>
             </div>
-            <h3 style={{ fontSize: '1.3rem', color: '#f8fafc', margin: '0.35rem 0 0 0' }}>
+            <h3 style={{ fontSize: '1.3rem', color: '#f8fbff', margin: '0.35rem 0 0 0' }}>
               Please Select UPI Amount
             </h3>
-            <p style={{ fontSize: '0.825rem', color: '#94a3b8', margin: '0.15rem 0 0 0' }}>
-              Your current balance: <strong style={{ color: '#38bdf8' }}>{currentPoints.toLocaleString()} Points</strong> (≈ {formatINR((currentPoints / 1100) * 100, true)})
+            <p style={{ fontSize: '0.825rem', color: '#a5b4d4', margin: '0.15rem 0 0 0' }}>
+              Your current balance: <strong style={{ color: '#22d3ee' }}>{currentPoints.toLocaleString()} Points</strong> (≈ {formatINR((currentPoints / 1100) * 100, true)})
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#94a3b8',
+              color: '#a5b4d4',
               cursor: 'pointer',
               padding: '0.35rem',
             }}
@@ -107,28 +107,28 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
                   justifyContent: 'space-between',
                   padding: '0.85rem 1rem',
                   borderRadius: '12px',
-                  background: isEligible ? 'rgba(16, 185, 129, 0.1)' : 'rgba(15, 23, 42, 0.6)',
-                  border: isEligible ? '1px solid rgba(16, 185, 129, 0.35)' : '1px solid rgba(255, 255, 255, 0.06)',
+                  background: isEligible ? 'rgba(20,217,160, 0.1)' : 'rgba(10,15,35, 0.6)',
+                  border: isEligible ? '1px solid rgba(20,217,160, 0.35)' : '1px solid rgba(255,255,255, 0.06)',
                   transition: 'all 0.15s ease',
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontSize: '1.05rem', fontWeight: 800, color: isEligible ? '#34d399' : '#f1f5f9' }}>
+                    <span style={{ fontSize: '1.05rem', fontWeight: 800, color: isEligible ? '#34f5c5' : '#f1f5ff' }}>
                       INR {tier.inr}
                     </span>
-                    <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#a5b4d4' }}>
                       ({tier.points.toLocaleString()} points)
                     </span>
                   </div>
 
                   <div style={{ fontSize: '0.75rem', marginTop: '0.2rem' }}>
                     {isEligible ? (
-                      <span style={{ color: '#34d399', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                      <span style={{ color: '#34f5c5', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                         <CheckCircle size={13} /> Ready to redeem! ({currentPoints - tier.points} pts left over)
                       </span>
                     ) : (
-                      <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                      <span style={{ color: '#a5b4d4', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                         <Clock size={13} /> Needs {pointsNeeded.toLocaleString()} more pts (~{daysNeeded} days at 50 pts/day)
                       </span>
                     )}
@@ -148,7 +148,7 @@ export const NielsenTiersModal: React.FC<NielsenTiersModalProps> = ({
                       Redeem ₹{tier.inr}
                     </button>
                   ) : (
-                    <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.75rem', color: '#6b7a99', fontWeight: 600 }}>
                       Locked
                     </span>
                   )}

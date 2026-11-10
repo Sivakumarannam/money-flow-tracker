@@ -97,19 +97,19 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
   const getPlatformBadge = (platform: string) => {
     switch (platform) {
       case 'Binance':
-        return { bg: 'rgba(234, 179, 8, 0.15)', color: '#facc15', border: 'rgba(234, 179, 8, 0.3)' };
+        return { bg: 'rgba(234,179,8, 0.15)', color: '#facc15', border: 'rgba(234,179,8, 0.3)' };
       case 'Phantom':
-        return { bg: 'rgba(168, 85, 247, 0.15)', color: '#c084fc', border: 'rgba(168, 85, 247, 0.3)' };
+        return { bg: 'rgba(167,139,250, 0.15)', color: '#c4b5fd', border: 'rgba(167,139,250, 0.3)' };
       case 'Sweat Wallet':
-        return { bg: 'rgba(236, 72, 153, 0.15)', color: '#f472b6', border: 'rgba(236, 72, 153, 0.3)' };
+        return { bg: 'rgba(236,72,153, 0.15)', color: '#f472b6', border: 'rgba(236,72,153, 0.3)' };
       case 'SolPick':
-        return { bg: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: 'rgba(16, 185, 129, 0.3)' };
+        return { bg: 'rgba(20,217,160, 0.15)', color: '#34f5c5', border: 'rgba(20,217,160, 0.3)' };
       case 'ZebPay':
-        return { bg: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', border: 'rgba(59, 130, 246, 0.3)' };
+        return { bg: 'rgba(34,211,238, 0.15)', color: '#67e8f9', border: 'rgba(34,211,238, 0.3)' };
       case 'Pi Browser':
-        return { bg: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b', border: 'rgba(245, 158, 11, 0.3)' };
+        return { bg: 'rgba(245,158,11, 0.15)', color: '#f59e0b', border: 'rgba(245,158,11, 0.3)' };
       default:
-        return { bg: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', border: 'rgba(56, 189, 248, 0.3)' };
+        return { bg: 'rgba(34,211,238, 0.15)', color: '#22d3ee', border: 'rgba(34,211,238, 0.3)' };
     }
   };
 
@@ -123,25 +123,25 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
             width: '44px',
             height: '44px',
             borderRadius: '12px',
-            background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+            background: 'linear-gradient(135deg, #a78bfa 0%, #ec4899 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#fff',
-            boxShadow: '0 4px 14px rgba(139, 92, 246, 0.35)',
+            boxShadow: '0 4px 14px rgba(167,139,250, 0.35)',
           }}>
             <Coins size={24} />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-              <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
+              <h2 style={{ fontSize: '1.35rem', color: '#f8fbff', margin: 0 }}>
                 Crypto, Web3 & DePIN Portfolio
               </h2>
               <span className="badge badge-purple" style={{ fontSize: '0.7rem' }}>
                 Binance • Phantom • Sweat
               </span>
             </div>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.2rem' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.85rem', marginTop: '0.2rem' }}>
               Binance cash balance, Sweat M2E tokens & UpRock AI bandwidth sharing on Solana
             </p>
           </div>
@@ -155,8 +155,8 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
             style={{
               padding: '0.55rem 0.9rem',
               fontSize: '0.8rem',
-              borderColor: 'rgba(139, 92, 246, 0.3)',
-              color: '#c084fc',
+              borderColor: 'rgba(167,139,250, 0.3)',
+              color: '#c4b5fd',
               display: 'flex',
               alignItems: 'center',
               gap: '0.4rem',
@@ -166,19 +166,19 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
           </button>
 
           <div style={{
-            background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0.95) 100%)',
-            border: '1px solid rgba(139, 92, 246, 0.35)',
+            background: 'linear-gradient(135deg, rgba(167,139,250, 0.15) 0%, rgba(10,15,35, 0.95) 100%)',
+            border: '1px solid rgba(167,139,250, 0.35)',
             borderRadius: '14px',
             padding: '0.65rem 1.25rem',
             textAlign: 'right',
           }}>
-            <span style={{ fontSize: '0.7rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.7rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Total Crypto Valuation
             </span>
-            <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#c084fc', letterSpacing: '-0.02em' }}>
+            <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#c4b5fd', letterSpacing: '-0.02em' }}>
               {formatINR(totalCryptoValueInr, true)}
             </div>
-            <span style={{ fontSize: '0.7rem', color: '#e9d5ff' }}>
+            <span style={{ fontSize: '0.7rem', color: '#ede9fe' }}>
               {holdings.length} Active Holdings
             </span>
           </div>
@@ -187,8 +187,8 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
       {/* UpRock DePIN Callout Banner */}
       <div style={{
-        background: 'rgba(168, 85, 247, 0.08)',
-        border: '1px solid rgba(168, 85, 247, 0.25)',
+        background: 'rgba(167,139,250, 0.08)',
+        border: '1px solid rgba(167,139,250, 0.25)',
         borderRadius: '12px',
         padding: '0.85rem 1.2rem',
         marginBottom: '1.25rem',
@@ -199,18 +199,18 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
         gap: '0.75rem',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <Wifi size={18} color="#c084fc" />
-          <span style={{ fontSize: '0.825rem', color: '#cbd5e1' }}>
-            <strong style={{ color: '#c084fc' }}>UpRock (347 UPT):</strong> You are already running an AI Bandwidth Sharing DePIN node! It operates using <strong>only Gmail</strong> on Solana with zero phone number required.
+          <Wifi size={18} color="#c4b5fd" />
+          <span style={{ fontSize: '0.825rem', color: '#cbd5ee' }}>
+            <strong style={{ color: '#c4b5fd' }}>UpRock (347 UPT):</strong> You are already running an AI Bandwidth Sharing DePIN node! It operates using <strong>only Gmail</strong> on Solana with zero phone number required.
           </span>
         </div>
         {onOpenZeroGuide && (
           <button
             onClick={onOpenZeroGuide}
             style={{
-              background: 'rgba(168, 85, 247, 0.2)',
-              border: '1px solid rgba(168, 85, 247, 0.4)',
-              color: '#c084fc',
+              background: 'rgba(167,139,250, 0.2)',
+              border: '1px solid rgba(167,139,250, 0.4)',
+              color: '#c4b5fd',
               padding: '0.35rem 0.75rem',
               borderRadius: '8px',
               fontSize: '0.75rem',
@@ -240,8 +240,8 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
               className="card"
               style={{
                 padding: '1.25rem',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(24, 24, 43, 0.8) 100%)',
+                border: '1px solid rgba(255,255,255, 0.08)',
+                background: 'linear-gradient(135deg, rgba(10,15,35, 0.9) 0%, rgba(18,24,52, 0.8) 100%)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -252,7 +252,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                 {/* Card Top: Name + Platform Badge + Edit Button */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc', margin: 0 }}>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fbff', margin: 0 }}>
                       {h.name}
                     </h3>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.2rem' }}>
@@ -278,9 +278,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                   <button
                     onClick={() => handleStartEdit(h)}
                     style={{
-                      background: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#94a3b8',
+                      background: 'rgba(255,255,255, 0.06)',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#a5b4d4',
                       padding: '0.35rem 0.6rem',
                       borderRadius: '8px',
                       fontSize: '0.75rem',
@@ -296,14 +296,14 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
                 {/* Token Balance */}
                 <div style={{ marginBottom: '0.75rem' }}>
-                  <span style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <span style={{ fontSize: '0.7rem', color: '#6b7a99', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     Token / Currency Balance
                   </span>
-                  <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-0.02em' }}>
-                    {h.balance.toLocaleString()} <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>{h.symbol}</span>
+                  <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f1f5ff', letterSpacing: '-0.02em' }}>
+                    {h.balance.toLocaleString()} <span style={{ fontSize: '0.9rem', color: '#a5b4d4' }}>{h.symbol}</span>
                   </div>
                   {h.availableBalance !== undefined && (
-                    <span style={{ fontSize: '0.72rem', color: h.category === 'Faucet' ? '#34d399' : '#38bdf8' }}>
+                    <span style={{ fontSize: '0.72rem', color: h.category === 'Faucet' ? '#34f5c5' : '#22d3ee' }}>
                       {h.category === 'Faucet'
                         ? `Target / Min Payout: ${h.availableBalance} ${h.symbol} (${Math.round((h.balance / h.availableBalance) * 100)}% reached)`
                         : `Available to trade: ${h.availableBalance.toLocaleString()} ${h.symbol}`}
@@ -313,24 +313,24 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
                 {/* Current Price and Estimated Value */}
                 <div style={{
-                  background: 'rgba(15, 23, 42, 0.6)',
+                  background: 'rgba(10,15,35, 0.6)',
                   borderRadius: '10px',
                   padding: '0.65rem 0.85rem',
                   fontSize: '0.78rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  border: '1px solid rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255,255,255, 0.04)',
                 }}>
                   <div>
-                    <span style={{ color: '#64748b', display: 'block', fontSize: '0.68rem' }}>Current Rate</span>
-                    <strong style={{ color: '#cbd5e1' }}>
+                    <span style={{ color: '#6b7a99', display: 'block', fontSize: '0.68rem' }}>Current Rate</span>
+                    <strong style={{ color: '#cbd5ee' }}>
                       {h.symbol === 'INR/USDT' ? '₹1 = ₹1' : `₹${h.currentPriceInr} / ${h.symbol}`}
                     </strong>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <span style={{ color: '#64748b', display: 'block', fontSize: '0.68rem' }}>INR Valuation</span>
-                    <strong style={{ color: '#34d399', fontSize: '1.05rem' }}>
+                    <span style={{ color: '#6b7a99', display: 'block', fontSize: '0.68rem' }}>INR Valuation</span>
+                    <strong style={{ color: '#34f5c5', fontSize: '1.05rem' }}>
                       {formatINR(h.valueInr || (h.balance * h.currentPriceInr), true)}
                     </strong>
                   </div>
@@ -338,7 +338,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
               </div>
 
               {/* Note / Source */}
-              <div style={{ marginTop: '0.75rem', paddingTop: '0.6rem', borderTop: '1px solid rgba(255, 255, 255, 0.05)', fontSize: '0.72rem', color: '#64748b' }}>
+              <div style={{ marginTop: '0.75rem', paddingTop: '0.6rem', borderTop: '1px solid rgba(255,255,255, 0.05)', fontSize: '0.72rem', color: '#6b7a99' }}>
                 {h.notes?.includes('http') ? (
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span>{h.notes.split('(')[0]}</span>
@@ -346,7 +346,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       href="https://solpick.io/faucet.php"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: '#38bdf8', textDecoration: 'underline', fontWeight: 600 }}
+                      style={{ color: '#22d3ee', textDecoration: 'underline', fontWeight: 600 }}
                     >
                       Open Faucet ↗
                     </a>
@@ -368,7 +368,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(2, 6, 23, 0.8)',
+          background: 'rgba(5,8,20, 0.8)',
           backdropFilter: 'blur(6px)',
           display: 'flex',
           alignItems: 'center',
@@ -377,26 +377,26 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
           padding: '1rem',
         }}>
           <div style={{
-            background: '#0f172a',
-            border: '1px solid rgba(168, 85, 247, 0.3)',
+            background: '#0b1020',
+            border: '1px solid rgba(167,139,250, 0.3)',
             borderRadius: '18px',
             maxWidth: '460px',
             width: '100%',
             padding: '1.5rem',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+            boxShadow: '0 25px 50px -12px rgba(0,0,0, 0.7)',
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
               <div>
-                <h3 style={{ fontSize: '1.2rem', color: '#f8fafc', margin: 0 }}>
+                <h3 style={{ fontSize: '1.2rem', color: '#f8fbff', margin: 0 }}>
                   Edit {editingHolding.name}
                 </h3>
-                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                <span style={{ fontSize: '0.75rem', color: '#a5b4d4' }}>
                   Platform: {editingHolding.platform} ({editingHolding.symbol})
                 </span>
               </div>
               <button
                 onClick={() => setEditingHolding(null)}
-                style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+                style={{ background: 'transparent', border: 'none', color: '#a5b4d4', cursor: 'pointer' }}
               >
                 <X size={18} />
               </button>
@@ -404,7 +404,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
             <form onSubmit={handleSaveEdit}>
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5ee', marginBottom: '0.35rem' }}>
                   Total Balance ({editingHolding.symbol})
                 </label>
                 <input
@@ -416,9 +416,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     width: '100%',
                     padding: '0.65rem 0.85rem',
                     borderRadius: '10px',
-                    background: '#1e293b',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    color: '#f8fafc',
+                    background: '#1b2440',
+                    border: '1px solid rgba(255,255,255, 0.1)',
+                    color: '#f8fbff',
                     fontSize: '0.95rem',
                   }}
                   required
@@ -427,7 +427,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
               {editingHolding.availableBalance !== undefined && (
                 <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5ee', marginBottom: '0.35rem' }}>
                     Available / Unlocked Balance ({editingHolding.symbol})
                   </label>
                   <input
@@ -439,9 +439,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.65rem 0.85rem',
                       borderRadius: '10px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.95rem',
                     }}
                   />
@@ -449,7 +449,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
               )}
 
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5ee', marginBottom: '0.35rem' }}>
                   Current Price in INR (₹ per 1 {editingHolding.symbol})
                 </label>
                 <input
@@ -461,9 +461,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     width: '100%',
                     padding: '0.65rem 0.85rem',
                     borderRadius: '10px',
-                    background: '#1e293b',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    color: '#f8fafc',
+                    background: '#1b2440',
+                    border: '1px solid rgba(255,255,255, 0.1)',
+                    color: '#f8fbff',
                     fontSize: '0.95rem',
                   }}
                   required
@@ -471,7 +471,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
               </div>
 
               <div style={{ marginBottom: '1.25rem' }}>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5e1', marginBottom: '0.35rem' }}>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: '#cbd5ee', marginBottom: '0.35rem' }}>
                   Notes / Source
                 </label>
                 <input
@@ -482,20 +482,20 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     width: '100%',
                     padding: '0.65rem 0.85rem',
                     borderRadius: '10px',
-                    background: '#1e293b',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    color: '#f8fafc',
+                    background: '#1b2440',
+                    border: '1px solid rgba(255,255,255, 0.1)',
+                    color: '#f8fbff',
                     fontSize: '0.85rem',
                   }}
                 />
               </div>
 
               <div style={{
-                background: 'rgba(56, 189, 248, 0.1)',
+                background: 'rgba(34,211,238, 0.1)',
                 padding: '0.65rem 0.85rem',
                 borderRadius: '8px',
                 fontSize: '0.78rem',
-                color: '#38bdf8',
+                color: '#22d3ee',
                 marginBottom: '1.25rem',
               }}>
                 Calculated INR Value: <strong>{formatINR(editBalance * editPriceInr, true)}</strong>
@@ -511,9 +511,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     }
                   }}
                   style={{
-                    background: 'rgba(239, 68, 68, 0.12)',
-                    border: '1px solid rgba(239, 68, 68, 0.3)',
-                    color: '#f87171',
+                    background: 'rgba(239,68,68, 0.12)',
+                    border: '1px solid rgba(239,68,68, 0.3)',
+                    color: '#ff6b9a',
                     padding: '0.55rem 0.85rem',
                     borderRadius: '10px',
                     cursor: 'pointer',
@@ -540,7 +540,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                   style={{
                     padding: '0.55rem 1.25rem',
                     fontSize: '0.85rem',
-                    background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                    background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
                   }}
                 >
                   Save Changes
@@ -559,7 +559,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(2, 6, 23, 0.8)',
+          background: 'rgba(5,8,20, 0.8)',
           backdropFilter: 'blur(6px)',
           display: 'flex',
           alignItems: 'center',
@@ -568,21 +568,21 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
           padding: '1rem',
         }}>
           <div style={{
-            background: '#0f172a',
-            border: '1px solid rgba(168, 85, 247, 0.3)',
+            background: '#0b1020',
+            border: '1px solid rgba(167,139,250, 0.3)',
             borderRadius: '18px',
             maxWidth: '460px',
             width: '100%',
             padding: '1.5rem',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+            boxShadow: '0 25px 50px -12px rgba(0,0,0, 0.7)',
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-              <h3 style={{ fontSize: '1.2rem', color: '#f8fafc', margin: 0 }}>
+              <h3 style={{ fontSize: '1.2rem', color: '#f8fbff', margin: 0 }}>
                 Add Crypto / DePIN Token
               </h3>
               <button
                 onClick={() => setIsAddModalOpen(false)}
-                style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+                style={{ background: 'transparent', border: 'none', color: '#a5b4d4', cursor: 'pointer' }}
               >
                 <X size={18} />
               </button>
@@ -591,7 +591,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
             <form onSubmit={handleSaveAdd}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                     Coin Name
                   </label>
                   <input
@@ -603,16 +603,16 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.6rem 0.75rem',
                       borderRadius: '8px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.85rem',
                     }}
                     required
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                     Symbol
                   </label>
                   <input
@@ -624,9 +624,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.6rem 0.75rem',
                       borderRadius: '8px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.85rem',
                     }}
                     required
@@ -636,7 +636,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                     Platform / Wallet
                   </label>
                   <select
@@ -646,9 +646,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.6rem 0.75rem',
                       borderRadius: '8px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.85rem',
                     }}
                   >
@@ -661,7 +661,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                     Category
                   </label>
                   <select
@@ -671,9 +671,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.6rem 0.75rem',
                       borderRadius: '8px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.85rem',
                     }}
                   >
@@ -688,7 +688,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1rem' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                     Token Quantity
                   </label>
                   <input
@@ -700,16 +700,16 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.6rem 0.75rem',
                       borderRadius: '8px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.85rem',
                     }}
                     required
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                     Price in INR (₹ per token)
                   </label>
                   <input
@@ -721,9 +721,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                       width: '100%',
                       padding: '0.6rem 0.75rem',
                       borderRadius: '8px',
-                      background: '#1e293b',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#f8fafc',
+                      background: '#1b2440',
+                      border: '1px solid rgba(255,255,255, 0.1)',
+                      color: '#f8fbff',
                       fontSize: '0.85rem',
                     }}
                     required
@@ -732,7 +732,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
               </div>
 
               <div style={{ marginBottom: '1.25rem' }}>
-                <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '0.3rem' }}>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: '#cbd5ee', marginBottom: '0.3rem' }}>
                   Notes
                 </label>
                 <input
@@ -744,9 +744,9 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                     width: '100%',
                     padding: '0.6rem 0.75rem',
                     borderRadius: '8px',
-                    background: '#1e293b',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    color: '#f8fafc',
+                    background: '#1b2440',
+                    border: '1px solid rgba(255,255,255, 0.1)',
+                    color: '#f8fbff',
                     fontSize: '0.85rem',
                   }}
                 />
@@ -767,7 +767,7 @@ export const CryptoWalletSection: React.FC<CryptoWalletSectionProps> = ({
                   style={{
                     padding: '0.55rem 1.25rem',
                     fontSize: '0.85rem',
-                    background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                    background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
                   }}
                 >
                   Add Holding

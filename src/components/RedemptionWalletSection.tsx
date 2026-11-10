@@ -83,8 +83,8 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
             width: '42px',
             height: '42px',
             borderRadius: '12px',
-            background: 'rgba(245, 158, 11, 0.15)',
-            border: '1px solid rgba(245, 158, 11, 0.3)',
+            background: 'rgba(245,158,11, 0.15)',
+            border: '1px solid rgba(245,158,11, 0.3)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -93,10 +93,10 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
             <Wallet size={22} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', margin: 0 }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', margin: 0 }}>
               Points Wallet & Cashout Ledger
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', margin: '0.15rem 0 0 0' }}>
               Track real-life Amazon Pay vouchers, UPI payouts, and unredeemed point balances
             </p>
           </div>
@@ -120,54 +120,54 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
       }}>
         {/* Unredeemed Balance */}
         <div style={{
-          background: 'rgba(15, 23, 42, 0.8)',
-          border: '1px solid rgba(56, 189, 248, 0.25)',
+          background: 'rgba(10,15,35, 0.8)',
+          border: '1px solid rgba(34,211,238, 0.25)',
           padding: '1.1rem',
           borderRadius: '14px',
         }}>
-          <span style={{ fontSize: '0.72rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 600 }}>
+          <span style={{ fontSize: '0.72rem', color: '#22d3ee', textTransform: 'uppercase', fontWeight: 600 }}>
             Unredeemed Balance
           </span>
-          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.2rem' }}>
-            {currentPointsBalance.toLocaleString()} <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Pts</span>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.2rem' }}>
+            {currentPointsBalance.toLocaleString()} <span style={{ fontSize: '0.85rem', color: '#a5b4d4' }}>Pts</span>
           </div>
-          <span style={{ fontSize: '0.75rem', color: '#38bdf8' }}>
+          <span style={{ fontSize: '0.75rem', color: '#22d3ee' }}>
             ≈ {formatINR(estimatedBalanceRupees, true)} cash value
           </span>
         </div>
 
         {/* Realized Cash Received */}
         <div style={{
-          background: 'rgba(15, 23, 42, 0.8)',
-          border: '1px solid rgba(16, 185, 129, 0.25)',
+          background: 'rgba(10,15,35, 0.8)',
+          border: '1px solid rgba(20,217,160, 0.25)',
           padding: '1.1rem',
           borderRadius: '14px',
         }}>
-          <span style={{ fontSize: '0.72rem', color: '#34d399', textTransform: 'uppercase', fontWeight: 600 }}>
+          <span style={{ fontSize: '0.72rem', color: '#34f5c5', textTransform: 'uppercase', fontWeight: 600 }}>
             Total Cashed Out
           </span>
-          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#34d399', marginTop: '0.2rem' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#34f5c5', marginTop: '0.2rem' }}>
             {formatINR(totalCashRealized, true)}
           </div>
-          <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: '0.75rem', color: '#a5b4d4' }}>
             {totalPointsRedeemed.toLocaleString()} points redeemed
           </span>
         </div>
 
         {/* Total Lifetime Points Claimed */}
         <div style={{
-          background: 'rgba(15, 23, 42, 0.8)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: 'rgba(10,15,35, 0.8)',
+          border: '1px solid rgba(255,255,255, 0.08)',
           padding: '1.1rem',
           borderRadius: '14px',
         }}>
-          <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase' }}>
             Lifetime Points Collected
           </span>
-          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#e2e8f0', marginTop: '0.2rem' }}>
-            {totalPointsClaimed.toLocaleString()} <span style={{ fontSize: '0.85rem', color: '#64748b' }}>Pts</span>
+          <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#e2e8f8', marginTop: '0.2rem' }}>
+            {totalPointsClaimed.toLocaleString()} <span style={{ fontSize: '0.85rem', color: '#6b7a99' }}>Pts</span>
           </div>
-          <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
+          <span style={{ fontSize: '0.75rem', color: '#6b7a99' }}>
             {state.claimLogs.length} total check-ins logged
           </span>
         </div>
@@ -175,18 +175,18 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
 
       {/* Redemption History List */}
       <div>
-        <h4 style={{ fontSize: '0.95rem', color: '#cbd5e1', marginBottom: '0.75rem', fontWeight: 600 }}>
+        <h4 style={{ fontSize: '0.95rem', color: '#cbd5ee', marginBottom: '0.75rem', fontWeight: 600 }}>
           Redemption History ({redemptions.length})
         </h4>
 
         {redemptions.length === 0 ? (
           <div style={{
-            background: 'rgba(15, 23, 42, 0.5)',
-            border: '1px dashed rgba(255, 255, 255, 0.1)',
+            background: 'rgba(10,15,35, 0.5)',
+            border: '1px dashed rgba(255,255,255, 0.1)',
             borderRadius: '12px',
             padding: '1.5rem',
             textAlign: 'center',
-            color: '#64748b',
+            color: '#6b7a99',
             fontSize: '0.85rem',
           }}>
             No vouchers or cashouts recorded yet. Click <strong>"Log Cashout / Voucher"</strong> when you redeem points from Nielsen More or Vtion Digital!
@@ -202,8 +202,8 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
                   justifyContent: 'space-between',
                   padding: '0.85rem 1rem',
                   borderRadius: '12px',
-                  background: 'rgba(15, 23, 42, 0.6)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  background: 'rgba(10,15,35, 0.6)',
+                  border: '1px solid rgba(255,255,255, 0.05)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -211,8 +211,8 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
                     width: '32px',
                     height: '32px',
                     borderRadius: '8px',
-                    background: 'rgba(16, 185, 129, 0.15)',
-                    color: '#34d399',
+                    background: 'rgba(20,217,160, 0.15)',
+                    color: '#34f5c5',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -220,19 +220,19 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
                     <Gift size={16} />
                   </div>
                   <div>
-                    <div style={{ fontWeight: 600, color: '#f1f5f9', fontSize: '0.925rem' }}>
+                    <div style={{ fontWeight: 600, color: '#f1f5ff', fontSize: '0.925rem' }}>
                       {red.appName} — {red.method}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.15rem' }}>
-                      <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>{red.date}</span>
-                      <span style={{ fontSize: '0.72rem', color: '#64748b' }}>•</span>
-                      <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>{red.date}</span>
+                      <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>•</span>
+                      <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>
                         {red.pointsRedeemed.toLocaleString()} points redeemed
                       </span>
                       {red.notes && (
                         <>
-                          <span style={{ fontSize: '0.72rem', color: '#64748b' }}>•</span>
-                          <span style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>{red.notes}</span>
+                          <span style={{ fontSize: '0.72rem', color: '#6b7a99' }}>•</span>
+                          <span style={{ fontSize: '0.72rem', color: '#cbd5ee' }}>{red.notes}</span>
                         </>
                       )}
                     </div>
@@ -241,7 +241,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#34d399' }}>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#34f5c5' }}>
                       +{formatINR(red.cashValueRupees, true)}
                     </div>
                     <span className="badge badge-green" style={{ fontSize: '0.65rem', padding: '0.1rem 0.4rem' }}>
@@ -255,12 +255,12 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: '#64748b',
+                      color: '#6b7a99',
                       cursor: 'pointer',
                       padding: '0.35rem',
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#f43f5e')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#ff3d7f')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#6b7a99')}
                   >
                     <Trash2 size={16} />
                   </button>
@@ -279,7 +279,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
+          background: 'rgba(0,0,0, 0.75)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -288,7 +288,7 @@ export const RedemptionWalletSection: React.FC<RedemptionWalletSectionProps> = (
           padding: '1rem',
         }}>
           <div className="card-elevated" style={{ width: '100%', maxWidth: '480px', padding: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', marginBottom: '1rem' }}>
               Log Points Redemption / Cashout
             </h3>
 

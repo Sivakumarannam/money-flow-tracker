@@ -59,9 +59,9 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Date Badge */}
           <div
             className="header-date-badge"
-            style={isTuesday ? { borderColor: 'rgba(34, 197, 94, 0.4)' } : undefined}
+            style={isTuesday ? { borderColor: 'rgba(34,197,94, 0.4)' } : undefined}
           >
-            <CalendarCheck size={15} color={isTuesday ? '#4ade80' : '#60a5fa'} />
+            <CalendarCheck size={15} color={isTuesday ? '#4ade80' : '#67e8f9'} />
             <div>
               <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Today
@@ -83,9 +83,9 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={onOpenGamingPc}
               className="btn-primary"
               style={{
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
-                borderColor: 'rgba(139, 92, 246, 0.5)',
-                boxShadow: '0 4px 14px rgba(139, 92, 246, 0.35)',
+                background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
+                borderColor: 'rgba(167,139,250, 0.5)',
+                boxShadow: '0 4px 14px rgba(167,139,250, 0.35)',
               }}
               title="Track Dream Gaming PC Setup Goal (₹5,08,000)"
             >

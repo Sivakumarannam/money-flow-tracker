@@ -59,7 +59,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
         rupees: newAppRatio,
       },
       ruleDescription: `${newAppPts} points ${newAppFreq} (1 Pt = ₹${newAppRatio})`,
-      accentColor: '#a855f7',
+      accentColor: '#a78bfa',
       badge: `${newAppFreq} ${newAppPts} Pts`,
       enabled: true,
       notes: newAppNotes || undefined,
@@ -88,14 +88,14 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <h2 style={{ fontSize: '1.35rem', color: '#f8fafc', margin: 0 }}>
+            <h2 style={{ fontSize: '1.35rem', color: '#f8fbff', margin: 0 }}>
               Reward Apps & Passive Streams
             </h2>
             <span className="badge badge-green">
               Active Engines
             </span>
           </div>
-          <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.2rem' }}>
+          <p style={{ color: '#a5b4d4', fontSize: '0.85rem', marginTop: '0.2rem' }}>
             Live balances from your actual app screenshots with exact UPI redemption thresholds
           </p>
         </div>
@@ -132,7 +132,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                 padding: '1.5rem',
                 border: app.enabled 
                   ? `1px solid ${app.accentColor}44`
-                  : '1px solid rgba(255, 255, 255, 0.05)',
+                  : '1px solid rgba(255,255,255, 0.05)',
                 opacity: app.enabled ? 1 : 0.6,
                 position: 'relative',
                 display: 'flex',
@@ -158,7 +158,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                       <Award size={24} />
                     </div>
                     <div>
-                      <h3 style={{ fontSize: '1.2rem', color: '#f8fafc', margin: 0 }}>
+                      <h3 style={{ fontSize: '1.2rem', color: '#f8fbff', margin: 0 }}>
                         {app.name}
                       </h3>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.15rem' }}>
@@ -187,10 +187,10 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                       onClick={() => setSelectedAppForFormula(app)}
                       title="Adjust Conversion Rate"
                       style={{
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        background: 'rgba(255,255,255, 0.05)',
+                        border: '1px solid rgba(255,255,255, 0.1)',
                         borderRadius: '8px',
-                        color: '#94a3b8',
+                        color: '#a5b4d4',
                         padding: '0.4rem',
                         cursor: 'pointer',
                       }}
@@ -203,10 +203,10 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                         onClick={() => onDeleteApp(app.id)}
                         title="Delete App"
                         style={{
-                          background: 'rgba(244, 63, 94, 0.1)',
-                          border: '1px solid rgba(244, 63, 94, 0.2)',
+                          background: 'rgba(255,61,127, 0.1)',
+                          border: '1px solid rgba(255,61,127, 0.2)',
                           borderRadius: '8px',
-                          color: '#f43f5e',
+                          color: '#ff3d7f',
                           padding: '0.4rem',
                           cursor: 'pointer',
                         }}
@@ -219,7 +219,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
 
                 {/* CURRENT LIVE POINTS & CASH HERO BANNER */}
                 <div style={{
-                  background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.7) 100%)',
+                  background: 'linear-gradient(135deg, rgba(10,15,35, 0.95) 0%, rgba(26,36,70, 0.7) 100%)',
                   borderRadius: '12px',
                   padding: '0.9rem 1rem',
                   border: `1px solid ${app.accentColor}44`,
@@ -227,13 +227,13 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div>
-                      <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#a5b4d4', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                         Current Live App Balance
                       </span>
-                      <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f8fafc', marginTop: '0.15rem' }}>
+                      <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f8fbff', marginTop: '0.15rem' }}>
                         {currentPts.toLocaleString()} <span style={{ fontSize: '0.85rem', color: app.accentColor }}>Points</span>
                       </div>
-                      <span style={{ fontSize: '0.825rem', fontWeight: 700, color: '#34d399' }}>
+                      <span style={{ fontSize: '0.825rem', fontWeight: 700, color: '#34f5c5' }}>
                         ≈ {formatINR(currentCashValue, true)} Cash Value
                       </span>
                     </div>
@@ -272,29 +272,29 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                     const progressPercent = Math.min(100, (currentPts / nextTier.points) * 100);
 
                     return (
-                      <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                      <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255, 0.08)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
-                          <span style={{ fontSize: '0.75rem', color: '#38bdf8', fontWeight: 700 }}>
+                          <span style={{ fontSize: '0.75rem', color: '#22d3ee', fontWeight: 700 }}>
                             {highestTier
                               ? `🎉 ₹${highestTier.inr} UPI Ready (${usedPts.toLocaleString()} pts used, ${leftPts.toLocaleString()} left)`
                               : `🎯 Goal: ₹${nextTier.inr} (${nextTier.points.toLocaleString()} pts)`}
                           </span>
-                          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                          <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
                             Next: ₹{nextTier.inr} ({nextTier.points.toLocaleString()} pts)
                           </span>
                         </div>
 
                         {/* Progress bar to next tier */}
-                        <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '999px', overflow: 'hidden', marginBottom: '0.65rem' }}>
+                        <div style={{ height: '6px', background: 'rgba(255,255,255, 0.1)', borderRadius: '999px', overflow: 'hidden', marginBottom: '0.65rem' }}>
                           <div style={{
                             height: '100%',
                             width: `${progressPercent}%`,
-                            background: 'linear-gradient(90deg, #0284c7, #38bdf8)',
+                            background: 'linear-gradient(90deg, #0891b2, #22d3ee)',
                           }} />
                         </div>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem' }}>
-                          <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
+                          <span style={{ fontSize: '0.72rem', color: '#a5b4d4' }}>
                             {ptsNeeded === 0
                               ? '🎉 Highest tier reached! Ready to redeem.'
                               : `Only ${ptsNeeded.toLocaleString()} pts (${daysNeeded} days) until ₹${nextTier.inr} UPI!`}
@@ -303,10 +303,10 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                           <button
                             onClick={() => setIsTiersModalOpen(true)}
                             style={{
-                              background: 'rgba(56, 189, 248, 0.15)',
-                              border: '1px solid rgba(56, 189, 248, 0.35)',
+                              background: 'rgba(34,211,238, 0.15)',
+                              border: '1px solid rgba(34,211,238, 0.35)',
                               borderRadius: '8px',
-                              color: '#38bdf8',
+                              color: '#22d3ee',
                               fontSize: '0.75rem',
                               fontWeight: 700,
                               padding: '0.35rem 0.65rem',
@@ -325,11 +325,11 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
 
                   {/* VTION Specific Milestone from Screenshot 2 */}
                   {isVtion && (
-                    <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34d399', fontSize: '0.78rem', fontWeight: 700, marginBottom: '0.35rem' }}>
+                    <div style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255, 0.08)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34f5c5', fontSize: '0.78rem', fontWeight: 700, marginBottom: '0.35rem' }}>
                         <CheckCircle2 size={14} /> Ready to Redeem via UPI! (60 / 50 Pts Min Met)
                       </div>
-                      <p style={{ color: '#94a3b8', fontSize: '0.72rem', margin: 0 }}>
+                      <p style={{ color: '#a5b4d4', fontSize: '0.72rem', margin: 0 }}>
                         Points added every Tuesday based on active days in previous week. 1 Point = ₹1.
                       </p>
 
@@ -348,22 +348,22 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
 
                 {/* Conversion Ratio Pill */}
                 <div style={{
-                  background: 'rgba(15, 23, 42, 0.7)',
+                  background: 'rgba(10,15,35, 0.7)',
                   borderRadius: '10px',
                   padding: '0.65rem 0.85rem',
                   fontSize: '0.825rem',
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
+                  border: '1px solid rgba(255,255,255, 0.06)',
                   marginBottom: '1rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
                 }}>
                   <div>
-                    <span style={{ color: '#94a3b8', fontSize: '0.72rem', display: 'block' }}>Official Ratio</span>
-                    <strong style={{ color: '#f1f5f9' }}>
+                    <span style={{ color: '#a5b4d4', fontSize: '0.72rem', display: 'block' }}>Official Ratio</span>
+                    <strong style={{ color: '#f1f5ff' }}>
                       {app.pointConversionFormula.points} pts = ₹{app.pointConversionFormula.rupees}
                     </strong>
-                    <span style={{ color: '#64748b', fontSize: '0.72rem', marginLeft: '0.35rem' }}>
+                    <span style={{ color: '#6b7a99', fontSize: '0.72rem', marginLeft: '0.35rem' }}>
                       (1 pt = ₹{app.pointToRupeeRatio.toFixed(3)})
                     </span>
                   </div>
@@ -372,10 +372,10 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                     <button
                       onClick={() => setSelectedAppForFormula(app)}
                       style={{
-                        background: 'rgba(56, 189, 248, 0.15)',
-                        border: '1px solid rgba(56, 189, 248, 0.3)',
+                        background: 'rgba(34,211,238, 0.15)',
+                        border: '1px solid rgba(34,211,238, 0.3)',
                         borderRadius: '6px',
-                        color: '#38bdf8',
+                        color: '#22d3ee',
                         fontSize: '0.72rem',
                         fontWeight: 600,
                         padding: '0.3rem 0.6rem',
@@ -398,42 +398,42 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                   marginBottom: '1.25rem',
                   textAlign: 'center',
                 }}>
-                  <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase' }}>Daily</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5f9', marginTop: '0.1rem' }}>
+                  <div style={{ background: 'rgba(255,255,255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#6b7a99', textTransform: 'uppercase' }}>Daily</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5ff', marginTop: '0.1rem' }}>
                       {formatINR(yields.daily.rupees, true)}
                     </div>
-                    <div style={{ fontSize: '0.65rem', color: '#94a3b8' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#a5b4d4' }}>
                       {Math.round(yields.daily.points * 10) / 10} pts
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase' }}>Weekly</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5f9', marginTop: '0.1rem' }}>
+                  <div style={{ background: 'rgba(255,255,255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#6b7a99', textTransform: 'uppercase' }}>Weekly</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5ff', marginTop: '0.1rem' }}>
                       {formatINR(yields.weekly.rupees, true)}
                     </div>
-                    <div style={{ fontSize: '0.65rem', color: '#94a3b8' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#a5b4d4' }}>
                       {Math.round(yields.weekly.points)} pts
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase' }}>Monthly</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5f9', marginTop: '0.1rem' }}>
+                  <div style={{ background: 'rgba(255,255,255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#6b7a99', textTransform: 'uppercase' }}>Monthly</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f1f5ff', marginTop: '0.1rem' }}>
                       {formatINR(yields.monthly.rupees, true)}
                     </div>
-                    <div style={{ fontSize: '0.65rem', color: '#94a3b8' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#a5b4d4' }}>
                       {Math.round(yields.monthly.points)} pts
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase' }}>Yearly</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#34d399', marginTop: '0.1rem' }}>
+                  <div style={{ background: 'rgba(255,255,255, 0.02)', padding: '0.5rem 0.25rem', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '0.68rem', color: '#6b7a99', textTransform: 'uppercase' }}>Yearly</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#34f5c5', marginTop: '0.1rem' }}>
                       {formatINR(yields.yearly.rupees)}
                     </div>
-                    <div style={{ fontSize: '0.65rem', color: '#6ee7b7' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#8bffe0' }}>
                       {Math.round(yields.yearly.points).toLocaleString()} pts
                     </div>
                   </div>
@@ -441,28 +441,28 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
               </div>
 
               {/* Bottom Claim / Status Action */}
-              <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
+              <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255, 0.06)' }}>
                 {isClaimedToday ? (
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: '0.45rem 0.75rem',
-                    background: 'rgba(16, 185, 129, 0.1)',
+                    background: 'rgba(20,217,160, 0.1)',
                     borderRadius: '10px',
-                    border: '1px solid rgba(16, 185, 129, 0.25)',
+                    border: '1px solid rgba(20,217,160, 0.25)',
                   }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34d399', fontSize: '0.825rem', fontWeight: 600 }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#34f5c5', fontSize: '0.825rem', fontWeight: 600 }}>
                       <CheckCircle2 size={16} /> Claimed Today! (+{app.pointsPerCycle} Pts)
                     </span>
                     {onUnclaimApp && (
                       <button
                         onClick={() => onUnclaimApp(app)}
                         style={{
-                          background: 'rgba(255, 255, 255, 0.08)',
-                          border: '1px solid rgba(255, 255, 255, 0.15)',
+                          background: 'rgba(255,255,255, 0.08)',
+                          border: '1px solid rgba(255,255,255, 0.15)',
                           borderRadius: '6px',
-                          color: '#94a3b8',
+                          color: '#a5b4d4',
                           fontSize: '0.72rem',
                           padding: '0.2rem 0.5rem',
                           cursor: 'pointer',
@@ -541,7 +541,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
+          background: 'rgba(0,0,0, 0.75)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -550,10 +550,10 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           padding: '1rem',
         }}>
           <div className="card-elevated" style={{ width: '100%', maxWidth: '420px', padding: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '0.4rem' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', marginBottom: '0.4rem' }}>
               Update {editingPointsApp.name} Balance
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.825rem', marginBottom: '1.25rem' }}>
+            <p style={{ color: '#a5b4d4', fontSize: '0.825rem', marginBottom: '1.25rem' }}>
               Enter your current live points from the mobile app
             </p>
 
@@ -569,7 +569,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
                   required
                   style={{ fontSize: '1.25rem', fontWeight: 800 }}
                 />
-                <span style={{ fontSize: '0.75rem', color: '#38bdf8', marginTop: '0.35rem', display: 'block' }}>
+                <span style={{ fontSize: '0.75rem', color: '#22d3ee', marginTop: '0.35rem', display: 'block' }}>
                   ≈ {formatINR(tempPoints * editingPointsApp.pointToRupeeRatio, true)} Cash Value
                 </span>
               </div>
@@ -595,7 +595,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
+          background: 'rgba(0,0,0, 0.75)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
           alignItems: 'center',
@@ -604,7 +604,7 @@ export const RewardAppsSection: React.FC<RewardAppsSectionProps> = ({
           padding: '1rem',
         }}>
           <div className="card-elevated" style={{ width: '100%', maxWidth: '480px', padding: '1.75rem' }}>
-            <h3 style={{ fontSize: '1.25rem', color: '#f8fafc', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#f8fbff', marginBottom: '1rem' }}>
               Add New Earning / Reward App
             </h3>
             <form onSubmit={handleCreateApp}>

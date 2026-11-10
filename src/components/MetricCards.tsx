@@ -33,7 +33,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({ summary }) => {
             className="metric-card-icon-box"
             style={{
               background: 'var(--blue-glow)',
-              border: '1px solid rgba(59,130,246,0.3)',
+              border: '1px solid rgba(34,211,238,0.3)',
               color: 'var(--blue-light)',
             }}
           >
@@ -110,7 +110,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({ summary }) => {
         <div className="metric-card-stat-row">
           <span>
             Spend:{' '}
-            <strong style={{ color: '#fca5a5' }}>
+            <strong style={{ color: '#ffb3cc' }}>
               {formatINR(summary.totalExpenseRupees)}
             </strong>
           </span>
@@ -147,7 +147,7 @@ export const MetricCards: React.FC<MetricCardsProps> = ({ summary }) => {
             className="metric-card-icon-box"
             style={{
               background: 'var(--purple-glow)',
-              border: '1px solid rgba(139,92,246,0.3)',
+              border: '1px solid rgba(167,139,250,0.3)',
               color: 'var(--purple-light)',
             }}
           >
