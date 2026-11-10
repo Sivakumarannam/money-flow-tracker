@@ -942,3 +942,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#22d3ee;box-sh
   .gp-cats{flex-direction:row;overflow-x:auto}.gp-cats button{flex:none}
   .gp-grid{overflow:visible}
 }
+
+/* Fix: cards were compressed to fit the scroll area; size rows by content */
+.gp-grid{grid-auto-rows:max-content}
+.gp-card{min-height:max-content}
+.gp-side>*{flex-shrink:0}
