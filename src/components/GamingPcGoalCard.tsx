@@ -68,9 +68,11 @@ export const GamingPcGoalCard: React.FC<GamingPcGoalCardProps> = ({ currentWealt
           onClick={onOpenModal}
           className="btn-primary"
           style={{
-            background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
-            borderColor: 'rgba(167,139,250, 0.5)',
-            boxShadow: '0 4px 16px rgba(167,139,250, 0.35)',
+            position: 'relative',
+            zIndex: 2,
+            background: 'linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%)',
+            borderColor: 'rgba(34,211,238, 0.5)',
+            boxShadow: '0 0 22px rgba(34,211,238, 0.4)',
             padding: '0.6rem 1.15rem',
             fontSize: '0.86rem',
             fontWeight: 700,

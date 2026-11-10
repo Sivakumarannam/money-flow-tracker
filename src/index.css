@@ -947,3 +947,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#22d3ee;box-sh
 .gp-grid{grid-auto-rows:max-content}
 .gp-card{min-height:max-content}
 .gp-side>*{flex-shrink:0}
+
+/* Decorative glows must never get the glass blur or sit above content */
+[style*="pointer-events: none"],[style*="pointer-events:none"]{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
