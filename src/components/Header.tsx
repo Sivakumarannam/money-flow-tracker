@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coins, Sparkles, Download, Upload, RotateCcw, CalendarCheck } from 'lucide-react';
+import { Coins, Sparkles, Download, Upload, RotateCcw, CalendarCheck, Gamepad2 } from 'lucide-react';
 
 interface HeaderProps {
   onExport: () => void;
@@ -7,6 +7,7 @@ interface HeaderProps {
   onImport: () => void;
   onReset: () => void;
   onOpenZeroGuide?: () => void;
+  onOpenGamingPc?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -15,6 +16,7 @@ export const Header: React.FC<HeaderProps> = ({
   onImport,
   onReset,
   onOpenZeroGuide,
+  onOpenGamingPc,
 }) => {
   const today = new Date();
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -74,6 +76,22 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Gaming PC Setup Goal Button */}
+          {onOpenGamingPc && (
+            <button
+              onClick={onOpenGamingPc}
+              className="btn-primary"
+              style={{
+                background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+                borderColor: 'rgba(139, 92, 246, 0.5)',
+                boxShadow: '0 4px 14px rgba(139, 92, 246, 0.35)',
+              }}
+              title="Track Dream Gaming PC Setup Goal (₹5,08,000)"
+            >
+              <Gamepad2 size={13} /> 🎮 Gaming PC Goal
+            </button>
+          )}
 
           {/* Zero Guide Button */}
           {onOpenZeroGuide && (

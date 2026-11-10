@@ -22,6 +22,8 @@ import { JobEarningsCard } from './components/JobEarningsCard';
 import { ExpenseTrackerSection } from './components/ExpenseTrackerSection';
 import { InvestmentGrowthSection } from './components/InvestmentGrowthSection';
 import { ZeroInvestmentGuideModal } from './components/ZeroInvestmentGuideModal';
+import { GamingPcGoalCard } from './components/GamingPcGoalCard';
+import { GamingPcSetupModal } from './components/GamingPcSetupModal';
 
 const STORAGE_KEY = 'moneyflow_app_state_real_v9';
 
@@ -71,20 +73,48 @@ export function App() {
           ),
         ];
 
-        // Filter out Pawns.app from cached reward apps
+        // Ensure Pi Network Coin reflects CoinGecko market rate (₹6/PI)
+        const syncedHoldings = mergedHoldings.map((h: any) => {
+          if (h.id === 'crypto-pi-network' && (h.currentPriceInr === 3100 || !h.currentPriceInr || h.currentPriceInr > 50)) {
+            const piBal = h.balance || 125.5;
+            return {
+              ...h,
+              balance: piBal,
+              currentPriceInr: 6,
+              valueInr: Number((piBal * 6).toFixed(2)),
+              notes: 'Pi Network non-custodial wallet (Pi Browser). CoinGecko market rate: ₹6.00/PI.',
+            };
+          }
+          return h;
+        });
+
+        // Filter out Pawns.app from cached reward apps and sync Pi Network rate to ₹6
         const savedRewardApps = (parsed.rewardApps || [])
           .filter((a: any) => a.id !== 'pawns-app' && a.id !== 'pawns-bandwidth');
+
+        const syncedRewardApps = INITIAL_STATE.rewardApps.map((initApp) => {
+          const existing = savedRewardApps.find((a: any) => a.id === initApp.id);
+          if (initApp.id === 'pi-network') {
+            const piBal = existing?.currentBalancePoints ?? initApp.currentBalancePoints;
+            return {
+              ...initApp,
+              ...(existing || {}),
+              pointToRupeeRatio: 6.0,
+              pointConversionFormula: { points: 1, rupees: 6 },
+              currentBalancePoints: piBal,
+              badge: `${piBal} PI (₹${(piBal * 6).toFixed(2)})`,
+            };
+          }
+          return existing ? { ...initApp, ...existing } : initApp;
+        });
 
         return {
           ...INITIAL_STATE,
           ...parsed,
           claimLogs: cleanClaimLogs,
           bankAccount: loadedBankAccount,
-          cryptoHoldings: mergedHoldings,
-          rewardApps: INITIAL_STATE.rewardApps.map((initApp) => {
-            const existing = savedRewardApps.find((a: any) => a.id === initApp.id);
-            return existing ? { ...initApp, ...existing } : initApp;
-          }),
+          cryptoHoldings: syncedHoldings,
+          rewardApps: syncedRewardApps,
           manualTransactions: loadedTxs,
         };
       }
@@ -97,6 +127,7 @@ export function App() {
   const [activePeriod, setActivePeriod] = useState<'daily' | 'weekly' | 'monthly' | 'yearly'>('monthly');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isZeroGuideOpen, setIsZeroGuideOpen] = useState(false);
+  const [isGamingPcOpen, setIsGamingPcOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Sync to localStorage
@@ -547,6 +578,10 @@ export function App() {
     0
   );
 
+  const totalNetWealth = Math.round(
+    (netInHandBalance + (state.goldHolding?.currentValue || 24.8) + totalCryptoVal + nielsenCashVal + vtionCashVal) * 100
+  ) / 100;
+
   return (
     <div className="app-container">
       
@@ -566,6 +601,7 @@ export function App() {
         onImport={handleImportClick}
         onReset={handleReset}
         onOpenZeroGuide={() => setIsZeroGuideOpen(true)}
+        onOpenGamingPc={() => setIsGamingPcOpen(true)}
       />
 
       {/* Today's Claim Center Widget */}
@@ -608,6 +644,12 @@ export function App() {
 
       {/* Top Metric Cards for Active Period */}
       <MetricCards summary={currentSummary} />
+
+      {/* Dream Target Goal: Complete Pro Gaming PC Setup Card */}
+      <GamingPcGoalCard
+        currentWealth={totalNetWealth}
+        onOpenModal={() => setIsGamingPcOpen(true)}
+      />
 
       {/* Manual Money Tracker: Added & Debited Inputs with Submit Button */}
       <ManualCashflowSection
@@ -693,6 +735,13 @@ export function App() {
         onClose={() => setIsZeroGuideOpen(false)}
         onAddAppToTracker={handleAddAppFromGuide}
         existingAppIds={state.rewardApps.map((a) => a.id)}
+      />
+
+      {/* Complete Pro Gaming PC Setup Blueprint Modal */}
+      <GamingPcSetupModal
+        isOpen={isGamingPcOpen}
+        onClose={() => setIsGamingPcOpen(false)}
+        currentNetWealth={totalNetWealth}
       />
 
     </div>

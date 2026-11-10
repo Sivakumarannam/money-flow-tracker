@@ -61,16 +61,16 @@ export const INITIAL_STATE: AppState = {
       frequency: 'daily',
       pointsPerCycle: 0.48, // Daily mining session (~0.02 Pi/hr)
       currentBalancePoints: 125.50, // Active mined Pi coins balance
-      pointToRupeeRatio: 3100.0, // Pi consensus / IOU price (~$37 USD ≈ ₹3,100 INR)
+      pointToRupeeRatio: 6.0, // CoinGecko market price (₹6.00 INR per PI)
       pointConversionFormula: {
         points: 1,
-        rupees: 3100,
+        rupees: 6,
       },
       ruleDescription: '24-hour daily mobile mining session. Tap the lightning bolt every 24 hours to mine Pi.',
       accentColor: '#f59e0b',
-      badge: '125.5 PI (₹3,89,050 IOU)',
+      badge: '125.5 PI (₹753.00)',
       enabled: true,
-      notes: 'Active daily mobile mining. 125.5 PI balance. Mainnet checklist KYC verified.',
+      notes: 'Active daily mobile mining. 125.5 PI balance. Valued at ₹6.00 per PI on CoinGecko.',
     },
   ],
   jobIncome: {
@@ -190,9 +190,9 @@ export const INITIAL_STATE: AppState = {
       category: 'Layer 1',
       balance: 125.50,
       availableBalance: 125.50,
-      currentPriceInr: 3100, // ~₹3,100 per PI (IOU / Consensus)
-      valueInr: 389050, // 125.5 * 3100
-      notes: 'Pi Network non-custodial wallet (Pi Browser). Mainnet migrated.',
+      currentPriceInr: 6, // CoinGecko live rate: ₹6.00 per PI
+      valueInr: 753.00, // 125.5 * 6
+      notes: 'Pi Network non-custodial wallet (Pi Browser). CoinGecko rate: ₹6.00/PI.',
       lastUpdated: new Date().toISOString(),
     },
   ],
