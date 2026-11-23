@@ -55,6 +55,14 @@ export function App() {
           }
         }
 
+        // Clean out uncredited 2026-11-20 claim if balance was left at 3550 so user can click and receive +50 pts cleanly
+        const nielsenSavedApp = (parsed.rewardApps || []).find((a: any) => a.id === 'nielsen-more');
+        if (nielsenSavedApp && nielsenSavedApp.currentBalancePoints === 3550) {
+          cleanClaimLogs = cleanClaimLogs.filter(
+            (log: any) => !(log.appId === 'nielsen-more' && log.date === '2026-11-20')
+          );
+        }
+
         const loadedTxs = parsed.manualTransactions || INITIAL_STATE.manualTransactions || [];
         const syncedBankBalance = loadedTxs.length > 0
           ? loadedTxs.reduce((sum: number, t: any) => sum + (t.type === 'credit' ? Number(t.amount) : -Number(t.amount)), 0)
@@ -304,23 +312,54 @@ export function App() {
 
   // Toggle / backfill claim date
   const handleToggleClaimDate = (dateStr: string, app: RewardApp) => {
-    const earnedRupees = app.pointsPerCycle * app.pointToRupeeRatio;
-    const newLog: DailyClaimLog = {
-      id: `claim-${Date.now()}`,
-      date: dateStr,
-      appId: app.id,
-      appName: app.name,
-      points: app.pointsPerCycle,
-      rupees: earnedRupees,
-      timestamp: Date.now(),
-    };
+    setState((prev) => {
+      const existingLog = prev.claimLogs.find((log) => log.appId === app.id && log.date === dateStr);
 
-    setState((prev) => ({
-      ...prev,
-      claimLogs: [newLog, ...prev.claimLogs],
-    }));
-
-    showToast(`Logged +${app.pointsPerCycle} pts on ${dateStr} (${app.name})!`);
+      if (existingLog) {
+        // Toggle OFF (unclaim date)
+        const updatedLogs = prev.claimLogs.filter((log) => !(log.appId === app.id && log.date === dateStr));
+        const updatedRewardApps = prev.rewardApps.map((a) =>
+          a.id === app.id
+            ? {
+                ...a,
+                currentBalancePoints: Math.max(0, Number(((a.currentBalancePoints || 0) - existingLog.points).toFixed(4))),
+              }
+            : a
+        );
+        showToast(`↩️ Reverted ${app.name} claim on ${dateStr} (-${existingLog.points} pts)`);
+        return {
+          ...prev,
+          rewardApps: updatedRewardApps,
+          claimLogs: updatedLogs,
+        };
+      } else {
+        // Toggle ON (claim date)
+        const earnedRupees = app.pointsPerCycle * app.pointToRupeeRatio;
+        const newLog: DailyClaimLog = {
+          id: `claim-${Date.now()}`,
+          date: dateStr,
+          appId: app.id,
+          appName: app.name,
+          points: app.pointsPerCycle,
+          rupees: earnedRupees,
+          timestamp: Date.now(),
+        };
+        const updatedRewardApps = prev.rewardApps.map((a) =>
+          a.id === app.id
+            ? {
+                ...a,
+                currentBalancePoints: Number(((a.currentBalancePoints || 0) + app.pointsPerCycle).toFixed(4)),
+              }
+            : a
+        );
+        showToast(`🎉 Logged +${app.pointsPerCycle} pts on ${dateStr} (${app.name})!`);
+        return {
+          ...prev,
+          rewardApps: updatedRewardApps,
+          claimLogs: [newLog, ...prev.claimLogs],
+        };
+      }
+    });
   };
 
   // Manual Money (Credit / Debit) Handlers
