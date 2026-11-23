@@ -224,72 +224,109 @@ export const AttendanceCalendar: React.FC<AttendanceCalendarProps> = ({
                 </div>
 
                 {/* Claim Badges or Quick Click */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                  {hasNielsen && (
-                    <span style={{
-                      fontSize: '0.62rem',
-                      background: 'rgba(34,211,238, 0.2)',
-                      color: '#22d3ee',
-                      borderRadius: '4px',
-                      padding: '1px 3px',
-                      fontWeight: 600,
-                      textAlign: 'center',
-                    }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                  {hasNielsen ? (
+                    <button
+                      onClick={() => nielsen && onToggleClaimDate(dateKey, nielsen)}
+                      title="Nielsen +50 Pts logged. Click to undo."
+                      style={{
+                        fontSize: '0.62rem',
+                        background: 'rgba(34,211,238, 0.2)',
+                        color: '#22d3ee',
+                        border: '1px solid rgba(34,211,238, 0.35)',
+                        borderRadius: '4px',
+                        padding: '1px 3px',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        display: 'block',
+                        width: '100%',
+                        transition: 'all 0.15s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(255,61,127, 0.2)';
+                        e.currentTarget.style.color = '#ff3d7f';
+                        e.currentTarget.style.borderColor = 'rgba(255,61,127, 0.4)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(34,211,238, 0.2)';
+                        e.currentTarget.style.color = '#22d3ee';
+                        e.currentTarget.style.borderColor = 'rgba(34,211,238, 0.35)';
+                      }}
+                    >
                       +50 Pts
-                    </span>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => nielsen && onToggleClaimDate(dateKey, nielsen)}
+                      title="Log Nielsen 50 pts"
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: '#4a5675',
+                        fontSize: '0.62rem',
+                        cursor: 'pointer',
+                        padding: '1px 2px',
+                        textAlign: 'center',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#22d3ee')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#4a5675')}
+                    >
+                      +Nielsen
+                    </button>
                   )}
 
-                  {hasVtion && (
-                    <span style={{
-                      fontSize: '0.62rem',
-                      background: 'rgba(20,217,160, 0.25)',
-                      color: '#34f5c5',
-                      borderRadius: '4px',
-                      padding: '1px 3px',
-                      fontWeight: 600,
-                      textAlign: 'center',
-                    }}>
+                  {hasVtion ? (
+                    <button
+                      onClick={() => vtion && onToggleClaimDate(dateKey, vtion)}
+                      title="Vtion ₹10 logged. Click to undo."
+                      style={{
+                        fontSize: '0.62rem',
+                        background: 'rgba(20,217,160, 0.25)',
+                        color: '#34f5c5',
+                        border: '1px solid rgba(20,217,160, 0.35)',
+                        borderRadius: '4px',
+                        padding: '1px 3px',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        display: 'block',
+                        width: '100%',
+                        transition: 'all 0.15s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(255,61,127, 0.2)';
+                        e.currentTarget.style.color = '#ff3d7f';
+                        e.currentTarget.style.borderColor = 'rgba(255,61,127, 0.4)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(20,217,160, 0.25)';
+                        e.currentTarget.style.color = '#34f5c5';
+                        e.currentTarget.style.borderColor = 'rgba(20,217,160, 0.35)';
+                      }}
+                    >
                       Vtion ₹10
-                    </span>
-                  )}
-
-                  {dayClaims.length === 0 && (
-                    <div style={{ display: 'flex', gap: '2px', justifyContent: 'center' }}>
+                    </button>
+                  ) : (
+                    isTue && vtion && (
                       <button
-                        onClick={() => nielsen && onToggleClaimDate(dateKey, nielsen)}
-                        title="Log Nielsen 50 pts"
+                        onClick={() => onToggleClaimDate(dateKey, vtion)}
+                        title="Log Vtion 10 pts (₹10)"
                         style={{
                           background: 'transparent',
                           border: 'none',
-                          color: '#4a5675',
+                          color: '#0fb98a',
                           fontSize: '0.62rem',
                           cursor: 'pointer',
                           padding: '1px 2px',
+                          textAlign: 'center',
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = '#22d3ee')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = '#4a5675')}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = '#34f5c5')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = '#0fb98a')}
                       >
-                        +Nielsen
+                        +Vtion
                       </button>
-                      {isTue && vtion && (
-                        <button
-                          onClick={() => onToggleClaimDate(dateKey, vtion)}
-                          title="Log Vtion 10 pts (₹10)"
-                          style={{
-                            background: 'transparent',
-                            border: 'none',
-                            color: '#0fb98a',
-                            fontSize: '0.62rem',
-                            cursor: 'pointer',
-                            padding: '1px 2px',
-                          }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = '#34f5c5')}
-                          onMouseLeave={(e) => (e.currentTarget.style.color = '#0fb98a')}
-                        >
-                          +Vtion
-                        </button>
-                      )}
-                    </div>
+                    )
                   )}
                 </div>
               </div>
